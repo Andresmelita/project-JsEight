@@ -39,9 +39,6 @@ const Header = () => {
               />
             </Link>
           </div>
-          <div>
-            <p>Palabra</p>
-          </div>
 
           <nav
             className={
