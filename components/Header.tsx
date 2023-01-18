@@ -32,7 +32,7 @@ const Header = () => {
           <div className="sm:w-[62px] sm:h-[30px] w-[50px] h-[30px]">
             <Link href="/">
               <Image
-                src="/images/minilogo.png"
+                src="/images/minilogo.svg"
                 width={kMaxLength}
                 height={kMaxLength}
                 alt="imageLogo"
