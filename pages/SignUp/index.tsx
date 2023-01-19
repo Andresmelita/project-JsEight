@@ -12,7 +12,7 @@ const SignUp = () => {
               <img className=' w-[129px] h-[28px]' src="/images/letrasLogin2.png" alt="" />
             </div>
           </div>          
-        </div>
+        </div> 
         <div className="login__body flex flex-col xs:m-auto xs:w-80 md:w-1/2 md:p-10 md:h-screen overflow-hidden justify-center">
           <div className="login__logo bg-[url('/images/logo.svg')] bg-cover bg-center w-[187px] h-[168px] m-auto mt-0 mb-0">
           </div>
