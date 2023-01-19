@@ -1,6 +1,8 @@
+import { Formik } from 'formik'
 import React from 'react'
 
 const Login = () => {
+
   return (
     <div className="login__page h-screen flex items-center">
       <div className='login__card flex flex-col md:flex-row xs:m-auto md:m-0 w-screen'>
@@ -25,17 +27,70 @@ const Login = () => {
               </div>
             </div>
             <div className="login__form flex flex-col gap-3">
-              <div className="form__email flex flex-col gap-2">
-                <label className='text-[#1D1C3F] l600-normal-16px' htmlFor="">Email</label>
-                <input className='bg-transparent l400-normal-16px p-3.5 border-2 rounded text-[#1D1C3F] border-[#1D1C3F]' type="text" placeholder='john.doe@gmail.com'/>
-              </div>
-              <div className="form__password flex flex-col gap-2">
-                <label className='text-[#1D1C3F] l600-normal-16px' htmlFor="">Password</label>
-                <input className='bg-transparent l400-normal-16px p-3.5 border-2 rounded text-[#1D1C3F] border-[#1D1C3F]' type="text" placeholder='***********'/>
-              </div>
-              <div className="form__button">
-                <button className='w-full p-4 mt-5 bg-[#1B4DB1] rounded text-[#fff] l600-normal-16px'>Log in</button>
-              </div>
+              <Formik
+                initialValues={{
+                  email: '',
+                  password: ''
+                }}
+                validate={(values) => {
+                  let err = {
+                    email: '',
+                    password: ''
+                  }
+                  if(!values.email){
+                    err.email = 'Enter Email'
+                  }else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.email)){
+                    err.email = 'Email can only contain letters, numbers, periods, hyphens and underscores.'
+                  }// Use this else if in SignUp only
+
+                  if(!values.password){
+                    err.password ='Enter Password'
+                  }else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/.test(values.password)){
+                    err.password = 'The password must have between 8 and 15 characters, at least one digit, at least one lowercase letter, at least one uppercase letter, without special symbols and without spaces'
+                  } // Use this else if in SignUp only
+
+                  return err
+                }}
+                onSubmit={(values, {resetForm})=> {
+                  resetForm()
+                  console.log(values)
+                  console.log('Enviado')
+                }}
+              >
+                {({values, errors, touched, handleSubmit, handleChange, handleBlur}) => ( 
+                  <form className='Form' onSubmit={handleSubmit}>
+                    <div className="form__email flex flex-col gap-2">
+                      <label className='text-[#1D1C3F] l600-normal-16px' htmlFor="email">Email</label>
+                      <input className='bg-transparent l400-normal-16px p-3.5 border-2 rounded text-[#1D1C3F] border-[#1D1C3F]' 
+                        id='email' 
+                        name='email' 
+                        type="email" 
+                        placeholder='john.doe@gmail.com' 
+                        value={values.email} 
+                        onChange={handleChange} 
+                        onBlur={handleBlur}
+                      />
+                      {touched.email && errors.email && <div>{errors.email}</div>}
+                    </div>
+                    <div className="form__password flex flex-col gap-2">
+                      <label className='text-[#1D1C3F] l600-normal-16px' htmlFor="password">Password</label>
+                      <input className='bg-transparent l400-normal-16px p-3.5 border-2 rounded text-[#1D1C3F] border-[#1D1C3F]' 
+                        id='password' 
+                        name='password' 
+                        type="password" 
+                        placeholder='***********'
+                        value={values.password}   
+                        onChange={handleChange} 
+                        onBlur={handleBlur} 
+                      />
+                      {touched.password && errors.password && <div>{errors.password}</div>}
+                    </div>
+                    <div className="form__button">
+                      <button type='submit' className='w-full p-4 mt-5 bg-[#1B4DB1] rounded text-[#fff] l600-normal-16px'>Log in</button>
+                    </div>
+                  </form>
+                )}
+              </Formik>
               <div className="form__recovery flex justify-center">
                 <p className='l400-normal-16px w-40 text-center text-[#4D4D4D]'>Did you forget your password?</p>
               </div>
