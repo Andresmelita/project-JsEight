@@ -14,7 +14,7 @@ const SignUp = () => {
           </div>          
         </div> 
         <div className="login__body flex flex-col xs:m-auto xs:w-80 md:w-1/2 md:p-10 md:h-screen overflow-hidden justify-center">
-          <div className="login__logo bg-[url('/images/logo.svg')] bg-cover bg-center w-[187px] h-[168px] m-auto mt-0 mb-0">
+          <div className="login__logo bg-[url('/images/logo.png')] bg-cover bg-center w-[187px] h-[168px] m-auto mt-0 mb-0">
           </div>
           <div className="login__body-info md:w-3/4 lg:w-4/5 md:m-auto md:mt-0 md:mb-0">
             <div className="login__info flex flex-col gap-5 pb-6">
