@@ -111,6 +111,13 @@
     font-size: 16px;
     line-height: 20px;
   }
+  .h900-normal--36px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 42px;
+  }
 }
 
 @layer utilities {
