@@ -6,112 +6,112 @@
 @tailwind utilities;
 
 @layer components {
-    .h900-normal--48px {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 900;
-      font-size: 48px;
-      line-height: 56px;
-    }
-    .h500-normal-13px {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 500;
-      font-size: 13px;
-      line-height: 15.23px;
-    }
-    .h500-normal-12px {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 14.06px;
-    }
-    .h500-normal-16px {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 19px;
-    }
-    .h500-normal-24px {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 500;
-      font-size: 24px;
-      line-height: 28px;
-    }
-    .h400-normal-13px {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 13px;
-      line-height: 15.23px;
-    }
-    .h400-normal-16px {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 19px
-    }
-    .h400-normal-18px {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 18px
-    }
-    .h600-medium--20px {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 23px
-    }
-    .h400-medium-15px {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 15px;
-      line-height: 18px
-    }
-    .h500-medium-14px {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 16px;
-    }
-    .h600-medium-32px{
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 32px;
-      line-height: 20px;
-    }
-    .h400-normal-16px{
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 20px;
-    }
-    .l400-normal-16px {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 20px;
-    }
-    .l600-normal-16px{
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 20px;
-    }
-};
+  .h900-normal--48px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 56px;
+  }
+  .h500-normal-13px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15.23px;
+  }
+  .h500-normal-12px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.06px;
+  }
+  .h500-normal-16px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .h500-normal-24px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .h400-normal-13px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15.23px;
+  }
+  .h400-normal-16px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .h400-normal-18px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+  }
+  .h600-medium--20px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 23px;
+  }
+  .h400-medium-15px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+  }
+  .h500-medium-14px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .h600-medium-32px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 20px;
+  }
+  .h400-normal-16px {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .l400-normal-16px {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .l600-normal-16px {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
 
 @layer utilities {
   .shadow-card {
@@ -121,7 +121,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
   }
   .shadow-hamburguer {
-    filter: drop-shadow(-5px 8px 20px rgba(0, 0, 0, 0.30));
+    filter: drop-shadow(-5px 8px 20px rgba(0, 0, 0, 0.3));
   }
   .header-container {
     width: 100vw;
@@ -129,8 +129,41 @@
     display: flex;
     align-items: center;
   }
-};
-
+  .container-slider-sm {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-slider {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+  }
+  .slide {
+    height: auto;
+    opacity: 0.6;
+    transition: opacity 0.5s ease-in;
+  }
+  .active {
+    opacity: 1;
+    transition-delay: 100ms;
+  }
+  .appear-efect {
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+  }
+  .appear {
+    opacity: 1;
+    transition-delay: 200ms;
+  }
+}
 
 :root {
   --max-width: 1100px;
@@ -225,7 +258,6 @@ body {
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
-      
     )
     rgb(var(--background-start-rgb));
 }
