@@ -39,11 +39,13 @@ const Slider = () => {
   const [clickMenu, setClickMenu] = useState(false);
 
   return (
-    <div className="sm:container-slider-sm justify-start container-slider">
+    <div className="lg:container-slider-lg justify-start container-slider w-[100vw]">
       <div
         onClick={previousImage}
         className={
-          clickMenu ? 'pt-[38px] appear-efect appear' : 'pt-[38px] appear-efect'
+          clickMenu
+            ? 'pt-[38px] appear-efect appear lg:flex hidden'
+            : 'pt-[38px] appear-efect lg:flex hidden'
         }
       >
         <LeftButton />
@@ -80,7 +82,10 @@ const Slider = () => {
           </div>
         );
       })}
-      <div onClick={nextImage} className="pt-[38px]">
+      <div
+        onClick={nextImage}
+        className="mt-[340px] lg:mt-[38px] z-[100] lg:static absolute w-max lg:right-none right-[20px]"
+      >
         <RightButton />
       </div>
     </div>
