@@ -84,7 +84,7 @@ const Slider = () => {
       })}
       <div
         onClick={nextImage}
-        className="mt-[340px] lg:mt-[38px] z-[100] lg:static absolute w-max lg:right-none right-[20px]"
+        className="mt-[340px] lg:mt-[38px] z-[100] lg:static absolute w-max lg:right-none right-[20px] bg-white lg:bg-transparent shadow-card lg:shadow-card-none border-[5px] border-white rounded-full"
       >
         <RightButton />
       </div>
