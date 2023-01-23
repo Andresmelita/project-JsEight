@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Navbar = () => {
   return (
     <nav>
-      <div className="h-[200px] justify-center items-center">
+      <div className="h-[50px] justify-center items-center">
         <Link href="/">Home </Link>
         <Link href="/Details/[event_id]">Details </Link>
         <Link href="/Brands">Brands </Link>
