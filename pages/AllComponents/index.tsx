@@ -8,6 +8,7 @@ import Header from '../../components/Header';
 import InputSearch from '../../components/InputSearch';
 import PersonIcon from '../../components/PersonIcon';
 import Slider from '../../components/Slider';
+import Home from '../Home';
 import Login from '../Login';
 import SignUp from '../SignUp';
 
@@ -43,6 +44,12 @@ const index = () => {
           <div className="w-[500px] bg-slate-400 flex justify-center rounded-[10px]">
             <InputSearch />
           </div>
+        </div>
+      </div>
+      <div>
+        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Home Page:</h1>
+        <div className="flex justify-center items-center">
+          <Home />
         </div>
       </div>
       <div>
