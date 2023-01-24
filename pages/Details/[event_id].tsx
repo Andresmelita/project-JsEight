@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React, { ReactElement } from 'react'
 import InputSearch from '../../components/InputSearch'
 import Layout from '../../components/Layout'
@@ -8,10 +9,17 @@ import Slider from '../../components/Slider'
 export default function eventId(){
   return (
     <div className="event__page">
-      <div className="event__header">
-        <div className="flex justify-end items-center p-[20px]">
-          <div className="w-[500px] bg-slate-400 flex justify-center rounded-[10px]">
-            <InputSearch />
+      <div className="event__header shadow-header pt-5 pb-4 md:pl-[10%] md:pr-[10%] lg:pl-[15%] lg:pr-[15%]">
+        <div className="event__header-container flex justify-center items-center">
+          <div className="event__header-links flex justify-center items-center w-[100%] gap-4">
+            <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center' href="/Brands">Brands and Stores</Link>
+            <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center' href="/Artists">Artists and Concerts</Link>
+            <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center' href="/Tournaments">Tournaments </Link>
+          </div>
+          <div className="flex justify-center items-center p-[20px] w-[100%]">
+            <div className="w-[500px] bg-slate-400 flex justify-center rounded-[10px] max-w-sm">
+              <InputSearch />
+            </div>
           </div>
         </div>
       </div>
@@ -39,7 +47,7 @@ export default function eventId(){
               </div>
             </div>
           </div>
-          <div className="HeaderImg md:row-start-1 md:row-end-4 md:h-[100%]  md:w-[70vh] md:col-start-2 md:col-end-5 bg-[url('https://los40es00.epimg.net/los40/imagenes/2017/02/06/musica/1486367147_194336_1486369812_noticia_normal.jpg')] bg-cover bg-center h-60 z-0 w-[100%]"></div>
+          <div className="HeaderImg md:row-start-1 md:row-end-4 md:h-[100%]  md:w-[60vh] lg:w-[65vh] xl:w-[75vh] md:col-start-2 md:col-end-5 bg-[url('https://los40es00.epimg.net/los40/imagenes/2017/02/06/musica/1486367147_194336_1486369812_noticia_normal.jpg')] bg-cover bg-center h-60 z-0 w-[100%]"></div>
           <div className="vote__button">
             <button className='w-full p-4  mt-5 bg-[#1B4DB1] rounded-[23px] text-[#fff] l600-normal-16px'>Vote</button>
           </div>
@@ -52,16 +60,16 @@ export default function eventId(){
             <p>Selecciona tus interes para brindarte sugerencia de acuerdo a tus gustos</p>
           </div>
           <div className="interests__show flex gap-2">
-            <div className="interest__item h400-normal-13px text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center">
+            <div className="interest__item h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center">
               <p className='text-center '>Artistas mexicanos</p>
             </div>
-            <div className="interest__item h400-normal-13px text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center">
+            <div className="interest__item h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center">
               <p className='text-center'>Tiendas de ropa</p>
             </div>
-            <div className="interest__item h400-normal-13px text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center">
+            <div className="interest__item h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center">
               <p className='text-center'>Tiendas de ropa</p>
             </div>
-            <div className="interest__item h400-normal-13px  text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center">
+            <div className="interest__item h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center">
               <p className='text-center'>Rock</p>
             </div>
           </div>
