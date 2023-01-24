@@ -2,6 +2,11 @@ import { kMaxLength } from 'buffer';
 import Image from 'next/image';
 import { ReactElement, useEffect, useState } from 'react';
 import Cathegory from '../../components/Buttons/Cathegory';
+import EventCard from '../../components/Cards/EventCard';
+import EventCardFive from '../../components/Cards/EventCardFive';
+import EventCardFour from '../../components/Cards/EventCardFour';
+import EventCardThree from '../../components/Cards/EventCardThree';
+import EventCardTwo from '../../components/Cards/EventCardTwo';
 import Layout from '../../components/Layout';
 import NestedLayout from '../../components/NestedLayout';
 
@@ -29,12 +34,29 @@ export default function ProfilePage() {
           />
         </div>
       </div>
-      <div className="flex gap-[13px] w-max h-[45px] mb-[82px] mt-[82px]">
+      <div className="flex gap-[13px] w-max h-[45px] mb-[70px] mt-[90px]">
         <div className="flex w-[100%]">
           <Cathegory Cathegories={data[0]} />
         </div>
         <div className="flex w-[100%]">
           <Cathegory Cathegories={data[1]} />
+        </div>
+      </div>
+      <div className="flex content-start align-middle items-center max-w-[1038px] h-max flex-wrap justify-center mb-[150px] ">
+        <div className="max-h-[500px] w-max">
+          <EventCard />
+        </div>
+        <div className="max-h-[500px] w-max">
+          <EventCardTwo />
+        </div>
+        <div className="max-h-[500px] w-max">
+          <EventCardThree />
+        </div>
+        <div className="max-h-[500px] w-max">
+          <EventCardFour />
+        </div>
+        <div className="max-h-[500px] w-max">
+          <EventCardFive />
         </div>
       </div>
     </div>
