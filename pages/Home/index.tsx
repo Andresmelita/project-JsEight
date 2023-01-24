@@ -1,15 +1,22 @@
 import { kMaxLength } from 'buffer';
 import Image from 'next/image';
-import CathegoryFive from '../../components/Buttons/CathegoryFive';
-import CathegoryFour from '../../components/Buttons/CathegoryFour';
-import CathegoryOne from '../../components/Buttons/CathegoryOne';
-import CathegorySix from '../../components/Buttons/CathegorySix';
-import CathegoryThree from '../../components/Buttons/CathegoryThree';
-import CathegoryTwo from '../../components/Buttons/CathegoryTwo';
+import { useEffect, useState } from 'react';
+import { default as Cathegory } from '../../components/Buttons/Cathegory';
 import InputSearch from '../../components/InputSearch';
 import Slider from '../../components/Slider';
+import Suggestions from '../../components/Suggestions';
 
 const Home = () => {
+  const [data, setData] = useState(['']);
+
+  useEffect(() => {
+    Cathegories();
+  }, []);
+
+  const Cathegories = () => {
+    setData(['Marcas y Tiendas', 'Artistas y conciertos', 'Torneos']);
+  };
+
   return (
     <div className="flex flex-col justify-center items-center pb-[100px]">
       <div className="top-0 left-0 flex flex-col relative min-h-max">
@@ -36,13 +43,13 @@ const Home = () => {
           </div>
           <div className="flex gap-[10px] justify-center items-center">
             <div className="flex w-[100%] justify-center items-center">
-              <CathegoryOne />
+              <Cathegory Cathegories={data[0]} />
             </div>
             <div className="flex w-[100%] justify-center items-center">
-              <CathegoryTwo />
+              <Cathegory Cathegories={data[1]} />
             </div>
             <div className="flex w-[100%] justify-center items-center">
-              <CathegoryThree />
+              <Cathegory Cathegories={data[2]} />
             </div>
           </div>
         </div>
@@ -74,32 +81,7 @@ const Home = () => {
         </div>
       </div>
       <div className="flex w-[100%] flex-col justify-center bg-primary-grayLighter max-w-[1010px] max-h-[250px]">
-        <div className="flex flex-col pt-[27px] pb-[35px] sm:pl-[60px] pl-[20px] gap-2">
-          <h1 className="h500-normal-24px text-primary-grayDark">
-            ¡Hagámoslo más personal!
-          </h1>
-          <h3 className="h400-normal-16px text-primary-grayDark">
-            Selecciona tus intereses para brindarte sugerencias de acuerdo a tus
-            gustos
-          </h3>
-          <div className="flex gap-[13px] w-max h-[45px] mt-[20px] mb-[20px]">
-            <div className="flex w-[100%]">
-              <CathegoryFive />
-            </div>
-            <div className="flex w-[100%]">
-              <CathegorySix />
-            </div>
-            <div className="flex w-[100%]">
-              <CathegoryFour />
-            </div>
-            <div className="flex w-[100%]">
-              <CathegoryOne />
-            </div>
-          </div>
-          <h3 className="h400-normal-16px text-primary-blue cursor-pointer">
-            Ver todos los intereses
-          </h3>
-        </div>
+        <Suggestions />
       </div>
       <div className="flex flex-col justify-center items-center w-[100vw]">
         <div className="flex flex-col pt-[77px] pb-[35px] ml-[20px] lg:ml-[00px] max-w-[1010px] w-[100%]">

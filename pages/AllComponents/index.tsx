@@ -1,4 +1,5 @@
-import CathegoryOne from '../../components/Buttons/CathegoryOne';
+import { useEffect, useState } from 'react';
+import Cathegory from '../../components/Buttons/Cathegory';
 import Like from '../../components/Buttons/Like';
 import NextTwo from '../../components/Buttons/NextTwo';
 import RightButton from '../../components/Buttons/RightButton';
@@ -12,7 +13,16 @@ import Home from '../Home';
 import Login from '../Login';
 import SignUp from '../SignUp';
 
-const index = () => {
+const AllComponents = () => {
+  const [data, setData] = useState(['']);
+
+  useEffect(() => {
+    Cathegories();
+  }, []);
+
+  const Cathegories = () => {
+    setData(['Marcas y Tiendas']);
+  };
   return (
     <div>
       <Header />
@@ -21,7 +31,9 @@ const index = () => {
         <div className="flex justify-center items-center gap-3">
           <RightButton />
           <NextTwo />
-          <CathegoryOne />
+          <div className="flex gap-[13px] w-max h-[45px] mb-[82px] mt-[82px]">
+            <Cathegory Cathegories={data[0]} />
+          </div>
           <Like />
           <PersonIcon />
         </div>
@@ -74,4 +86,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default AllComponents;
