@@ -98,7 +98,7 @@ export default function tournamentsPage(){
       </div>
     </div>
   )
-};
+}
 
 tournamentsPage.getLayout = function (page: ReactElement) {
   return (
