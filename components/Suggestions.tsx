@@ -12,7 +12,7 @@ const Suggestions = () => {
     setData(['Restaurantes', 'Tiendas de Ropa', 'Rock', 'Marcas y tiendas']);
   };
   return (
-    <div className="bg-black w-max p-8 flex flex-col pt-[27px] pb-[35px] sm:pl-[60px] pl-[20px] gap-2">
+    <div className="w-max p-8 flex flex-col pt-[27px] pb-[35px] sm:pl-[60px] pl-[20px] gap-2">
       <h1 className="h500-normal-24px text-primary-grayDark">
         ¡Hagámoslo más personal!
       </h1>
