@@ -12,6 +12,7 @@ export default function Layout({ children, ...props }: Props) {
   return (
     <>
       <Header />
+      <Navbar />
         {children}
       <Footer />
     </>
