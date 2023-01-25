@@ -21,6 +21,26 @@ export default function ProfilePage() {
     setData(['Mis votos', 'Mis publicaciones']);
   };
 
+  const [items, setItems] = useState([<></>]);
+  const [visible, setVisible] = useState(3);
+
+  useEffect(() => {
+    setItems([
+      <EventCard key={0} />,
+      <EventCardTwo key={1} />,
+      <EventCardThree key={2} />,
+      <EventCardFour key={3} />,
+      <EventCardFive key={4} />,
+    ]);
+    setScreen(true);
+  }, []);
+
+  const showMoreItems = () => {
+    setVisible((prevValue) => prevValue + 3);
+  };
+
+  const [screen, setScreen] = useState(false);
+
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="flex bg-primary-blue h-[129px] justify-center items-end w-[100vw]">
@@ -42,23 +62,21 @@ export default function ProfilePage() {
           <Cathegory Cathegories={data[1]} />
         </div>
       </div>
-      <div className="flex content-start align-middle items-center max-w-[1038px] h-max flex-wrap justify-center mb-[150px] ">
-        <div className="max-h-[500px] w-max">
-          <EventCard />
-        </div>
-        <div className="max-h-[500px] w-max">
-          <EventCardTwo />
-        </div>
-        <div className="max-h-[500px] w-max">
-          <EventCardThree />
-        </div>
-        <div className="max-h-[500px] w-max">
-          <EventCardFour />
-        </div>
-        <div className="max-h-[500px] w-max">
-          <EventCardFive />
-        </div>
+      <div className="flex content-start align-middle items-center max-w-[1038px] h-max flex-wrap justify-center sm:mb-[150px] mb-[70px]">
+        {items.slice(0, visible).map((item, index) => {
+          return (
+            <div key={index} className="max-h-[500px] w-max">
+              {item}
+            </div>
+          );
+        })}
       </div>
+      <button
+        onClick={showMoreItems}
+        className="bg-primary-blue rounded-full text-white h-[47px] w-[124px] l600-normal-16px flex sm:hidden justify-center items-center mb-[65px]"
+      >
+        Ver más
+      </button>
     </div>
   );
 }
