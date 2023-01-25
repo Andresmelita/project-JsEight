@@ -104,6 +104,27 @@
     font-size: 16px;
     line-height: 20px;
   }
+  .l600-normal-20px {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .l500-normal-20px-23 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+  }
+  .l400-normal-16px-24 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
   .l600-normal-16px {
     font-family: 'Inter';
     font-style: normal;
@@ -163,6 +184,9 @@
   .appear {
     opacity: 1;
     transition-delay: 200ms;
+  }
+  .dropdown-menu {
+    text-indent: 18px;
   }
 }
 
