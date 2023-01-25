@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import '../../styles/Home.module.css';
 import Like from '../Buttons/Like';
 import PersonIcon from '../PersonIcon';
@@ -14,13 +15,15 @@ const EventCard = () => {
           <div className="content__tittle h600-medium--20px text-[#1A1E2E]">
             <h3>Concierto de Lady Gaga</h3>
           </div>
-          <div className="content__description h400-medium-15px text-[#6E6A6C]">
-            <p>
-              El concierto con la temática de Lady gaga en Las Vegas. El
-              concierto con la temática de Lady gaga en Las Vegas.El concierto
-              con la temática.
-            </p>
-          </div>
+          <Link href="/Details/1">
+            <div className="content__description h400-medium-15px text-[#6E6A6C]">
+              <p>
+                El concierto con la temática de Lady gaga en Las Vegas. El
+                concierto con la temática de Lady gaga en Las Vegas.El concierto
+                con la temática.
+              </p>
+            </div>
+          </Link>
         </div>
         <div className="content__page h500-medium-14px text-[#1B4DB1]">
           <a href="">ladygaga.com</a>
