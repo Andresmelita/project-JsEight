@@ -80,9 +80,11 @@ const Home = () => {
           <Slider />
         </div>
       </div>
-      <div className="flex w-[100%] flex-col justify-center bg-primary-grayLighter max-w-[1010px] max-h-[250px]">
+
+      <div className="flex p-[10px] w-[100vw] flex-col justify-center bg-primary-grayLighter max-w-[1010px] max-h-[250px]">
         <Suggestions />
       </div>
+
       <div className="flex flex-col justify-center items-center w-[100vw]">
         <div className="flex flex-col pt-[77px] pb-[35px] ml-[20px] lg:ml-[00px] max-w-[1010px] w-[100%]">
           <h1 className="h500-normal-24px text-primary-blackLight">
