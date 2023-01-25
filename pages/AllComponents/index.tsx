@@ -9,6 +9,7 @@ import Header from '../../components/Header';
 import InputSearch from '../../components/InputSearch';
 import PersonIcon from '../../components/PersonIcon';
 import Slider from '../../components/Slider';
+import CreateEvent from '../Create';
 import Home from '../Home';
 import Login from '../Login';
 import ProfilePage from '../Profile';
@@ -75,6 +76,12 @@ const AllComponents = () => {
         <h1 className="h500-normal-24px p-[40px] ml-[100px]">SignUp Page:</h1>
         <div className="flex justify-center items-center">
           <SignUp />
+        </div>
+      </div>
+      <div>
+        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Create Event:</h1>
+        <div className="flex justify-center items-center">
+          <CreateEvent />
         </div>
       </div>
       <div>
