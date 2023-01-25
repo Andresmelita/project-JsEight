@@ -64,7 +64,7 @@ const Header = () => {
           <nav
             className={
               clickLog
-                ? 'text-white flex sm:gap-[49px] gap-[12px] h500-normal-12px items-center'
+                ? 'text-white flex sm:gap-[49px] cursor:pointer gap-[12px] h500-normal-12px items-center'
                 : 'hidden'
             }
           >
@@ -87,7 +87,7 @@ const Header = () => {
                 <span>alumno.academlo@gmail.com</span>
                 <div className="hamburguer">
                   <SlArrowDown
-                    className="text-white ml-[0px]"
+                    className="text-white ml-[0px] cursor-pointer"
                     onClick={handleClickMenu}
                   />
                   <div

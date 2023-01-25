@@ -11,7 +11,7 @@ module.exports = {
       md: '768px',
       lg: '1024px',
       xl: '1280px',
-      xxl: '1536px'
+      xxl: '1536px',
     },
     extend: {
       colors: {
@@ -25,8 +25,8 @@ module.exports = {
         'primary-grayLight': '#D9D9D9',
         'primary-grayLighter': '#F8F7FA',
         'secondary-red': '#EF3F47',
-      }
-    }
+      },
+    },
   },
   plugins: [],
 };

@@ -1,4 +1,5 @@
-import CathegoryOne from '../../components/Buttons/CathegoryOne';
+import { useEffect, useState } from 'react';
+import Cathegory from '../../components/Buttons/Cathegory';
 import Like from '../../components/Buttons/Like';
 import NextTwo from '../../components/Buttons/NextTwo';
 import RightButton from '../../components/Buttons/RightButton';
@@ -8,10 +9,22 @@ import Header from '../../components/Header';
 import InputSearch from '../../components/InputSearch';
 import PersonIcon from '../../components/PersonIcon';
 import Slider from '../../components/Slider';
+import CreateEvent from '../Create';
+import Home from '../Home';
 import Login from '../Login';
+import ProfilePage from '../Profile';
 import SignUp from '../SignUp';
 
-const index = () => {
+const AllComponents = () => {
+  const [data, setData] = useState(['']);
+
+  useEffect(() => {
+    Cathegories();
+  }, []);
+
+  const Cathegories = () => {
+    setData(['Marcas y Tiendas']);
+  };
   return (
     <div>
       <Header />
@@ -20,7 +33,9 @@ const index = () => {
         <div className="flex justify-center items-center gap-3">
           <RightButton />
           <NextTwo />
-          <CathegoryOne />
+          <div className="flex gap-[13px] w-max h-[45px] mb-[82px] mt-[82px]">
+            <Cathegory Cathegories={data[0]} />
+          </div>
           <Like />
           <PersonIcon />
         </div>
@@ -46,6 +61,12 @@ const index = () => {
         </div>
       </div>
       <div>
+        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Home Page:</h1>
+        <div className="flex justify-center items-center">
+          <Home />
+        </div>
+      </div>
+      <div>
         <h1 className="h500-normal-24px p-[40px] ml-[100px]">Login Page:</h1>
         <div className="flex justify-center items-center">
           <Login />
@@ -58,6 +79,18 @@ const index = () => {
         </div>
       </div>
       <div>
+        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Create Event:</h1>
+        <div className="flex justify-center items-center">
+          <CreateEvent />
+        </div>
+      </div>
+      <div>
+        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Profile Page:</h1>
+        <div className="flex justify-center items-center">
+          <ProfilePage />
+        </div>
+      </div>
+      <div>
         <h1 className="h500-normal-24px p-[40px] ml-[100px]">Footer:</h1>
         <div className="flex justify-center items-center">
           <Footer />
@@ -67,4 +100,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default AllComponents;
