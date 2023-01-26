@@ -1,5 +1,6 @@
 import { kMaxLength } from 'buffer';
 import Image from 'next/image';
+import Link from 'next/link';
 import NextTwo from '../../components/Buttons/NextTwo';
 
 const CreateEvent = () => {
@@ -43,7 +44,7 @@ const CreateEvent = () => {
       <div className="bg-white w-[100%] flex justify-center items-center flex-col gap-8 mb-[45px]">
         <div className="text-primary-blue w-[100%] lg:pl-[55px] pl-[20px] md:mt-[0px] mt-[20px]">
           <span className="cursor-pointer l600-normal-20px text-primary-blue">
-            Back
+            <Link href="/">Back</Link>
           </span>
         </div>
         <div className=""></div>
