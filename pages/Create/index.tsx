@@ -2,8 +2,37 @@ import { kMaxLength } from 'buffer';
 import Image from 'next/image';
 import Link from 'next/link';
 import NextTwo from '../../components/Buttons/NextTwo';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { useRouter } from 'next/router';
 
 const CreateEvent = () => {
+
+  const router = useRouter()
+
+  const linkRoute = () => {
+    router.push('/')
+  }
+
+  const formik = useFormik({
+    initialValues: {
+      tittle: '',
+      type: '',
+      category: '',
+      recomend: '',
+      link: '',
+    },
+    onSubmit: () => {
+      console.log('Enviado')
+      linkRoute()
+    },
+    validationSchema: yup.object({
+      tittle: yup.string().trim().required('Tittle is required'),
+      recomend: yup.string().trim().required('This field is required'),
+      link: yup.string().trim().required('This field is required'),
+    }),
+  });
+
   return (
     <div className="h-screen w-screen flex md:flex-row flex-col">
       <div className="flex bg-primary-blue w-[100%] md:min-w-[255px] md:max-w-[255px] max-h-[415px] md:max-h-[100%] justify-center items-center flex-col gap-8">
@@ -55,7 +84,7 @@ const CreateEvent = () => {
             <div className="totalProcess"></div>
           </div>
         </div>
-        <form className="flex flex-col gap-[25px] w-[100%] max-w-[660px] pt-[20px] pb-[20px] l400-normal-16px-24 text-[#7D7D7D]">
+        <form className="flex flex-col gap-[25px] w-[100%] max-w-[660px] pt-[20px] pb-[20px] l400-normal-16px-24 text-[#7D7D7D]" onSubmit={formik.handleSubmit}>
           <div className="flex flex-col justify-start items-start w-[100%] ml-[20px] mt-[-20px] md:mt-[0px]">
             <span className="h500-normal-24px text-black">Publicación</span>
             <span className="h400-normal-16px">Información básica</span>
@@ -63,36 +92,49 @@ const CreateEvent = () => {
           <div className="form__title flex flex-col w-[100%] pl-[20px] pr-[20px]">
             <label
               className="ml-[15px] pl-[8px] pr-[8px] mb-[-12px] bg-white w-max z-10"
-              htmlFor=""
+              htmlFor="tittle"
             >
               Título de publicación
             </label>
             <input
               className="bg-transparent h-[50px] border-[1px] rounded-[11px] border-[#7D7D7D]"
+              name='tittle'
               type="text"
               placeholder=""
+              value={formik.values.tittle}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
             />
+            {formik.errors.tittle && (
+              <div className="text-danger">{formik.errors.tittle}</div>
+            )}
           </div>
           <div className="flex md:flex-row flex-col gap-[20px] w-[100%] pl-[20px] pr-[20px]">
             <div className="flex md:w-[50%] w-[100%]">
-              <label className="" htmlFor=""></label>
+              <label className="" htmlFor="type"></label>
               <select
-                required
                 className="dropdown-menu bg-transparent h-[50px] w-[100%] border-[1px] rounded-[11px] border-[#7D7D7D] text-"
+                required
+                name='type'
+                value={formik.values.type}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               >
-                <option value="" hidden>
-                  Tipo
-                </option>
+                <option value="" hidden>Tipo</option>
                 <option value="1">Marcas y tiendas</option>
                 <option value="2">Artistas y conciertos</option>
                 <option value="3">Torneos</option>
               </select>
             </div>
             <div className="flex md:w-[50%] w-[100%]">
-              <label className="" htmlFor=""></label>
+              <label className="" htmlFor="category"></label>
               <select
                 required
                 className="dropdown-menu bg-transparent h-[50px] w-[100%] border-[1px] rounded-[11px] border-[#7D7D7D]"
+                name='category'
+                value={formik.values.category}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               >
                 <option value="">Categoría</option>
                 <option value="1">Ropa y accesorios</option>
@@ -110,19 +152,26 @@ const CreateEvent = () => {
           <div className="form__recommendation flex flex-col w-[100%] pl-[20px] pr-[20px]">
             <label
               className="ml-[15px] pl-[8px] pr-[8px] mb-[-12px] bg-white w-max z-10"
-              htmlFor=""
+              htmlFor="recomend"
             >
               ¿Por qué lo recomiendas?
             </label>
             <textarea
               className="bg-transparent h-[116px] border-[1px] rounded-[11px] border-[#7D7D7D]"
               placeholder=""
+              name='recomend'
+              value={formik.values.recomend}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
             />
+            {formik.errors.recomend && (
+              <div className="text-danger">{formik.errors.recomend}</div>
+            )}
           </div>
           <div className="form__reference flex flex-col w-[100%] pl-[20px] pr-[20px]">
             <label
               className="ml-[15px] pl-[8px] pr-[8px] mb-[-12px] bg-white w-max z-10"
-              htmlFor=""
+              htmlFor="link"
             >
               Link de referencia
             </label>
@@ -130,13 +179,19 @@ const CreateEvent = () => {
               className="bg-transparent h-[50px] border-[1px] rounded-[11px] border-[#7D7D7D]"
               type="text"
               placeholder=""
+              name='link'
+              value={formik.values.link}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
             />
+            {formik.errors.link && (
+              <div className="text-danger">{formik.errors.link}</div>
+            )}
+          </div>
+          <div className="mb-[50px] md:mb-[0px] flex justify-center items-center">
+            <NextTwo  />
           </div>
         </form>
-
-        <div className="mb-[50px] md:mb-[0px]">
-          <NextTwo />
-        </div>
       </div>
     </div>
   );
