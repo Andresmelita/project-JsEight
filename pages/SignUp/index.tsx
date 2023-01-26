@@ -2,8 +2,15 @@ import Link from 'next/link'
 import React from 'react'
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useRouter } from 'next/router'
 
 const SignUp = () => {
+
+  const router = useRouter()
+
+  const linkRoute = () => {
+    router.push('/')
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -13,7 +20,7 @@ const SignUp = () => {
       password: '',
     },
     onSubmit: () => {
-      console.log('Enviado')
+      linkRoute()
     },
     validationSchema: yup.object({
       name: yup.string().trim().required('Name is required'),
@@ -120,7 +127,7 @@ const SignUp = () => {
                   )}
                 </div>
                 <div className="form__button">
-                  <button type='submit' className='w-full p-4 mt-5 bg-[#1B4DB1] rounded text-[#fff] l600-normal-16px'>Log in</button>
+                  <button type='submit' className='w-full p-4 mt-5 bg-[#1B4DB1] rounded text-[#fff] l600-normal-16px'>Sign up</button>
                 </div>
               </form>
               </div>

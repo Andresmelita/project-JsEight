@@ -1,8 +1,15 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useRouter } from 'next/router';
 
 const Login = () => {
+
+  const router = useRouter()
+
+  const linkRoute = () => {
+    router.push('/')
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -10,7 +17,7 @@ const Login = () => {
       password: '',
     },
     onSubmit: () => {
-      console.log('Enviado')
+      linkRoute()
     },
     validationSchema: yup.object({
       email: yup

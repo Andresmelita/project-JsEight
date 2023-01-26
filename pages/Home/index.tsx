@@ -1,5 +1,6 @@
 import { kMaxLength } from 'buffer';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { default as Cathegory } from '../../components/Buttons/Cathegory';
 import InputSearch from '../../components/InputSearch';
@@ -43,13 +44,19 @@ const Home = () => {
           </div>
           <div className="flex gap-[10px] justify-center items-center">
             <div className="flex w-[100%] justify-center items-center">
-              <Cathegory Cathegories={data[0]} />
+              <Link href="/Brands">
+                <Cathegory Cathegories={data[0]} />
+              </Link>
             </div>
             <div className="flex w-[100%] justify-center items-center">
-              <Cathegory Cathegories={data[1]} />
+              <Link href="/Artists">
+                <Cathegory Cathegories={data[1]} />
+              </Link>
             </div>
             <div className="flex w-[100%] justify-center items-center">
-              <Cathegory Cathegories={data[2]} />
+              <Link href="/Tournaments">
+                <Cathegory Cathegories={data[2]} />
+              </Link>
             </div>
           </div>
         </div>
