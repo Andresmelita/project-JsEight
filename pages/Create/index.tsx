@@ -97,7 +97,7 @@ const CreateEvent = () => {
               Título de publicación
             </label>
             <input
-              className="bg-transparent h-[50px] border-[1px] rounded-[11px] border-[#7D7D7D]"
+              className="bg-transparent h-[50px] p-3.5 border-[1px] rounded-[11px] border-[#7D7D7D]"
               name='tittle'
               type="text"
               placeholder=""
@@ -157,7 +157,7 @@ const CreateEvent = () => {
               ¿Por qué lo recomiendas?
             </label>
             <textarea
-              className="bg-transparent h-[116px] border-[1px] rounded-[11px] border-[#7D7D7D]"
+              className="bg-transparent h-[116px] p-3.5 border-[1px] rounded-[11px] border-[#7D7D7D]"
               placeholder=""
               name='recomend'
               value={formik.values.recomend}
@@ -176,7 +176,7 @@ const CreateEvent = () => {
               Link de referencia
             </label>
             <input
-              className="bg-transparent h-[50px] border-[1px] rounded-[11px] border-[#7D7D7D]"
+              className="bg-transparent h-[50px] p-3.5 border-[1px] rounded-[11px] border-[#7D7D7D]"
               type="text"
               placeholder=""
               name='link'
