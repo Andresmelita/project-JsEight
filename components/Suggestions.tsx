@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Cathegory from './Buttons/Cathegory';
+import CathegoryGeneral from './Buttons/CathegoryGeneral';
 
 const Suggestions = () => {
   const [data, setData] = useState(['']);
@@ -22,16 +22,16 @@ const Suggestions = () => {
       </h3>
       <div className="flex gap-[13px] w-max h-[45px] mt-[20px] mb-[20px]">
         <div className="flex w-[100%]">
-          <Cathegory Cathegories={data[0]} />
+          <CathegoryGeneral Cathegories={data[0]} />
         </div>
         <div className="flex w-[100%]">
-          <Cathegory Cathegories={data[1]} />
+          <CathegoryGeneral Cathegories={data[1]} />
         </div>
         <div className="flex w-[100%]">
-          <Cathegory Cathegories={data[2]} />
+          <CathegoryGeneral Cathegories={data[2]} />
         </div>
         <div className="flex w-[100%]">
-          <Cathegory Cathegories={data[3]} />
+          <CathegoryGeneral Cathegories={data[3]} />
         </div>
       </div>
       <h3 className="h400-normal-16px text-primary-blue cursor-pointer">
