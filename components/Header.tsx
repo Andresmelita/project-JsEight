@@ -95,9 +95,17 @@ const Header = () => {
                       clickMenu ? 'nav-menu active' : 'nav-menu hidden'
                     }
                   >
-                    <div className="bg-white absolute right-[20px] top-[91px] p-[8px] w-[250px] h-[218px] z-[200] shadow-hamburguer rounded-[25px]">
+                    <div className="bg-white absolute right-[20px] top-[91px] p-[8px] w-[250px] h-[328px] z-[200] shadow-hamburguer rounded-[25px]">
                       <div className="text-black h400-normal-18px m-[29px]">
                         <div className="flex flex-col gap-[25px] mb-[40px]">
+                          <Link href="/Create" className="flex gap-[19px] items-center ">
+                            <IoAddSharp className=" justify-content text-primary-blue flex text-[23px]" />
+                            Crear publicación
+                          </Link>
+                          <Link href="/Profile" className="flex gap-[19px] items-center">
+                            <BsHeart className="text-primary-pink text-[23px]" />
+                            Mis Votos
+                          </Link>
                           <a className="flex gap-[19px] items-center">
                             <RiLayoutMasonryFill className="text-[23px]" />
                             Configuración
