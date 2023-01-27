@@ -34,7 +34,7 @@ const CreateEvent = () => {
   });
 
   return (
-    <div className="h-screen w-screen flex md:flex-row flex-col">
+    <div className="h-screen w-screen overflow-hidden flex md:flex-row flex-col">
       <div className="flex bg-primary-blue w-[100%] md:min-w-[255px] md:max-w-[255px] max-h-[415px] md:max-h-[100%] justify-center items-center flex-col gap-8">
         <div className="flex justify-center items-center flex-col md:gap-[22px] gap-[16px] pt-[50px] md:pb-[50px] pb-[30px] h-[100%]">
           <div className="max-h-[123px] max-w-[137px] flex flex-col">
@@ -71,7 +71,7 @@ const CreateEvent = () => {
       </div>
 
       <div className="bg-white w-[100%] flex justify-center items-center flex-col gap-8 mb-[45px]">
-        <div className="text-primary-blue w-[100%] lg:pl-[55px] pl-[20px] md:mt-[0px] mt-[20px]">
+        <div className="text-primary-blue w-[100%] lg:pl-[55px] pl-[20px] mt-[20px]">
           <span className="cursor-pointer l600-normal-20px text-primary-blue">
             <Link href="/">Back</Link>
           </span>
