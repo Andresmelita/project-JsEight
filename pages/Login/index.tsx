@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const Login = () => {
 
@@ -41,7 +42,10 @@ const Login = () => {
           </div>          
         </div> 
         <div className="login__body flex flex-col xs:m-auto xs:w-80 md:w-1/2 md:p-10 md:h-screen overflow-hidden justify-center">
-          <div className="login__header bg-[url('/images/logo.png')] bg-cover bg-center w-[187px] h-[168px] m-auto mt-0 mb-0">
+          <div className="login__img bg-[url('/images/logo.png')] bg-cover bg-center w-[187px] h-[168px] m-auto mt-0 mb-0">
+            <Link href="/">
+              <div className="imgLink w-[100%] h-[100%]"></div>
+            </Link>
           </div>
           <div className="login__body md:w-3/4 lg:w-4/5 md:m-auto md:mt-0 md:mb-0">
             <div className="login__info flex flex-col gap-5 pb-6">
