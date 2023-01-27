@@ -4,6 +4,7 @@ import InputSearch from '../../components/InputSearch'
 import Layout from '../../components/Layout'
 import NestedLayout from '../../components/NestedLayout'
 import Slider from '../../components/Slider'
+import Suggestions from '../../components/Suggestions'
 
 
 export default function brandsPage(){
@@ -60,30 +61,8 @@ export default function brandsPage(){
             <Slider />
           </div>
         </div>
-        <div className="interests p-5 md:p-10 mt-10 md:mt-[75px] mb-5 md:mb-[75px]  bg-[#F8F7FA] w-100vh h-[228px] flex flex-col gap-3">
-          <div className="interests__tittle h500-normal-24px text-[#6E6A6C]">
-            <h3>¡Hagámoslo más personal!</h3>
-          </div>
-          <div className="interests__info h400-normal-16px text-[#6E6A6C]">
-            <p>Selecciona tus interes para brindarte sugerencia de acuerdo a tus gustos</p>
-          </div>
-          <div className="interests__show flex gap-2">
-            <div className="interest__item h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center">
-              <p className='text-center '>Artistas mexicanos</p>
-            </div>
-            <div className="interest__item h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center">
-              <p className='text-center'>Tiendas de ropa</p>
-            </div>
-            <div className="interest__item h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center">
-              <p className='text-center'>Tiendas de ropa</p>
-            </div>
-            <div className="interest__item h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center">
-              <p className='text-center'>Rock</p>
-            </div>
-          </div>
-          <div className="show__more pt-4 h400-normal-16px text-[#1B4DB1]">
-            <p>Ver todos los intereses</p>
-          </div>
+        <div className="flex p-[10px] mt-14 mb-14 w-[100%] flex-col justify-center bg-primary-grayLighter max-w-[1010px] max-h-[250px]">
+          <Suggestions />
         </div>
         <div className="recents p-4 md:p-0 flex flex-col gap-3">
           <div className="recents__tittle h500-normal-24px text-[#1A1E2E]">
