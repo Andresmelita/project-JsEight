@@ -23,7 +23,7 @@ export default function eventId(){
           </div>
         </div>
       </div>
-      <div className="event__details  md:p-[10%] lg:p-[15%] md:pt-3% md:pb-3% lg:pt-3% lg:pb-3%">
+      <div className="event__details  md:p-[10%] lg:p-[15%] md:pt-[6%] md:pb-[6%] lg:pt-[7%] lg:pb-[7%]">
         <div className="details pl-[5%] pr-[5%] md:p-0 md:grid md:col-span-5 gap-4 h500-normal-16px">
           <div className="details-info md:col-start-1 md:col-end-2  md:row-start-1 md:row-end-3 md:gap-4">
             <p className='p-4 pl-0'>Artista / Pop / Rock</p>
