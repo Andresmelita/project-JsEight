@@ -17,7 +17,7 @@ export default function eventId(){
             <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center' href="/Tournaments">Tournaments </Link>
           </div>
           <div className="flex justify-center items-center p-[20px] w-[100%]">
-            <div className="w-[500px] bg-slate-400 flex justify-center rounded-[10px] max-w-[317px]">
+            <div className="w-[500px] flex justify-center rounded-[10px] max-w-[317px]">
               <InputSearch />
             </div>
           </div>
