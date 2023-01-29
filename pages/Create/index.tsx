@@ -61,7 +61,10 @@ const CreateEvent = () => {
     <div className="h-[100%] md:h-screen w-screen overflow-hidden flex md:flex-row flex-col">
       <div className="flex bg-primary-blue w-[100%] md:min-w-[255px] md:max-w-[255px] max-h-[415px] md:max-h-[100%] justify-center items-center flex-col gap-8">
         <div className="flex justify-center items-center flex-col md:gap-[22px] gap-[16px] pt-[50px] md:pb-[50px] pb-[30px] h-[100%]">
-          <div className="max-h-[123px] max-w-[137px] flex flex-col">
+          <div
+            className="max-h-[123px] max-w-[137px] flex flex-col cursor-pointer"
+            onClick={linkRoute}
+          >
             <Image
               src="/images/whiteLogo.svg"
               alt=""
@@ -289,41 +292,41 @@ const CreateEvent = () => {
           >
             <div className="pl-[15px] pr-[15px] h-[257px] max-w-[620px] border-[1px] border-[#7D7D7D] rounded-[11px] flex gap-[22px] justify-center items-center">
               <div className="h-max max-w-[177px] relative justify-center items-center flex">
-                <div className="h-[206px] w-[100%] bg-primary-grayLight flex">
+                <div className="h-[206px] w-[100%] bg-primary-grayLight flex hover:scale-[1.05] ease-in-out duration-300">
                   <input
                     type="file"
                     id="imgInp"
                     name="imageUpload"
                     multiple
                     accept="image/*"
-                    className="h-[206px] w-[100%] opacity-0 z-50"
+                    className="h-[206px] w-[100%] opacity-0 z-50 cursor-pointer"
                   />
                 </div>
                 <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute z-30" />
               </div>
               <div className="bg-black h-max max-w-[177px] relative justify-center items-center flex">
-                <div className="h-[206px] w-[100%] bg-primary-grayLight flex">
+                <div className="h-[206px] w-[100%] bg-primary-grayLight flex hover:scale-[1.05] ease-in-out duration-300">
                   <input
                     type="file"
                     name="imageUpload"
                     multiple
                     accept="image/*"
-                    className="h-[206px] w-[100%] opacity-0"
+                    className="h-[206px] w-[100%] opacity-0 z-50 cursor-pointer"
                   />
                 </div>
-                <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute" />
+                <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute z-30" />
               </div>
               <div className="h-max max-w-[177px] relative justify-center items-center flex">
-                <div className="h-[206px] w-[100%] bg-primary-grayLight flex">
+                <div className="h-[206px] w-[100%] bg-primary-grayLight flex hover:scale-[1.05] ease-in-out duration-300">
                   <input
                     type="file"
                     name="imageUpload"
                     multiple
                     accept="image/*"
-                    className="h-[206px] w-[100%] opacity-0"
+                    className="h-[206px] w-[100%] opacity-0 z-50 cursor-pointer"
                   />
                 </div>
-                <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute" />
+                <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute z-30" />
               </div>
             </div>
           </div>
