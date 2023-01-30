@@ -31,7 +31,7 @@ const CreateEvent = () => {
   };
 
   const linkRouteToProfile = () => {
-    router.push('/Profile');
+    router.push('/profile');
   };
 
   const formik = useFormik({
@@ -44,7 +44,6 @@ const CreateEvent = () => {
     },
     onSubmit: () => {
       console.log('Enviado');
-      linkRoute();
     },
     validationSchema: yup.object({
       tittle: yup.string().trim().required('Tittle is required'),

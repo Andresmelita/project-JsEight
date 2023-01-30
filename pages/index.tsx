@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import Layout from '../components/Layout';
 import NestedLayout from '../components/NestedLayout';
-import Home from './Home';
+import Home from './home';
 import type { NextPageWithLayout } from './_app';
 
 const Page: NextPageWithLayout = () => {

@@ -44,17 +44,17 @@ const Home = () => {
           </div>
           <div className="flex gap-[10px] justify-center w-[100vw] max-w-[465px] h-max flex-wrap pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px]">
             <div className="flex h-[30px] w-max">
-              <Link href="/Brands">
+              <Link href="/brands">
                 <Cathegory Cathegories={data[0]} />
               </Link>
             </div>
             <div className="flex h-[30px] w-max">
-              <Link href="/Artists">
+              <Link href="/artists">
                 <Cathegory Cathegories={data[1]} />
               </Link>
             </div>
             <div className="flex h-[30px] w-max">
-              <Link href="/Tournaments">
+              <Link href="/tournaments">
                 <Cathegory Cathegories={data[2]} />
               </Link>
             </div>

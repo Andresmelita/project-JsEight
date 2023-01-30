@@ -9,12 +9,12 @@ const EventCardThree = () => {
       <div className="Like absolute bottom-52 right-7 ">
         <Like></Like>
       </div>
-      <Link href="/Details/3">
+      <Link href="/details/3">
         <div className="HeaderImg bg-[url('https://thumbs2.imgbox.com/47/47/dvCfyApV_t.png')] bg-cover bg-center h-60 z-0 rounded-t-3xl "></div>
       </Link>
       <div className="BodyContent m-8 mt-4 h-52 flex flex-col gap-4">
         <div className="content__event h-26 flex flex-col gap-2">
-          <Link href="/Details/3">
+          <Link href="/details/3">
             <div className="content__tittle h600-medium--20px text-[#1A1E2E]">
               <h3>Hotel Selina</h3>
             </div>

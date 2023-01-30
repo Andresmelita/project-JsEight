@@ -13,9 +13,9 @@ export default function eventId(){
       <div className="event__header shadow-header pt-5 pb-4 md:pl-[10%] md:pr-[10%] lg:pl-[15%] lg:pr-[15%]">
         <div className="event__header-container flex justify-center items-center">
           <div className="event__header-links flex justify-center items-center md:w-[100%] gap-4 invisible md:visible w-[50px]">
-            <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center' href="/Brands">Brands and Stores</Link>
-            <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center' href="/Artists">Artists and Concerts</Link>
-            <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center' href="/Tournaments">Tournaments </Link>
+            <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center' href="/brands">Brands and Stores</Link>
+            <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center' href="/artists">Artists and Concerts</Link>
+            <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-5 rounded-[23px] w-fit h-[45px] flex justify-center items-center' href="/tournaments">Tournaments </Link>
           </div>
           <div className="flex justify-center items-center p-[20px] w-[100%]">
             <div className="w-[500px] flex justify-center rounded-[10px] max-w-[317px]">

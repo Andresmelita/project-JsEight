@@ -9,11 +9,11 @@ import Header from '../../components/Header';
 import InputSearch from '../../components/InputSearch';
 import PersonIcon from '../../components/PersonIcon';
 import Slider from '../../components/Slider';
-import CreateEvent from '../Create';
-import Home from '../Home';
-import Login from '../Login';
-import ProfilePage from '../Profile';
-import SignUp from '../SignUp';
+import CreateEvent from '../create';
+import Home from '../home';
+import Login from '../login';
+import ProfilePage from '../profile';
+import SignUp from '../sign-up';
 
 const AllComponents = () => {
   const [data, setData] = useState(['']);

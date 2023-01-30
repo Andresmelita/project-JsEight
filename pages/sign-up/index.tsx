@@ -138,7 +138,7 @@ const SignUp = () => {
                 
               </div>
               <div className="form__recovery flex justify-center">
-                <Link className='l400-normal-16px w-40 text-center text-[#4D4D4D]' href='/Login'>or Log in</Link>
+                <Link className='l400-normal-16px w-40 text-center text-[#4D4D4D]' href='/login'>or Log in</Link>
               </div>
             </div>
           </div>

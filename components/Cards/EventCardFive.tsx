@@ -9,12 +9,12 @@ const EventCardFive = () => {
       <div className="Like absolute bottom-52 right-7 ">
         <Like></Like>
       </div>
-      <Link href="/Details/5">
+      <Link href="/details/5">
         <div className="HeaderImg bg-[url('https://images2.imgbox.com/75/7e/oqt5nojY_o.png')] bg-cover bg-center h-60 z-0 rounded-t-3xl "></div>
       </Link>
       <div className="BodyContent m-8 mt-4 h-52 flex flex-col gap-4">
         <div className="content__event h-26 flex flex-col gap-2">
-          <Link href="/Details/5">
+          <Link href="/details/5">
             <div className="content__tittle h600-medium--20px text-[#1A1E2E]">
               <h3>Marca Ecoalf</h3>
             </div>

@@ -47,7 +47,7 @@ const Header = () => {
                 : 'text-white flex sm:gap-[35px] gap-[12px] h500-normal-12px items-center'
             }
           >
-            <Link href="/Create" className="flex">
+            <Link href="/create" className="flex">
               <div className="flex items-center text-primary-blue">
                 <IoAddSharp className=" justify-content flex m-1 text-[26px]" />
                 Crear publicación
@@ -57,7 +57,7 @@ const Header = () => {
               <div className="cursor-pointer" onClick={login}>
                 Log In
               </div>
-              <Link href="/SignUp">Sign In</Link>
+              <Link href="/sign-up">Sign In</Link>
             </div>
           </nav>
 
@@ -68,14 +68,14 @@ const Header = () => {
                 : 'hidden'
             }
           >
-            <Link href="/Create" className="md:flex hidden">
+            <Link href="/create" className="md:flex hidden">
               <div className="flex items-center text-primary-blue">
                 <IoAddSharp className=" justify-content flex m-1 text-[26px]" />
                 Crear publicación
               </div>
             </Link>
             <div className="flex sm:gap-[42px] gap-[12px] justify-center items-center">
-              <Link href="/Profile" className="gap-[8px] md:flex hidden">
+              <Link href="/profile" className="gap-[8px] md:flex hidden">
                 <BsHeart className="text-primary-pink text-[16px]" />
                 Mis Votos
               </Link>
@@ -98,11 +98,11 @@ const Header = () => {
                     <div className="bg-white absolute right-[20px] top-[91px] p-[8px] w-[250px] h-[328px] z-[200] shadow-hamburguer rounded-[25px]">
                       <div className="text-black h400-normal-18px m-[29px]">
                         <div className="flex flex-col gap-[25px] mb-[40px]">
-                          <Link href="/Create" className="flex gap-[19px] items-center ">
+                          <Link href="/create" className="flex gap-[19px] items-center ">
                             <IoAddSharp className=" justify-content text-primary-blue flex text-[23px]" />
                             Crear publicación
                           </Link>
-                          <Link href="/Profile" className="flex gap-[19px] items-center">
+                          <Link href="/profile" className="flex gap-[19px] items-center">
                             <BsHeart className="text-primary-pink text-[23px]" />
                             Mis Votos
                           </Link>

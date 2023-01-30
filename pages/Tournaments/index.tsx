@@ -27,9 +27,9 @@ export default function tournamentsPage(){
         <div className="event__header flex pt-5 pb-5">
           <div className="event__header-container w-[100%] flex flex-col-reverse md:justify-between lg:flex-row justify-center items-center">
             <div className="event__header-links flex flex-wrap md:flex-nowrap justify-center items-center md:w-[100%] gap-2 w-[100%]">
-              <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-3 rounded-[23px] min-w-[128] w-fit h-[45px] flex justify-center items-center' href="/Brands">Brands and Stores</Link>
-              <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-3 rounded-[23px] min-w-[147] w-fit h-[45px] flex justify-center items-center' href="/Artists">Artists and Concerts</Link>
-              <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-3 rounded-[23px] min-w-[80] w-fit h-[45px] flex justify-center items-center' href="/Tournaments">Tournaments </Link>
+              <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-3 rounded-[23px] min-w-[128] w-fit h-[45px] flex justify-center items-center' href="/brands">Brands and Stores</Link>
+              <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-3 rounded-[23px] min-w-[147] w-fit h-[45px] flex justify-center items-center' href="/artists">Artists and Concerts</Link>
+              <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-3 rounded-[23px] min-w-[80] w-fit h-[45px] flex justify-center items-center' href="/tournaments">Tournaments </Link>
             </div>
             <div className="flex justify-center items-center p-[20px] w-[100%]">
               <div className="w-[500px] flex justify-center rounded-[10px] md:max-w-[317px]">
