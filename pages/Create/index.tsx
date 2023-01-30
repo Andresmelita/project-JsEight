@@ -98,7 +98,7 @@ const CreateEvent = () => {
       </div>
 
       <div className="bg-white w-[100%] h-[100%] flex justify-start items-center flex-col gap-8 mb-[45px]">
-        <div className="text-primary-blue w-[100%] lg:pl-[55px] pl-[20px] mt-[66px]">
+        <div className="text-primary-blue self-start w-fit lg:pl-[55px] pl-[20px] mt-[66px] text-left">
           <span
             className={
               clickNext
