@@ -39,21 +39,21 @@ const Home = () => {
               height={190}
             />
           </div>
-          <div className="flex w-[100vw] justify-center items-center">
+          <div className="flex w-[100vw] pl-[10px] pr-[10px] justify-center items-center">
             <InputSearch />
           </div>
-          <div className="flex gap-[10px] justify-center items-center">
-            <div className="flex h-[30px] w-[100%] justify-center items-center">
+          <div className="flex gap-[10px] justify-center w-[100vw] max-w-[465px] h-max flex-wrap pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px]">
+            <div className="flex h-[30px] w-max">
               <Link href="/Brands">
                 <Cathegory Cathegories={data[0]} />
               </Link>
             </div>
-            <div className="flex w-[100%] justify-center items-center">
+            <div className="flex h-[30px] w-max">
               <Link href="/Artists">
                 <Cathegory Cathegories={data[1]} />
               </Link>
             </div>
-            <div className="flex w-[100%] justify-center items-center">
+            <div className="flex h-[30px] w-max">
               <Link href="/Tournaments">
                 <Cathegory Cathegories={data[2]} />
               </Link>
@@ -61,8 +61,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center w-[100vw]">
-        <div className="flex flex-col pt-[77px] pb-[35px] ml-[20px] lg:ml-[00px] max-w-[1010px] w-[100%]">
+      <div className="flex flex-col justify-center items-center w-[100vw] pl-[21px]">
+        <div className="flex flex-col pt-[77px] pb-[35px] lg:ml-[00px] max-w-[1010px] w-[100%]">
           <h1 className="h500-normal-24px text-primary-blackLight">
             Populares en Querétaro
           </h1>
@@ -74,8 +74,8 @@ const Home = () => {
           <Slider />
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center w-[100vw]">
-        <div className="flex flex-col pt-[77px] pb-[35px] ml-[20px] lg:ml-[00px] max-w-[1010px] w-[100%]">
+      <div className="flex flex-col justify-center items-center w-[100vw] pl-[21px]">
+        <div className="flex flex-col pt-[77px] pb-[35px] lg:ml-[00px] max-w-[1010px] w-[100%]">
           <h1 className="h500-normal-24px text-primary-blackLight">
             Sugerencias para ti
           </h1>
@@ -88,11 +88,11 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex p-[10px] w-[100vw] flex-col justify-center bg-primary-grayLighter max-w-[1010px] max-h-[250px]">
+      <div className="flex p-[10px] w-[100vw] flex-col justify-center bg-primary-grayLighter max-w-[1010px] h-max">
         <Suggestions />
       </div>
 
-      <div className="flex flex-col justify-center items-center w-[100vw]">
+      <div className="flex flex-col justify-center items-center w-[100vw] pl-[21px]">
         <div className="flex flex-col pt-[77px] pb-[35px] ml-[20px] lg:ml-[00px] max-w-[1010px] w-[100%]">
           <h1 className="h500-normal-24px text-primary-blackLight">
             Recientes

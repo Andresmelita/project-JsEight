@@ -39,7 +39,7 @@ const Slider = () => {
   const [clickMenu, setClickMenu] = useState(false);
 
   return (
-    <div className="lg:container-slider-lg justify-start container-slider w-[100vw]">
+    <div className="lg:container-slider-lg justify-start container-slider gap-[4px] w-[100vw]">
       <div
         onClick={previousImage}
         className={

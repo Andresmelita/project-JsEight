@@ -5,7 +5,7 @@ import PersonIcon from '../PersonIcon';
 
 const EventCard = () => {
   return (
-    <div className="EventCard w-80 rounded-3xl m-3 relative z-10 shadow-card-box">
+    <div className="EventCard w-80 rounded-3xl relative z-10 shadow-card-box">
       <div className="Like absolute bottom-52 right-7 ">
         <Like></Like>
       </div>
