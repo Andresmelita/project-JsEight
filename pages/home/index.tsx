@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div className="flex flex-col justify-center items-center pb-[100px]">
       <div className="top-0 left-0 flex flex-col relative min-h-max">
-        <div className="min-h-[488px]">
+        <div className="min-h-[488px] w-[100%]">
           <Image
             className="min-h-[482px] max-h-[488px] min-w-[1280px] relative"
             src="/images/topImageHome.png"
@@ -33,14 +33,14 @@ const Home = () => {
             <Image
               src="/images/logo.svg"
               alt="home-image"
-              width={214}
+              width={1000}
               height={190}
             />
           </div>
           <div className="flex w-[100vw] pl-[10px] pr-[10px] justify-center items-center">
             <InputSearch />
           </div>
-          <div className="flex gap-[10px] justify-center w-[100vw] max-w-[465px] h-max flex-wrap pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px]">
+          <div className="flex gap-[7px] justify-center w-[100vw] max-w-[465px] h-max  pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px]">
             <div className="flex h-[30px] w-max">
               <Link href="/brands">
                 <Cathegory Cathegories={data[0]} />
