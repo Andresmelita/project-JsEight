@@ -5,14 +5,14 @@ import PersonIcon from '../PersonIcon';
 
 const EventCardTwo = () => {
   return (
-    <div className="EventCard w-80 rounded-3xl relative z-10 shadow-card-box">
+    <div className="EventCard rounded-3xl relative z-10 w-[320px] m-[10px] h-[474px] shadow-card-box">
       <div className="Like absolute bottom-52 right-7 ">
         <Like></Like>
       </div>
       <Link href="/details/2">
         <div className="HeaderImg bg-[url('https://images2.imgbox.com/49/62/pszCAGzR_o.png')] bg-cover bg-center h-60 z-0 rounded-t-3xl "></div>
       </Link>
-      <div className="BodyContent m-8 mt-4 h-52 flex flex-col gap-4">
+      <div className="BodyContent pl-[23px] pr-[23px] mt-4 h-52 flex flex-col gap-4 text-start">
         <div className="content__event h-26 flex flex-col gap-2">
           <Link href="/details/2">
             <div className="content__tittle h600-medium--20px text-[#1A1E2E]">
