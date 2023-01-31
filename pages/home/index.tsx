@@ -33,7 +33,7 @@ const Home = () => {
           <div className="flex w-[100vw] pl-[10px] pr-[10px] justify-center items-center">
             <InputSearch />
           </div>
-          <div className="flex gap-[10px] justify-center w-[100vw] max-w-[465px] h-max flex-wrap pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px]">
+          <div className="flex gap-[7px] justify-center w-[100vw] max-w-[465px] h-max pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px]">
             <div className="flex h-[30px] w-max">
               <Link href="/brands">
                 <Cathegory Cathegories={data[0]} />

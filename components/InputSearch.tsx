@@ -22,7 +22,7 @@ const InputSearch = () => {
           name="searchInput"
           value={``}
           placeholder="¿Qué quieres ver en tu ciudad?"
-          className="w-[100%] bg-transparent ml-[24px]"
+          className="w-[100%] bg-transparent ml-[24px] focus:outline-none"
         />
         <button
           id="searchSubmit"
