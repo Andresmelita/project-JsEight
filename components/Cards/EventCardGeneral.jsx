@@ -3,7 +3,7 @@ import '../../styles/Home.module.css';
 import Like from '../Buttons/Like';
 import PersonIcon from '../PersonIcon';
 
-const EventCard = () => {
+const EventCardGeneral = ({ Information }) => {
   return (
     <div className="EventCard rounded-3xl relative z-10 w-[320px] m-[10px] h-[474px] shadow-card-box">
       <div className="Like absolute bottom-52 right-[20px]">
@@ -16,7 +16,7 @@ const EventCard = () => {
         <div className="content__event h-26 flex flex-col gap-2">
           <Link href="/details/1">
             <div className="content__tittle h600-medium--20px text-[#1A1E2E]">
-              <h3>Concierto de Lady Gaga</h3>
+              <h3>{Information.title}</h3>
             </div>
           </Link>
           <Link href="/details/1">
@@ -45,4 +45,4 @@ const EventCard = () => {
   );
 };
 
-export default EventCard;
+export default EventCardGeneral;
