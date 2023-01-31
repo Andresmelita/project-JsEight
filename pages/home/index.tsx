@@ -20,14 +20,7 @@ const Home = () => {
   return (
     <div className="flex flex-col justify-center items-center pb-[100px]">
       <div className="top-0 left-0 flex flex-col relative min-h-max">
-        <div className="min-h-[488px]">
-          <Image
-            className="min-h-[482px] max-h-[488px] min-w-[1280px] relative"
-            src="/images/topImageHome.png"
-            alt="home-image"
-            fill
-          />
-        </div>
+        <div className="min-h-[488px] max-h-[488px] w-[100vw] bg-[url('/images/topImageHome.png')] bg-center bg-cover"></div>
         <div className="flex w-[100%] flex-col gap-[16px] justify-center items-center absolute z-40 top-[59px]">
           <div className="flex justify-center items-center mb-[16px]">
             <Image
