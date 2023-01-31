@@ -1,7 +1,7 @@
 import { kMaxLength } from 'buffer';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BsCircle, BsHeart } from 'react-icons/bs';
 import { FaPowerOff } from 'react-icons/fa';
 import { IoAddSharp } from 'react-icons/io5';
@@ -18,11 +18,13 @@ const Header = () => {
     setClickLog(false);
   };
 
-  const [clickLog, setClickLog] = useState(false);
+  const [clickLog, setClickLog] = useState(true);
   const handleClickLog = () => setClickLog(!clickLog);
 
+  useEffect(() => {}, []);
+
   const login = () => {
-    setClickLog(true);
+    setClickLog(false);
   };
 
   return (
@@ -43,8 +45,8 @@ const Header = () => {
           <nav
             className={
               clickLog
-                ? 'hidden'
-                : 'text-white flex sm:gap-[35px] gap-[12px] h500-normal-12px items-center'
+                ? 'text-white flex sm:gap-[35px] gap-[12px] h500-normal-12px items-center'
+                : 'hidden'
             }
           >
             <Link href="/create" className="flex">
@@ -64,8 +66,8 @@ const Header = () => {
           <nav
             className={
               clickLog
-                ? 'text-white flex sm:gap-[49px] cursor:pointer gap-[12px] h500-normal-12px items-center'
-                : 'hidden'
+                ? 'hidden'
+                : 'text-white flex sm:gap-[49px] cursor:pointer gap-[12px] h500-normal-12px items-center'
             }
           >
             <Link href="/create" className="md:flex hidden">
@@ -98,11 +100,17 @@ const Header = () => {
                     <div className="bg-white absolute right-[20px] top-[91px] p-[8px] w-[250px] h-[328px] z-[200] shadow-hamburguer rounded-[25px]">
                       <div className="text-black h400-normal-18px m-[29px]">
                         <div className="flex flex-col gap-[25px] mb-[40px]">
-                          <Link href="/create" className="flex gap-[19px] items-center ">
+                          <Link
+                            href="/create"
+                            className="flex gap-[19px] items-center "
+                          >
                             <IoAddSharp className=" justify-content text-primary-blue flex text-[23px]" />
                             Crear publicación
                           </Link>
-                          <Link href="/profile" className="flex gap-[19px] items-center">
+                          <Link
+                            href="/profile"
+                            className="flex gap-[19px] items-center"
+                          >
                             <BsHeart className="text-primary-pink text-[23px]" />
                             Mis Votos
                           </Link>
