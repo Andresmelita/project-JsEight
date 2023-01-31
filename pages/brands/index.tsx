@@ -45,17 +45,17 @@ export default function BrandsPage() {
           <div className="event__header-container w-[100vw] justify-center items-center content-between gap-0 flex flex-col-reverse md:flex-row max-w-[1040px]">
             <div className="flex gap-[10px] w-[100vw] h-max flex-wrap md:flex-nowrap pl-[20px] pr-[20px] md:pr-[0px] md:justify-start justify-center items-center md:pt-[0px] pt-[20px]">
               <div className="flex h-[46px] w-max">
-                <Link href="/Brands" className="">
+                <Link href="/brands" className="">
                   <Cathegory Cathegories={data[0]} />
                 </Link>
               </div>
               <div className="flex h-[46px] w-max">
-                <Link href="/Artists">
+                <Link href="/artists">
                   <Cathegory Cathegories={data[1]} />
                 </Link>
               </div>
               <div className="flex h-[46px] w-max">
-                <Link href="/Tournaments">
+                <Link href="/tournaments">
                   <Cathegory Cathegories={data[2]} />
                 </Link>
               </div>

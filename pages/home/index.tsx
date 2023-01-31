@@ -1,4 +1,3 @@
-import { kMaxLength } from 'buffer';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -26,7 +25,7 @@ const Home = () => {
             className="min-h-[482px] max-h-[488px] min-w-[1280px]"
             src="/images/topImageHome.png"
             alt="home-image"
-            width={kMaxLength}
+            width={1280}
             height={488}
           />
         </div>
