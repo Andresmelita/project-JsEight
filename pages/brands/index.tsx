@@ -1,89 +1,125 @@
-import Link from 'next/link'
-import React, { ReactElement } from 'react'
-import InputSearch from '../../components/InputSearch'
-import Layout from '../../components/Layout'
-import NestedLayout from '../../components/NestedLayout'
-import Slider from '../../components/Slider'
-import Suggestions from '../../components/Suggestions'
+import Link from 'next/link';
+import { ReactElement, useEffect, useState } from 'react';
+import Cathegory from '../../components/Buttons/Cathegory';
+import InputSearch from '../../components/InputSearch';
+import Layout from '../../components/Layout';
+import NestedLayout from '../../components/NestedLayout';
+import Slider from '../../components/Slider';
+import Suggestions from '../../components/Suggestions';
 
+export default function BrandsPage() {
+  const [data, setData] = useState(['']);
 
-export default function brandsPage(){
+  useEffect(() => {
+    Cathegories();
+  }, []);
+
+  const Cathegories = () => {
+    setData(['Marcas y Tiendas', 'Artistas y conciertos', 'Torneos']);
+  };
   return (
     <div className="topic__page">
-      <div className="topic__header p-4 flex flex-col gap-4 justify-center bg-[url('/images/brandsHeader.png')] bg-cover bg-bottom w-[100%] max-h-[204px] h-[204px] md:pl-[10%] md:pr-[10%] lg:pl-[15%] lg:pr-[15%] md:pt-1% md:pb-1%">
-        <div className="header__links">
-          <span className='h500-normal-16px text-[#fff]'><Link href="/">Home </Link> / Brands</span>
-        </div>
-        <div className="header__info flex flex-col gap-2">
-          <div className="header__tittle">
-            <h1 className='h900-normal--48px text-[#F3F243] '>Marcas y Tiendas</h1>
+      <div className="topic__header flex flex-col gap-4 justify-center bg-[url('/images/brandsHeader.png')] bg-cover bg-bottom w-[100%] max-h-[204px] h-[204px] md:pr-[0px] lg:pl-[0px] lg:pr-[0px] md:pt-1% md:pb-1% items-center">
+        <div className="w-[100vw] max-w-[1060px] pl-[20px] pr-[20px] flex justify-start flex-col">
+          <div className="header__links ">
+            <span className="h500-normal-16px text-[#fff]">
+              <Link href="/">Home </Link> / Brands
+            </span>
           </div>
-          <div className="header__text">
-            <p className='h500-normal-16px text-[#fff]'>Descubre las marcas y tiendas que la gente quiere cerca</p>
-          </div>
-        </div>
-        
-      </div>
-      <div className="topic__body  md:pl-[10%] md:pr-[10%] lg:pr-[15%] lg:pl-[15%]">
-        <div className="event__header flex pt-5 pb-5">
-          <div className="event__header-container w-[100%] flex flex-col-reverse md:justify-between lg:flex-row justify-center items-center">
-            <div className="event__header-links flex flex-wrap md:flex-nowrap justify-center items-center md:w-[100%] gap-2 w-[100%]">
-              <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-3 rounded-[23px] min-w-[128] w-fit h-[45px] flex justify-center items-center' href="/brands">Brands and Stores</Link>
-              <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-3 rounded-[23px] min-w-[147] w-fit h-[45px] flex justify-center items-center' href="/artists">Artists and Concerts</Link>
-              <Link className='h500-normal-13px whitespace-pre text-[#A7A6A7] border border-[#A7A6A7] p-3 rounded-[23px] min-w-[80] w-fit h-[45px] flex justify-center items-center' href="/tournaments">Tournaments </Link>
+          <div className="header__info flex flex-col gap-2">
+            <div className="header__tittle">
+              <h1 className="h900-normal--48px text-[#F3F243] ">
+                Marcas y Tiendas
+              </h1>
             </div>
-            <div className="flex justify-center items-center p-[20px] w-[100%]">
-              <div className="w-[500px] flex justify-center rounded-[10px] md:max-w-[317px]">
-                <InputSearch />
+            <div className="header__text">
+              <p className="h500-normal-16px text-[#fff]">
+                Descubre las marcas y tiendas que la gente quiere cerca
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="topic__body md:pl-[10%] md:pr-[10%] lg:pr-[15%] lg:pl-[15%] flex flex-col justify-center items-center">
+        <div className="event__header justify-center items-center flex pt-[40px] pb-[40px] w-[100vw] md:pl-[10%] md:pr-[10%] lg:pr-[15%] lg:pl-[15%] flex-col ">
+          <div className="event__header-container w-[100vw] justify-center items-center content-between gap-0 flex flex-col-reverse md:flex-row max-w-[1040px]">
+            <div className="flex gap-[10px] w-[100vw] h-max flex-wrap md:flex-nowrap pl-[20px] pr-[20px] md:pr-[0px] md:justify-start justify-center items-center md:pt-[0px] pt-[20px]">
+              <div className="flex h-[46px] w-max">
+                <Link href="/Brands" className="">
+                  <Cathegory Cathegories={data[0]} />
+                </Link>
+              </div>
+              <div className="flex h-[46px] w-max">
+                <Link href="/Artists">
+                  <Cathegory Cathegories={data[1]} />
+                </Link>
+              </div>
+              <div className="flex h-[46px] w-max">
+                <Link href="/Tournaments">
+                  <Cathegory Cathegories={data[2]} />
+                </Link>
+              </div>
+            </div>
+            <div className="flex w-[100%] md:justify-end justify-center items-center">
+              <div className="flex xl:max-w-[410px] md:max-w-[380px] max-w-[410px] h-max">
+                <div className="flex w-[100vw] pl-[20px] pr-[20px]">
+                  <InputSearch />
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="recents p-4 md:p-0 flex flex-col gap-3">
-          <div className="recents__tittle h500-normal-24px text-[#1A1E2E]">
-            <h3 className=''>Populares en Querétaro</h3>
+        <div className="recents flex flex-col justify-center items-center w-[100vw] pl-[21px]">
+          <div className="recents__title flex flex-col pt-[30px] pb-[35px] lg:ml-[00px] max-w-[1010px] w-[100%]">
+            <h1 className="h500-normal-24px text-primary-blackLight">
+              Populares en Querétaro
+            </h1>
+            <h3 className="recents__info h400-medium-15px text-primary-grayDark">
+              Lo que las personas piden más
+            </h3>
           </div>
-          <div className="recents__info h400-medium-15px text-[#6E6A6C]">
-            <p>Lo que las personas piden más</p>
-          </div>
-          <div className="flex justify-center items-center w-100%">
+          <div className="flex justify-center items-start">
             <Slider />
           </div>
         </div>
-        <div className="recents p-4 md:p-0 flex flex-col gap-3">
-          <div className="recents__tittle h500-normal-24px text-[#1A1E2E]">
-            <h3 className=''>Sugerencias para ti</h3>
+        <div className="recents flex flex-col justify-center items-center w-[100vw] pl-[21px]">
+          <div className="recents__title flex flex-col pt-[50px] pb-[35px] lg:ml-[00px] max-w-[1010px] w-[100%]">
+            <h1 className="h500-normal-24px text-primary-blackLight">
+              Sugerencias para ti
+            </h1>
+            <h3 className="recents__info h400-medium-15px text-primary-grayDark">
+              Publicaciones en las que podrías colaborar
+            </h3>
           </div>
-          <div className="recents__info h400-medium-15px text-[#6E6A6C]">
-            <p>Publicaciones que podrías colaborar</p>
-          </div>
-          <div className="flex justify-center items-center w-100%">
+          <div className="flex justify-center items-start">
             <Slider />
           </div>
         </div>
-        <div className="flex p-[10px] mt-14 mb-14 w-[100%] flex-col justify-center bg-primary-grayLighter max-w-[1010px] max-h-[250px]">
+        <div className="flex p-[10px] mt-14 mb-14 flex-col justify-center bg-primary-grayLighter">
           <Suggestions />
         </div>
-        <div className="recents p-4 md:p-0 flex flex-col gap-3">
-          <div className="recents__tittle h500-normal-24px text-[#1A1E2E]">
-            <h3 className=''>Recientes</h3>
+        <div className="recents flex flex-col justify-center items-center w-[100vw] pl-[21px]">
+          <div className="recents__title flex flex-col pt-[50px] pb-[35px] lg:ml-[00px] max-w-[1010px] w-[100%]">
+            <h1 className="h500-normal-24px text-primary-blackLight">
+              Recientes
+            </h1>
+            <h3 className="recents__info h400-medium-15px text-primary-grayDark">
+              Las personas últimamente están hablando de esto
+            </h3>
           </div>
-          <div className="recents__info h400-medium-15px text-[#6E6A6C]">
-            <p>Las personas últimanete están hablando de esto</p>
-          </div>
-          <div className="flex justify-center items-center w-100%">
+          <div className="flex justify-center items-start">
             <Slider />
           </div>
         </div>
       </div>
     </div>
-  )  
+  );
 }
 
-brandsPage.getLayout = function (page: ReactElement) {
+BrandsPage.getLayout = function (page: ReactElement) {
   return (
     <Layout>
       <NestedLayout>{page}</NestedLayout>
     </Layout>
-  )
-}
+  );
+};
