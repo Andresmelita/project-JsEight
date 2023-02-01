@@ -61,7 +61,7 @@ export default function SliderNew() {
         slidesPerView={3}
         hashNavigation={true}
         loop={true}
-        spaceBetween={10}
+        spaceBetween={2}
         pagination={{
           clickable: true,
         }}

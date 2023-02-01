@@ -54,7 +54,7 @@ const Home = () => {
       </div>
       <div className="flex flex-col justify-center items-center w-[100vw] pl-[21px]">
         <div className="flex flex-col pt-[77px] pb-[10px] lg:ml-[00px] max-w-[1010px] w-[100%]">
-          <h1 className="h500-normal-24px text-primary-blackLight">
+          <h1 className="h500-normal-24px text-primary-blackLight pb-[10px]">
             Populares en Querétaro
           </h1>
           <h3 className="h400-normal-16px text-primary-grayDark">
@@ -67,7 +67,7 @@ const Home = () => {
       </div>
       <div className="flex flex-col justify-center items-center w-[100vw] pl-[21px]">
         <div className="flex flex-col pt-[77px] pb-[10px] lg:ml-[00px] max-w-[1010px] w-[100%]">
-          <h1 className="h500-normal-24px text-primary-blackLight">
+          <h1 className="h500-normal-24px text-primary-blackLight pb-[10px]">
             Sugerencias para ti
           </h1>
           <h3 className="h400-normal-16px text-primary-grayDark">
@@ -84,7 +84,7 @@ const Home = () => {
 
       <div className="flex flex-col justify-center items-center w-[100vw] pl-[21px]">
         <div className="flex flex-col pt-[77px] pb-[10px] ml-[20px] lg:ml-[00px] max-w-[1010px] w-[100%]">
-          <h1 className="h500-normal-24px text-primary-blackLight">
+          <h1 className="h500-normal-24px text-primary-blackLight pb-[10px]">
             Recientes
           </h1>
           <h3 className="h400-normal-16px text-primary-grayDark">

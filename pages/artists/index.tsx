@@ -4,7 +4,7 @@ import Cathegory from '../../components/Buttons/Cathegory';
 import InputSearch from '../../components/InputSearch';
 import Layout from '../../components/Layout';
 import NestedLayout from '../../components/NestedLayout';
-import Slider from '../../components/Slider';
+import SliderNew from '../../components/SliderNew';
 import Suggestions from '../../components/Suggestions';
 
 export default function ArtistsPage() {
@@ -79,7 +79,7 @@ export default function ArtistsPage() {
             </h3>
           </div>
           <div className="flex justify-center items-start">
-            <Slider />
+            <SliderNew />
           </div>
         </div>
         <div className="recents flex flex-col justify-center items-center w-[100vw] pl-[21px]">
@@ -92,7 +92,7 @@ export default function ArtistsPage() {
             </h3>
           </div>
           <div className="flex justify-center items-start">
-            <Slider />
+            <SliderNew />
           </div>
         </div>
         <div className="flex p-[10px] mt-14 mb-14 flex-col justify-center bg-primary-grayLighter">
@@ -107,8 +107,8 @@ export default function ArtistsPage() {
               Las personas últimamente están hablando de esto
             </h3>
           </div>
-          <div className="flex justify-center items-start">
-            <Slider />
+          <div className="flex justify-center items-start pb-[95px]">
+            <SliderNew />
           </div>
         </div>
       </div>

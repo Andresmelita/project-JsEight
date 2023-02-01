@@ -20,7 +20,7 @@ const EventCardGeneral = ({
   link,
 }: Props) => {
   return (
-    <div className="EventCard rounded-3xl relative z-10 w-[320px] m-[10px] h-[474px] shadow-card-box">
+    <div className="EventCard bg-white rounded-3xl relative z-10 w-[320px] m-[10px] h-[474px] shadow-card-box">
       <div className="Like absolute bottom-52 right-[20px]">
         <Like />
       </div>

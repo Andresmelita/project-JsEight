@@ -82,7 +82,7 @@ const AllComponents = () => {
       <div>
         <h1 className="h500-normal-24px p-[40px] ml-[100px]">Searcher:</h1>
         <div className="flex justify-center items-center p-[20px]">
-          <div className="w-[500px] bg-slate-400 flex justify-center rounded-[10px]">
+          <div className="w-[500px] flex justify-center rounded-[10px]">
             <InputSearch />
           </div>
         </div>
