@@ -79,7 +79,7 @@ export default function EventId() {
             </div>
           </div>
           <div className="header__image__container md:row-start-1 md:row-end-4 max-h-[500px]">
-            <div className="HeaderImg min-h-[40vh] sm:h-[60vh] max-w[500px] md:min-h-[100%] md:w-[60vh] xl:w-[75vh] md:col-start-2 md:col-end-5 bg-[url('https://images2.imgbox.com/9e/e4/oBETMc3A_o.png')] bg-cover bg-center w-[100%]"></div>
+            <div className="HeaderImg min-h-[40vh] sm:h-[60vh] max-w[500px] md:min-h-[100%] md:w-[44vw] md:col-start-2 md:col-end-5 bg-[url('https://images2.imgbox.com/9e/e4/oBETMc3A_o.png')] bg-cover bg-center w-[100%]"></div>
           </div>
           <div className="vote__button flex justify-end items-end pt-[30px] md:pt-[0px]">
             <button className="w-full bg-[#1B4DB1] h-[46px] rounded-full text-[#fff] l600-normal-16px">
