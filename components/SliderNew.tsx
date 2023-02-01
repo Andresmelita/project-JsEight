@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -8,67 +8,22 @@ import 'swiper/swiper-bundle.css';
 
 // import required modules
 import { Navigation } from 'swiper';
+import { eventos } from '../lib/data/eventos.mock';
 import LeftButton from './Buttons/LeftButton';
 import RightButton from './Buttons/RightButton';
 import EventCard from './Cards/EventCard';
 import EventCardFive from './Cards/EventCardFive';
 import EventCardFour from './Cards/EventCardFour';
+import EventCardGeneral from './Cards/EventCardGeneral';
 import EventCardThree from './Cards/EventCardThree';
 import EventCardTwo from './Cards/EventCardTwo';
 
 export default function SliderNew() {
-  const [info, setInfo] = useState([{}]);
+  // const [info, setInfo] = useState([{}]);
 
-  useEffect(() => {
-    Information();
-  }, []);
-
-  const Information = () => {
-    setInfo([
-      {
-        cover: 'https://images2.imgbox.com/59/e9/XjEAZTU9_o.png',
-        title: 'Concierto de Lady Gaga',
-        description: 'El concierto con la temática de Lady Gaga en Las Vegas',
-        link: 'ladygaga.com',
-        votes: "90'800'756",
-        like: true,
-      },
-      {
-        cover: 'https://images2.imgbox.com/49/62/pszCAGzR_o.png',
-        title: 'Concierto de BTS',
-        description: 'Grupo musical coreano.',
-        link: 'bts.com',
-        votes: "89'100'756",
-        like: true,
-      },
-      {
-        cover: 'https://images2.imgbox.com/2c/d7/nfqWmOvu_o.png',
-        title: 'Tienda de ropa femenina ZARA',
-        description: 'Tienda de ropa.',
-        link: 'zara.com',
-        votes: "99'100'756",
-        like: true,
-      },
-      {
-        cover: 'https://thumbs2.imgbox.com/47/47/dvCfyApV_t.png',
-        title: 'Hotel Selina',
-        description:
-          'Hotel que te permite hospedarte, trabajar, comer y vivir experiencias auténticas en todo el mundo.',
-        link: 'selina.com',
-        votes: "88'100'756",
-        like: true,
-      },
-      {
-        cover: 'https://images2.imgbox.com/75/7e/oqt5nojY_o.png',
-        title: 'Marca Ecoalf',
-        description:
-          'Marca española de prendas y accesorios, elaborando como materia prima, diversos tipos de desechos que se arrojan al mar..',
-        link: 'ecoalf.com',
-        votes: "70'100'756",
-        like: true,
-      },
-    ]);
-  };
+  // useEffect(() => {
+  //   Information();
+  // }, []);
 
   const componentArray = [
     <EventCard key={0} />,
@@ -113,7 +68,7 @@ export default function SliderNew() {
         modules={[Navigation]}
         className="mySwiper swiper flex flex-row"
       >
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <EventCard />
         </SwiperSlide>
         <SwiperSlide>
@@ -127,14 +82,22 @@ export default function SliderNew() {
         </SwiperSlide>
         <SwiperSlide>
           <EventCardFive />
-        </SwiperSlide>
-        {/* {componentArray.map((card, index) => {
+        </SwiperSlide> */}
+
+        {eventos.map((card, index) => {
           return (
             <SwiperSlide className="swiper-slide" key={index}>
-              <EventCardGeneral Information={info[index]} />
+              <EventCardGeneral
+                cover={card.cover}
+                description={card.description}
+                link={card.link}
+                votes={card.votes}
+                title={card.title}
+                like={card.like}
+              />
             </SwiperSlide>
           );
-        })} */}
+        })}
       </Swiper>
       <div
         ref={nextRef}
