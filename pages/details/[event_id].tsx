@@ -20,9 +20,9 @@ export default function EventId() {
   };
   return (
     <div className="event__page">
-      <div className="flex justify-center event__header shadow-header">
-        <div className="event__header justify-center items-center flex pt-[30px] pb-[30px] w-[100vw] md:pl-[10%] md:pr-[10%] flex-col ">
-          <div className="event__header-container w-[100vw] justify-center items-center content-between gap-0 flex flex-col-reverse md:flex-row max-w-[1040px]">
+      <div className="flex justify-center event__header shadow-header w-[100vw]">
+        <div className="event__header justify-center items-center flex pt-[30px] pb-[30px] w-[100vw] md:pl-[10%] md:pr-[10%] flex-col content-center">
+          <div className="event__header-container w-[100vw] justify-center items-center content-between gap-0 flex flex-col-reverse md:flex-row max-w-[1000px]">
             <div className="flex gap-[10px] w-[100vw] h-max flex-wrap md:flex-nowrap pl-[20px] pr-[20px] md:pr-[0px] md:justify-start justify-center items-center pt-[0px]">
               <div className="md:flex h-[46px] w-max hidden">
                 <Link href="/brands" className="">
@@ -41,8 +41,8 @@ export default function EventId() {
               </div>
             </div>
             <div className="flex w-[100%] md:justify-end justify-center items-center">
-              <div className="flex xl:max-w-[410px] md:max-w-[380px] max-w-[410px] h-max">
-                <div className="flex w-[100vw] pl-[20px] pr-[20px]">
+              <div className="flex xl:max-w-[410px] md:max-w-[400px] max-w-[410px] h-max">
+                <div className="flex w-[100vw] pl-[20px] pr-[10px]">
                   <InputSearch />
                 </div>
               </div>
@@ -50,22 +50,22 @@ export default function EventId() {
           </div>
         </div>
       </div>
-      <div className="event__details flex-col justify-center items-center flex md:pt-[6%] md:pb-[6%]">
-        <div className="pt-[58px] max-w-[1000px] w-[100vw] details  pl-[20px] pr-[20px] lg:pl-[0px] lg:pr-[0px] md:pt-0 md:grid md:col-span-5 gap-4 h500-normal-16px">
-          <div className="details-info md:col-start-1 md:col-end-2  md:row-start-1 md:row-end-3 md:gap-4 pr-[10px]">
+      <div className="event__details flex-col justify-center items-center flex md:pb-[100px] pb-[94px]">
+        <div className="mt-[58px] md:mt-[100px] md:max-h-[381px] max-w-[960px] lg:max-w-[1000px] w-[100vw] details  pl-[20px] pr-[20px] lg:pr-[0px] sm:grid sm:col-span-5 gap-[22px] h500-normal-16px">
+          <div className=" flex flex-col w-[100vw] pr-[40px] sm:pr-[0px] min-w-[100px] md:max-w-[390px] sm:max-w-[380px] min-h-[240px] sm:min-h-[288px] details-info sm:col-start-1 sm:col-end-2 max-h sm:row-start-1 sm:row-end-3">
             <p className="pb-[6px] pl-0">Artista / Pop / Rock</p>
             <h2 className="h900-normal--48px pb-[10px]">
               Concierto de Lady Gaga
             </h2>
-            <div className="content__description pt-4 h400-medium-15px text-[#6E6A6C]">
+            <div className="content__description pt-4 h400-medium-15px text-[#6E6A6C] mb-[30px] lg:mb-[0px] lg:pr-[10px]">
               <p>
                 El concierto con la temática de Lady gaga en Las Vegas. El
                 concierto con la temática de Lady gaga en Las Vegas.El concierto
                 con la temática.
               </p>
             </div>
-            <div className="gap-[16px] flex flex-col mt-[30px] mb-[25px] md:mt-[120px] md:mb-[0px]">
-              <div className="content__page h500-medium-14px text-[#1B4DB1]">
+            <div className="flex flex-col mt-[0px] lg:mt-[50px]">
+              <div className="content__page h500-medium-14px text-[#1B4DB1] pb-[16px]">
                 <a href="">ladygaga.com</a>
               </div>
               <div className="content__votes pt-4 flex justify-left items-end gap-1 h-4">
@@ -78,16 +78,16 @@ export default function EventId() {
               </div>
             </div>
           </div>
-          <div className="header__image__container md:row-start-1 md:row-end-4 max-h-[500px]">
-            <div className="HeaderImg min-h-[40vh] sm:h-[60vh] max-w[500px] md:min-h-[100%] md:w-[44vw] md:col-start-2 md:col-end-5 bg-[url('https://images2.imgbox.com/9e/e4/oBETMc3A_o.png')] bg-cover bg-center w-[100%]"></div>
+          <div className="header__image__container pt-[25px] sm:pt-[0px] flex justify-center sm:row-start-1 sm:row-end-4 lg:pr-[12px]">
+            <div className="HeaderImg h-[100%] w-[100%] sm:w-[100vw] flex min-h-[252px] bg-cover max-h-[300px] min-w-[300px] sm:max-w-[539px] sm:max-h-[381px] lg:max-h-[381px] sm:col-start-2 sm:col-end-5 bg-[url('https://images2.imgbox.com/9e/e4/oBETMc3A_o.png')]"></div>
           </div>
-          <div className="vote__button flex justify-end items-end pt-[30px] md:pt-[0px]">
-            <button className="w-full bg-[#1B4DB1] h-[46px] rounded-full text-[#fff] l600-normal-16px">
+          <div className="vote__button flex justify-end pt-[30px] md:pt-[0px] sm:pt-[20px] w-[100vw] sm:max-w-[390px] pr-[40px] sm:pr-[0px]">
+            <button className="bg-[#1B4DB1] h-[46px] w-[100%] rounded-full text-[#fff] l600-normal-16px">
               Vote
             </button>
           </div>
         </div>
-        <div className="mt-[70px] flex p-[10px] w-[100vw] flex-col justify-center bg-primary-grayLighter max-w-[1010px] h-max">
+        <div className="mt-[80px] sm:mt-[70px] flex p-[10px] w-[100vw] flex-col justify-center bg-primary-grayLighter max-w-[970px] h-max">
           <Suggestions />
         </div>
 
@@ -100,7 +100,7 @@ export default function EventId() {
               Las personas últimamente están hablando de esto
             </h3>
           </div>
-          <div className="flex justify-start w-[100vw] items-center lg:justify-center pb-[40px]">
+          <div className="flex justify-start w-[100vw] items-center lg:justify-center pb-[40px] pr-[10px] pl-[10px]">
             <SliderNew />
           </div>
         </div>
