@@ -105,7 +105,7 @@ const Header = () => {
                             className="flex gap-[19px] items-center "
                           >
                             <IoAddSharp className=" justify-content text-primary-blue flex text-[23px]" />
-                            Crear publicación
+                            Publicación
                           </Link>
                           <Link
                             href="/profile"
@@ -114,10 +114,13 @@ const Header = () => {
                             <BsHeart className="text-primary-pink text-[23px]" />
                             Mis Votos
                           </Link>
-                          <a className="flex gap-[19px] items-center">
+                          <Link
+                            href="/setup"
+                            className="flex gap-[19px] items-center"
+                          >
                             <RiLayoutMasonryFill className="text-[23px]" />
                             Configuración
-                          </a>
+                          </Link>
                           <a
                             className="flex gap-[19px] items-center cursor-pointer"
                             onClick={clickLogOut}
