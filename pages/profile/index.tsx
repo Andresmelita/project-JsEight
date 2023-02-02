@@ -62,11 +62,11 @@ export default function ProfilePage() {
           <Cathegory Cathegories={data[1]} />
         </div>
       </div>
-      <div className="w-[100vw] bg-primary-blue justify-center items-center flex">
-        <div className="bg-primary-pink pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px] flex content-start align-middle items-center max-w-[1020px] h-max flex-wrap lg:justify-start justify-center sm:mb-[150px] mb-[70px] gap-[0px]">
+      <div className="w-[100vw] justify-center items-center flex">
+        <div className="pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px] flex content-start align-middle items-center max-w-[1020px] h-max flex-wrap lg:justify-start justify-center sm:mb-[150px] mb-[70px] gap-[0px]">
           {items.slice(0, visible).map((item, index) => {
             return (
-              <div key={index} className="h-max w-max bg-primary-yellow">
+              <div key={index} className="h-max w-max">
                 {item}
               </div>
             );
