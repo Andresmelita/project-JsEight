@@ -54,7 +54,7 @@ export default function EventId() {
         <div className="mt-[58px] md:mt-[100px] md:max-h-[381px] max-w-[960px] lg:max-w-[1000px] w-[100vw] details  pl-[20px] pr-[20px] lg:pr-[0px] sm:grid sm:col-span-5 gap-[22px] h500-normal-16px">
           <div className=" flex flex-col w-[100vw] pr-[40px] sm:pr-[0px] min-w-[100px] md:max-w-[390px] sm:max-w-[380px] min-h-[240px] sm:min-h-[288px] details-info sm:col-start-1 sm:col-end-2 max-h sm:row-start-1 sm:row-end-3">
             <p className="pb-[6px] pl-0">Artista / Pop / Rock</p>
-            <h2 className="h900-normal--48px pb-[10px]">
+            <h2 className="h900-normal--48px pb-[10px] text-black">
               Concierto de Lady Gaga
             </h2>
             <div className="content__description pt-4 h400-medium-15px text-[#6E6A6C] mb-[30px] lg:mb-[0px] lg:pr-[10px]">

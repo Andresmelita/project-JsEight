@@ -53,6 +53,7 @@ const AllComponents = () => {
             return (
               <div key={index} className="h-max w-max">
                 <EventCardGeneral
+                  id={card.id}
                   cover={card.cover}
                   description={card.description}
                   link={card.link}
