@@ -1,30 +1,35 @@
 import { useFormik } from 'formik';
+import Cookie from 'js-cookie';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import * as yup from 'yup';
+import { login } from '../../lib/services/auth.services';
 
 const Login = () => {
   const [clickLog, setClickLog] = useState(false);
   const handleClickLog = () => setClickLog(!clickLog);
 
-  const login = () => {
-    setClickLog(true);
-  };
+  const log = () => {};
 
   const router = useRouter();
-
-  const linkRoute = () => {
-    router.push('/');
-  };
 
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
-    onSubmit: () => {
-      linkRoute();
+    onSubmit: (data) => {
+      console.log(data);
+      login(data)
+        .then((response) => {
+          Cookie.set('token', response.data.token);
+          router.push('/profile');
+        })
+        .catch((error) => {
+          console.log(error);
+          alert('Datos incorrectos');
+        });
     },
     validationSchema: yup.object({
       email: yup
@@ -117,7 +122,7 @@ const Login = () => {
                       </div>
                     )}
                   </div>
-                  <div className="form__button" onClick={login}>
+                  <div className="form__button" onClick={log}>
                     <button
                       type="submit"
                       className="w-full p-4 mt-5 bg-[#1B4DB1] rounded text-[#fff] l600-normal-16px"

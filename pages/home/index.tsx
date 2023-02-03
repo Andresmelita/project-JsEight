@@ -5,16 +5,20 @@ import { default as Cathegory } from '../../components/Buttons/Cathegory';
 import InputSearch from '../../components/InputSearch';
 import SliderNew from '../../components/SliderNew';
 import Suggestions from '../../components/Suggestions';
+import { usePublications } from '../../lib/services/publication.services';
 
 const Home = () => {
-  const [data, setData] = useState(['']);
+  const { data, error, isLoading } = usePublications();
+  console.log(data);
+
+  const [dataType, setDataType] = useState(['']);
 
   useEffect(() => {
     Cathegories();
   }, []);
 
   const Cathegories = () => {
-    setData(['Marcas y Tiendas', 'Artistas y conciertos', 'Torneos']);
+    setDataType(['Marcas y Tiendas', 'Artistas y conciertos', 'Torneos']);
   };
 
   return (
@@ -36,17 +40,17 @@ const Home = () => {
           <div className="flex gap-[7px] justify-center w-[100vw] max-w-[465px] h-max pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px]">
             <div className="flex h-[30px] w-max">
               <Link href="/brands">
-                <Cathegory Cathegories={data[0]} />
+                <Cathegory Cathegories={dataType[0]} />
               </Link>
             </div>
             <div className="flex h-[30px] w-max">
               <Link href="/artists">
-                <Cathegory Cathegories={data[1]} />
+                <Cathegory Cathegories={dataType[1]} />
               </Link>
             </div>
             <div className="flex h-[30px] w-max">
               <Link href="/tournaments">
-                <Cathegory Cathegories={data[2]} />
+                <Cathegory Cathegories={dataType[2]} />
               </Link>
             </div>
           </div>
