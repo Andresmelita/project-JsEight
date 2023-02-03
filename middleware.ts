@@ -9,5 +9,5 @@ export async function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 export const config = {
-  matcher: ['/profile/:path*', '/create'],
+  matcher: ['/profile/:path*', '/create', 'setup'],
 };
