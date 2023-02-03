@@ -11,28 +11,9 @@ import { Navigation } from 'swiper';
 import { eventos } from '../lib/data/eventos.mock';
 import LeftButton from './Buttons/LeftButton';
 import RightButton from './Buttons/RightButton';
-import EventCard from './Cards/EventCard';
-import EventCardFive from './Cards/EventCardFive';
-import EventCardFour from './Cards/EventCardFour';
 import EventCardGeneral from './Cards/EventCardGeneral';
-import EventCardThree from './Cards/EventCardThree';
-import EventCardTwo from './Cards/EventCardTwo';
 
 export default function SliderNew() {
-  // const [info, setInfo] = useState([{}]);
-
-  // useEffect(() => {
-  //   Information();
-  // }, []);
-
-  const componentArray = [
-    <EventCard key={0} />,
-    <EventCardTwo key={1} />,
-    <EventCardThree key={2} />,
-    <EventCardFour key={3} />,
-    <EventCardFive key={4} />,
-  ];
-
   const prevRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLDivElement>(null);
 
@@ -41,23 +22,41 @@ export default function SliderNew() {
     setClickAppear(true);
   };
 
+  // interface slideButtonNext {
+  //   className?: string;
+  // }
+
+  // const SwiperButtonNext = ({ className }: slideButtonNext) => {
+  //   const swiper = useSwiper();
+  //   return (
+  //     <div
+  //       ref={nextRef}
+  //       onClick={() => swiper.slideNext()}
+  //       className="bg-primary-blue z-50 lg:flex hidden button-next pl-[20px] mt-[236px] slideButtonNext"
+  //     >
+  //       {className}
+  //     </div>
+  //   );
+  // };
+
   return (
-    <div className=" flex lg:w-[1160px] lg:ml-[-20px] ml-[0px] w-[990px] h-max justify-start relative mt-[20px]">
+    <div className="flex lg:w-[1160px] lg:ml-[-20px] ml-[0px] w-[990px] h-max justify-start relative mt-[20px]">
       <div
         ref={prevRef}
         className={
           clickAppear
             ? 'lg:flex hidden button-prev pr-[20px] mt-[236px] appear-effect appear'
-            : 'appear-effect lg:flex hidden button-prev pr-[20px] mt-[236px]'
+            : 'appear-effect lg:flex hidden pr-[20px] mt-[236px]'
         }
       >
         <LeftButton />
       </div>
       <Swiper
         navigation={{
-          prevEl: '.button-prev',
-          nextEl: '.button-next',
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
         }}
+        style={{ position: 'unset' }}
         slidesPerView={3}
         hashNavigation={true}
         loop={true}
@@ -68,41 +67,27 @@ export default function SliderNew() {
         modules={[Navigation]}
         className="mySwiper swiper flex flex-row"
       >
-        {/* <SwiperSlide>
-          <EventCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <EventCardTwo />
-        </SwiperSlide>
-        <SwiperSlide>
-          <EventCardThree />
-        </SwiperSlide>
-        <SwiperSlide>
-          <EventCardFour />
-        </SwiperSlide>
-        <SwiperSlide>
-          <EventCardFive />
-        </SwiperSlide> */}
-
-        {eventos.map((card, index) => {
-          return (
-            <SwiperSlide className="swiper-slide" key={index}>
-              <EventCardGeneral
-                cover={card.cover}
-                description={card.description}
-                link={card.link}
-                votes={card.votes}
-                title={card.title}
-                like={card.like}
-              />
-            </SwiperSlide>
-          );
-        })}
+        <div>
+          {eventos.map((card, index) => {
+            return (
+              <SwiperSlide className="swiper-slide" key={index}>
+                <EventCardGeneral
+                  cover={card.cover}
+                  description={card.description}
+                  link={card.link}
+                  votes={card.votes}
+                  title={card.title}
+                  like={card.like}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </div>
       </Swiper>
       <div
         ref={nextRef}
         onClick={handleClickAppear}
-        className="lg:flex hidden button-next pl-[20px] mt-[236px]"
+        className="lg:flex hidden pl-[20px] mt-[236px]"
       >
         <RightButton />
       </div>
