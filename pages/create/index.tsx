@@ -1,4 +1,3 @@
-import { kMaxLength } from 'buffer';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -58,37 +57,35 @@ const CreateEvent = () => {
 
   return (
     <div className="h-[100%] md:h-screen w-screen overflow-hidden flex md:flex-row flex-col">
-      <div className="flex bg-primary-blue w-[100%] md:min-w-[255px] md:max-w-[255px] max-h-[415px] md:max-h-[100%] justify-center items-center flex-col gap-8">
+      <div className="flex bg-primary-blue w-[100%] md:min-w-[255px] md:max-w-[255px] xl:min-w-[355px] xl:max-w-[355px] max-h-[415px] md:max-h-[100%] justify-center items-center flex-col gap-8">
         <div className="flex justify-center items-center flex-col md:gap-[22px] gap-[16px] pt-[50px] md:pb-[50px] pb-[30px] h-[100%]">
           <div
-            className="max-h-[123px] max-w-[137px] flex flex-col cursor-pointer"
+            className="xl:h-[180px] xl:w-[200px] h-[123px] w-[137px] flex flex-col cursor-pointer relative"
             onClick={linkRoute}
           >
             <Image
               src="/images/whiteLogo.svg"
               alt=""
-              width={kMaxLength}
-              height={kMaxLength}
-              className="flex items-center md:mt-[-150px] mt-[-20px]"
+              layout="fill"
+              className="flex items-center md:mt-[-126px] mt-[-20px]"
             />
             <Image
               src="/images/whiteSlogan.svg"
               alt=""
-              width={kMaxLength}
-              height={kMaxLength}
-              className="flex items-center mt-[-14px] md:pb-[80px]"
+              layout="fill"
+              className="flex items-center mt-[40px] md:mt-[-22px] xl:mt-[10px] md:pb-[80px]"
             />
           </div>
-          <div className="text-primary-yellow md:pl-[30px] pl-[15px] pr-[26px] pt-[20px] l500-normal-20px-23 justify-start items-start w-[100%]">
+          <div className="text-primary-yellow md:pl-[30px] pl-[15px] pr-[26px] pt-[0px] l500-normal-20px-23 xl:l500-normal-24px-23 justify-start items-start w-[100%]">
             <span className="">¡Bienvenido, creador!</span>
           </div>
-          <div className="text-white md:pl-[30px] pl-[15px]  pr-[30px] l400-normal-16px justify-start items-start w-[100%]">
+          <div className="text-white md:pl-[30px] pl-[15px] pr-[30px] l400-normal-16px xl:h400-normal-18px-22  justify-start items-start w-[100%]">
             <span>
               A continuación puedes completar la info de la marca, artista o
               torneo que quieres cerca.
             </span>
           </div>
-          <div className="text-white mb-[-230px] ml-[70px] md:flex hidden mt-[240px] h-[30px] w-[100%] l400-normal-16px">
+          <div className="text-white mb-[-230px] ml-[70px] md:flex hidden mt-[240px] h-[30px] w-[100%] l400-normal-16px xl:h400-normal-18px-22 ">
             <span className="items-end justify-end flex cursor-pointer">
               Ayuda
             </span>
@@ -102,7 +99,7 @@ const CreateEvent = () => {
             className={
               clickNext
                 ? 'hidden'
-                : 'cursor-pointer l600-normal-20px text-primary-blue'
+                : 'cursor-pointer l600-normal-20px xl:h500-normal-24px text-primary-blue'
             }
           >
             <p onClick={buttonBack}>Back</p>
@@ -110,7 +107,7 @@ const CreateEvent = () => {
           <span
             className={
               clickNext
-                ? 'cursor-pointer l600-normal-20px text-primary-blue'
+                ? 'cursor-pointer l600-normal-20px xl:h500-normal-24px text-primary-blue'
                 : 'hidden'
             }
           >
@@ -155,7 +152,9 @@ const CreateEvent = () => {
                 : 'flex flex-col justify-start items-start w-[100%] ml-[20px] mt-[-20px] md:mt-[0px]'
             }
           >
-            <span className="h500-normal-24px text-black">Publicación</span>
+            <span className="h500-normal-24px text-black mb-[10px]">
+              Publicación
+            </span>
             <span className="h400-normal-16px">Información básica</span>
           </div>
           <div
@@ -166,7 +165,7 @@ const CreateEvent = () => {
             }
           >
             <span className="h500-normal-24px text-black">Fotos</span>
-            <span className="h400-normal-16px">
+            <span className="h400-normal-16px pt-[10px]">
               Selecciona máximo tres fotos para crear una galería
             </span>
           </div>
@@ -179,7 +178,7 @@ const CreateEvent = () => {
           >
             <div className="form__title flex flex-col w-[100%] pl-[20px] pr-[20px]">
               <label
-                className="ml-[15px] pl-[8px] pr-[8px] mb-[-12px] bg-white w-max z-10"
+                className="ml-[15px] pl-[8px] pr-[8px] mb-[-12px] bg-white w-max z-10 "
                 htmlFor="tittle"
               >
                 Título de publicación
