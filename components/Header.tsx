@@ -91,19 +91,19 @@ const Header = () => {
                       clickMenu ? 'nav-menu active' : 'nav-menu hidden'
                     }
                   >
-                    <div className="bg-white absolute right-[20px] top-[91px] p-[8px] w-[250px] h-[328px] z-[200] shadow-hamburguer rounded-[25px]">
+                    <div className="bg-white absolute right-[20px] top-[91px] p-[8px] w-[250px] h-[328px] md:h-[218px] z-[200] shadow-hamburguer rounded-[25px]">
                       <div className="text-black h400-normal-18px m-[29px]">
                         <div className="flex flex-col gap-[25px] mb-[40px]">
                           <Link
                             href="/create"
-                            className="flex gap-[19px] items-center "
+                            className="flex gap-[19px] items-center md:hidden"
                           >
                             <IoAddSharp className=" justify-content text-primary-blue flex text-[23px]" />
                             Publicación
                           </Link>
                           <Link
                             href="/profile"
-                            className="flex gap-[19px] items-center"
+                            className="flex gap-[19px] items-center md:hidden"
                           >
                             <BsHeart className="text-primary-pink text-[23px]" />
                             Mis Votos
