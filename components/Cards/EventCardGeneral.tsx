@@ -4,6 +4,7 @@ import Like from '../Buttons/Like';
 import PersonIcon from '../PersonIcon';
 
 interface Props {
+  id: number;
   title: string;
   cover: string;
   description: string;
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const EventCardGeneral = ({
+  id,
   cover,
   title,
   description,

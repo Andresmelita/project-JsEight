@@ -55,6 +55,7 @@ export default function SliderNew() {
             return (
               <SwiperSlide className="swiper-slide" key={index}>
                 <EventCardGeneral
+                  id={card.id}
                   cover={card.cover}
                   description={card.description}
                   link={card.link}
