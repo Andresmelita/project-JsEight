@@ -3,12 +3,13 @@ import Cathegory from '../../components/Buttons/Cathegory';
 import Like from '../../components/Buttons/Like';
 import NextTwo from '../../components/Buttons/NextTwo';
 import RightButton from '../../components/Buttons/RightButton';
-import EventCard from '../../components/Cards/EventCard';
+import EventCardGeneral from '../../components/Cards/EventCardGeneral';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import InputSearch from '../../components/InputSearch';
 import PersonIcon from '../../components/PersonIcon';
 import SliderNew from '../../components/SliderNew';
+import { eventos } from '../../lib/data/eventos.mock';
 import CreateEvent from '../create';
 import Home from '../home';
 import Login from '../login';
@@ -26,37 +27,13 @@ const AllComponents = () => {
     setData(['Marcas y Tiendas']);
   };
 
-  const [info, setInfo] = useState([{}]);
-
-  useEffect(() => {
-    Information();
-  }, []);
-
-  const Information = () => {
-    setInfo([
-      {
-        cover: 'https://images2.imgbox.com/59/e9/XjEAZTU9_o.png',
-        title: 'Concierto de Lady Gaga',
-        description: 'El concierto con la temática de Lady Gaga en Las Vegas',
-        link: 'ladygaga.com',
-        votes: "90'800'756",
-        like: true,
-      },
-      {
-        cover: 'https://images2.imgbox.com/49/62/pszCAGzR_o.png',
-        title: 'Concierto de BTS',
-        description: 'Grupo musical coreano.',
-        link: 'bts.com',
-        votes: "89'100'756",
-        like: true,
-      },
-    ]);
-  };
   return (
     <div>
       <Header />
       <div>
-        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Buttons:</h1>
+        <h1 className="h500-normal-24px text-black p-[40px] ml-[100px]">
+          Buttons:
+        </h1>
         <div className="flex justify-center items-center gap-3">
           <RightButton />
           <NextTwo />
@@ -68,19 +45,38 @@ const AllComponents = () => {
         </div>
       </div>
       <div>
-        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Event Card:</h1>
+        <h1 className="h500-normal-24px p-[40px] ml-[100px] text-black">
+          Event Card:
+        </h1>
         <div className="flex justify-center items-center">
-          <EventCard />
+          {eventos.slice(1, 2).map((card, index) => {
+            return (
+              <div key={index} className="h-max w-max">
+                <EventCardGeneral
+                  cover={card.cover}
+                  description={card.description}
+                  link={card.link}
+                  votes={card.votes}
+                  title={card.title}
+                  like={card.like}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
       <div>
-        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Slider:</h1>
-        <div className="flex justify-center items-center">
+        <h1 className="h500-normal-24px p-[40px] ml-[100px] text-black">
+          Slider:
+        </h1>
+        <div className="flex justify-start md:justify-center items-center">
           <SliderNew />
         </div>
       </div>
       <div>
-        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Searcher:</h1>
+        <h1 className="h500-normal-24px p-[40px] ml-[100px] text-black">
+          Searcher:
+        </h1>
         <div className="flex justify-center items-center p-[20px]">
           <div className="w-[500px] flex justify-center rounded-[10px]">
             <InputSearch />
@@ -88,37 +84,49 @@ const AllComponents = () => {
         </div>
       </div>
       <div>
-        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Home Page:</h1>
+        <h1 className="h500-normal-24px p-[40px] ml-[100px] text-black">
+          Home Page:
+        </h1>
         <div className="flex justify-center items-center">
           <Home />
         </div>
       </div>
       <div>
-        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Login Page:</h1>
+        <h1 className="h500-normal-24px p-[40px] ml-[100px] text-black">
+          Login Page:
+        </h1>
         <div className="flex justify-center items-center">
           <Login />
         </div>
       </div>
       <div>
-        <h1 className="h500-normal-24px p-[40px] ml-[100px]">SignUp Page:</h1>
+        <h1 className="h500-normal-24px p-[40px] ml-[100px] text-black">
+          SignUp Page:
+        </h1>
         <div className="flex justify-center items-center">
           <SignUp />
         </div>
       </div>
       <div>
-        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Create Event:</h1>
+        <h1 className="h500-normal-24px p-[40px] ml-[100px] text-black">
+          Create Event:
+        </h1>
         <div className="flex justify-center items-center">
           <CreateEvent />
         </div>
       </div>
       <div>
-        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Profile Page:</h1>
+        <h1 className="h500-normal-24px p-[40px] ml-[100px] text-black">
+          Profile Page:
+        </h1>
         <div className="flex justify-center items-center">
           <ProfilePage />
         </div>
       </div>
       <div>
-        <h1 className="h500-normal-24px p-[40px] ml-[100px]">Footer:</h1>
+        <h1 className="h500-normal-24px p-[40px] ml-[100px] text-black">
+          Footer:
+        </h1>
         <div className="flex justify-center items-center">
           <Footer />
         </div>

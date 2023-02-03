@@ -22,23 +22,6 @@ export default function SliderNew() {
     setClickAppear(true);
   };
 
-  // interface slideButtonNext {
-  //   className?: string;
-  // }
-
-  // const SwiperButtonNext = ({ className }: slideButtonNext) => {
-  //   const swiper = useSwiper();
-  //   return (
-  //     <div
-  //       ref={nextRef}
-  //       onClick={() => swiper.slideNext()}
-  //       className="bg-primary-blue z-50 lg:flex hidden button-next pl-[20px] mt-[236px] slideButtonNext"
-  //     >
-  //       {className}
-  //     </div>
-  //   );
-  // };
-
   return (
     <div className="flex lg:w-[1160px] lg:ml-[-20px] ml-[0px] w-[990px] h-max justify-start relative mt-[20px]">
       <div

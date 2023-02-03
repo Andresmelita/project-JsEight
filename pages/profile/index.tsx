@@ -1,13 +1,10 @@
 import Image from 'next/image';
 import { ReactElement, useEffect, useState } from 'react';
 import Cathegory from '../../components/Buttons/Cathegory';
-import EventCard from '../../components/Cards/EventCard';
-import EventCardFive from '../../components/Cards/EventCardFive';
-import EventCardFour from '../../components/Cards/EventCardFour';
-import EventCardThree from '../../components/Cards/EventCardThree';
-import EventCardTwo from '../../components/Cards/EventCardTwo';
+import EventCardGeneral from '../../components/Cards/EventCardGeneral';
 import Layout from '../../components/Layout';
 import NestedLayout from '../../components/NestedLayout';
+import { eventos } from '../../lib/data/eventos.mock';
 
 export default function ProfilePage() {
   const [data, setData] = useState(['']);
@@ -20,25 +17,11 @@ export default function ProfilePage() {
     setData(['Mis votos', 'Mis publicaciones']);
   };
 
-  const [items, setItems] = useState([<></>]);
   const [visible, setVisible] = useState(3);
-
-  useEffect(() => {
-    setItems([
-      <EventCard key={0} />,
-      <EventCardTwo key={1} />,
-      <EventCardThree key={2} />,
-      <EventCardFour key={3} />,
-      <EventCardFive key={4} />,
-    ]);
-    setScreen(true);
-  }, []);
 
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 3);
   };
-
-  const [screen, setScreen] = useState(false);
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -62,10 +45,17 @@ export default function ProfilePage() {
       </div>
       <div className="w-[100vw] justify-center items-center flex">
         <div className="pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px] flex content-start align-middle items-center max-w-[1020px] h-max flex-wrap lg:justify-start justify-center sm:mb-[150px] mb-[70px] gap-[0px]">
-          {items.slice(0, visible).map((item, index) => {
+          {eventos.slice(0, visible).map((card, index) => {
             return (
               <div key={index} className="h-max w-max">
-                {item}
+                <EventCardGeneral
+                  cover={card.cover}
+                  description={card.description}
+                  link={card.link}
+                  votes={card.votes}
+                  title={card.title}
+                  like={card.like}
+                />
               </div>
             );
           })}
@@ -74,7 +64,7 @@ export default function ProfilePage() {
 
       <button
         onClick={showMoreItems}
-        className="bg-primary-blue rounded-full text-white h-[47px] w-[124px] l600-normal-16px flex sm:hidden justify-center items-center mb-[65px]"
+        className="bg-primary-blue rounded-full text-white h-[47px] w-[124px] l600-normal-16px flex justify-center items-center mb-[65px]"
       >
         Ver más
       </button>
