@@ -78,7 +78,7 @@ export default function BrandsPage() {
               Lo que las personas piden más
             </h3>
           </div>
-          <div className="flex justify-center items-start">
+          <div className="flex lg:justify-center justify-start w-[100vw] items-start">
             <SliderNew />
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function BrandsPage() {
               Publicaciones en las que podrías colaborar
             </h3>
           </div>
-          <div className="flex justify-center items-start">
+          <div className="flex lg:justify-center w-[100vw] justify-start items-start">
             <SliderNew />
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function BrandsPage() {
               Las personas últimamente están hablando de esto
             </h3>
           </div>
-          <div className="flex justify-center items-start pb-[95px]">
+          <div className="flex lg:justify-center justify-start w-[100vw] items-start pb-[95px]">
             <SliderNew />
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function BrandsPage() {
 
 BrandsPage.getLayout = function (page: ReactElement) {
   return (
-    <Layout>
+    <Layout title="Brands | Para Cuando?" description="Brands and Stores">
       <NestedLayout>{page}</NestedLayout>
     </Layout>
   );

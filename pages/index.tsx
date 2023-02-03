@@ -10,7 +10,7 @@ const Page: NextPageWithLayout = () => {
 
 Page.getLayout = function getLayout(page: ReactElement) {
   return (
-    <Layout>
+    <Layout title="Home | Para Cuando?" description="Home">
       <NestedLayout>{page}</NestedLayout>
     </Layout>
   );

@@ -20,6 +20,8 @@ const SetupPage = () => {
   });
   return (
     <div className="">
+      <title>Configuration | Para Cuando?</title>
+      <meta name="description" content="Página para crear un evento"></meta>
       <Header />
       <div className="flex flex-col justify-center items-center md:h-screen h-[100%]">
         <div className="flex bg-primary-blue h-[129px] md:min-h-[129px] justify-center items-center w-[100vw]">

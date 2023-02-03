@@ -78,7 +78,7 @@ export default function TournamentsPage() {
               Lo que las personas piden más
             </h3>
           </div>
-          <div className="flex justify-center items-start">
+          <div className="flex lg:justify-center items-start w-[100vw] justify-start">
             <SliderNew />
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function TournamentsPage() {
               Publicaciones en las que podrías colaborar
             </h3>
           </div>
-          <div className="flex justify-center items-start">
+          <div className="flex lg:justify-center items-start w-[100vw] justify-start">
             <SliderNew />
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function TournamentsPage() {
               Las personas últimamente están hablando de esto
             </h3>
           </div>
-          <div className="flex justify-center items-start pb-[95px]">
+          <div className="flex lg:justify-center items-start pb-[95px] w-[100vw] justify-start">
             <SliderNew />
           </div>
         </div>
@@ -118,7 +118,10 @@ export default function TournamentsPage() {
 
 TournamentsPage.getLayout = function (page: ReactElement) {
   return (
-    <Layout>
+    <Layout
+      title="Tournaments | Para Cuando?"
+      description="Tournaments and events"
+    >
       <NestedLayout>{page}</NestedLayout>
     </Layout>
   );

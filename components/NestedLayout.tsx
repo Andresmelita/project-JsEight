@@ -1,18 +1,20 @@
-import React from 'react'
 import { ReactNode } from 'react';
+import Footer from './Footer';
+import Header from './Header';
 
 interface Props {
-  children?: ReactNode
+  children?: ReactNode;
   // any props that come into the component
 }
 
 const NestedLayout = ({ children, ...props }: Props) => {
-
   return (
     <div>
+      <Header />
       {children}
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default NestedLayout
+export default NestedLayout;

@@ -75,7 +75,10 @@ export default function ProfilePage() {
 
 ProfilePage.getLayout = function (page: ReactElement) {
   return (
-    <Layout>
+    <Layout
+      title="My Profile | Para Cuando?"
+      description="Details of publications"
+    >
       <NestedLayout>{page}</NestedLayout>
     </Layout>
   );

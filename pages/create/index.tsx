@@ -57,6 +57,8 @@ const CreateEvent = () => {
 
   return (
     <div className="h-[100%] md:h-screen w-screen overflow-hidden flex md:flex-row flex-col">
+      <title>Create | Para Cuando?</title>
+      <meta name="description" content="Página para crear un evento"></meta>
       <div className="flex bg-primary-blue w-[100%] md:min-w-[255px] md:max-w-[255px] xl:min-w-[355px] xl:max-w-[355px] max-h-[415px] md:max-h-[100%] justify-center items-center flex-col gap-8">
         <div className="flex justify-center items-center flex-col md:gap-[22px] gap-[16px] pt-[50px] md:pb-[50px] pb-[30px] h-[100%]">
           <div

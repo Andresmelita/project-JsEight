@@ -1,20 +1,28 @@
 import { ReactNode } from 'react';
-import Footer from './Footer';
-import Header from './Header';
-import Navbar from './Navbar';
 
 interface Props {
   children?: ReactNode;
+  title: string;
+  description: string;
   // any props that come into the component
 }
 
-export default function Layout({ children, ...props }: Props) {
+export default function Layout({
+  children,
+  title,
+  description,
+  ...props
+}: Props) {
   return (
     <div className="Application">
-      <Header />
-      <Navbar />
+      <title>{title}</title>
+      <meta name="description" content={description}></meta>
       {children}
-      <Footer />
     </div>
   );
 }
+
+Layout.defaultProps = {
+  title: 'Para Cuando?',
+  description: 'Descripción del sitio',
+};

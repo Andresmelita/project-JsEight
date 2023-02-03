@@ -42,6 +42,8 @@ const Login = () => {
 
   return (
     <div className="login__page h-screen flex items-center">
+      <title>Login | Para Cuando?</title>
+      <meta name="description" content="Página para crear un evento"></meta>
       <div className="login__card flex flex-col md:flex-row xs:m-auto md:m-0 w-screen">
         <div className="login__image hidden bg-[url('/images/login_img.jpg')] bg-cover bg-center md:block w-1/2 h-screen overflow-hidden relative">
           <div className="letters__container flex justify-center align-center w-[100%] h-[100%] ">

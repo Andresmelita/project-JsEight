@@ -111,7 +111,10 @@ export default function EventId() {
 
 EventId.getLayout = function (page: ReactElement) {
   return (
-    <Layout>
+    <Layout
+      title="Details | Para Cuando?"
+      description="Details of publications"
+    >
       <NestedLayout>{page}</NestedLayout>
     </Layout>
   );
