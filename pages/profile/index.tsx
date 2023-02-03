@@ -1,4 +1,3 @@
-import { kMaxLength } from 'buffer';
 import Image from 'next/image';
 import { ReactElement, useEffect, useState } from 'react';
 import Cathegory from '../../components/Buttons/Cathegory';
@@ -44,12 +43,11 @@ export default function ProfilePage() {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="flex bg-primary-blue h-[129px] justify-center items-end w-[100vw]">
-        <div className="max-h-[117px] max-w-[117px] bg-transparent mb-[-60px] z-50">
+        <div className="max-h-[117px] max-w-[117px] h-[100vh] w-[100vw] bg-transparent mb-[-60px] z-50 relative">
           <Image
             src="/images/profileImage.png"
             alt=""
-            width={kMaxLength}
-            height={kMaxLength}
+            layout="fill"
             className="flex rounded-full"
           />
         </div>

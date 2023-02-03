@@ -1,4 +1,3 @@
-import { kMaxLength } from 'buffer';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -31,14 +30,9 @@ const Header = () => {
     <div className="bg-primary-black header-container">
       <div className="flex flex-row w-screen items-center">
         <div className="flex place-content-between items-center w-screen mr-[20px] ml-[20px] sm:mr-[52px] sm:ml-[46px]">
-          <div className="sm:w-[62px] sm:h-[30px] w-[50px] h-[30px]">
+          <div className="sm:w-[62px] sm:h-[30px] w-[50px] h-[30px] relative">
             <Link href="/">
-              <Image
-                src="/images/minilogo.svg"
-                width={kMaxLength}
-                height={kMaxLength}
-                alt="imageLogo"
-              />
+              <Image src="/images/minilogo.svg" layout="fill" alt="imageLogo" />
             </Link>
           </div>
 
