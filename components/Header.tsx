@@ -19,15 +19,15 @@ const Header = () => {
     router.push('/');
   };
 
+  const [LoginUser, setLoginUser] = useState(true);
+  const handleLoginUser = () => setLoginUser(!LoginUser);
+
   const clickLogOut = () => {
     setClickMenu(false);
     Cookies.remove('token');
     linkRouteToHome();
     setLoginUser(true);
   };
-
-  const [LoginUser, setLoginUser] = useState(true);
-  const handleLoginUser = () => setLoginUser(!LoginUser);
 
   useEffect(() => {
     const jwt = Cookies.get('token');
