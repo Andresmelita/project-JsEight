@@ -23,6 +23,7 @@ const Header = () => {
     setClickMenu(false);
     Cookies.remove('token');
     linkRouteToHome();
+    location.reload();
   };
 
   const [LoginUser, setLoginUser] = useState(true);
