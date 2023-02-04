@@ -5,8 +5,12 @@ import { useEffect, useState } from 'react';
 import { MdOutlineAdd } from 'react-icons/md';
 import * as yup from 'yup';
 import BlueButton from '../../components/Buttons/BlueButton';
+import { useCategories } from '../../lib/services/category.services';
+import { useTags } from '../../lib/services/tag.services';
 
 const CreateEvent = () => {
+  const { data: tags } = useTags();
+  const { data: categories } = useCategories();
   const [clickNext, setClickNext] = useState(false);
 
   const nextPage = () => {
@@ -35,19 +39,19 @@ const CreateEvent = () => {
 
   const formik = useFormik({
     initialValues: {
-      tittle: '',
-      type: '',
-      category: '',
-      recomend: '',
-      link: '',
+      title: '',
+      publication_type_id: '',
+      tags: '',
+      description: '',
+      urlShare: '',
     },
-    onSubmit: () => {
-      console.log('Enviado');
+    onSubmit: (values) => {
+      console.log(values);
     },
     validationSchema: yup.object({
-      tittle: yup.string().trim().required('Tittle is required'),
-      recomend: yup.string().trim().required('This field is required'),
-      link: yup.string().trim().required('This field is required'),
+      title: yup.string().trim().required('Tittle is required'),
+      description: yup.string().trim().required('This field is required'),
+      urlShare: yup.string().trim().required('This field is required'),
     }),
   });
 
@@ -181,88 +185,88 @@ const CreateEvent = () => {
             <div className="form__title flex flex-col w-[100%] pl-[20px] pr-[20px]">
               <label
                 className="ml-[15px] pl-[8px] pr-[8px] mb-[-12px] bg-white w-max z-10 "
-                htmlFor="tittle"
+                htmlFor="title"
               >
                 Título de publicación
               </label>
               <input
                 className="bg-transparent h-[50px] p-3.5 border-[1px] rounded-[11px] border-[#7D7D7D]"
-                name="tittle"
+                name="title"
                 type="text"
                 placeholder=""
-                value={formik.values.tittle}
+                value={formik.values.title}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
-              {formik.errors.tittle && (
-                <div className="text-danger">{formik.errors.tittle}</div>
+              {formik.errors.title && (
+                <div className="text-danger">{formik.errors.title}</div>
               )}
             </div>
             <div className="flex md:flex-row flex-col gap-[20px] w-[100%] pl-[20px] pr-[20px]">
               <div className="flex md:w-[50%] w-[100%]">
-                <label className="" htmlFor="type"></label>
+                <label className="" htmlFor="publication_type_id"></label>
                 <select
                   className="dropdown-menu bg-transparent h-[50px] w-[100%] border-[1px] rounded-[11px] border-[#7D7D7D] text-"
                   required
-                  name="type"
-                  value={formik.values.type}
+                  name="publication_type_id"
+                  value={formik.values.publication_type_id}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 >
                   <option value="" hidden>
                     Tipo
                   </option>
-                  <option value="1">Marcas y tiendas</option>
-                  <option value="2">Artistas y conciertos</option>
-                  <option value="3">Torneos</option>
+                  {categories?.map((category) => (
+                    <option value={category.id} key={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="flex md:w-[50%] w-[100%]">
-                <label className="" htmlFor="category"></label>
+                <label className="" htmlFor="tags"></label>
                 <select
                   required
                   className="dropdown-menu bg-transparent h-[50px] w-[100%] border-[1px] rounded-[11px] border-[#7D7D7D]"
-                  name="category"
-                  value={formik.values.category}
+                  name="tags"
+                  value={formik.values.tags}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 >
-                  <option value="">Categoría</option>
-                  <option value="1">Ropa y accesorios</option>
-                  <option value="2">Deportes</option>
-                  <option value="3">Conciertos</option>
-                  <option value="4">Meets & Greet</option>
-                  <option value="5">E-sport</option>
-                  <option value="6">Pop / Rock</option>
-                  <option value="7">Tecnología</option>
-                  <option value="8">Hogar / Decoración</option>
-                  <option value="9">Abastecimiento</option>
+                  <option value="" hidden>
+                    Tags
+                  </option>
+                  {tags?.map((tag) => (
+                    <option value={tag.id} key={tag.id}>
+                      {tag.name}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
             <div className="form__recommendation flex flex-col w-[100%] pl-[20px] pr-[20px]">
               <label
                 className="ml-[15px] pl-[8px] pr-[8px] mb-[-12px] bg-white w-max z-10"
-                htmlFor="recomend"
+                htmlFor="description"
               >
                 ¿Por qué lo recomiendas?
               </label>
               <textarea
                 className="bg-transparent h-[116px] p-3.5 border-[1px] rounded-[11px] border-[#7D7D7D]"
                 placeholder=""
-                name="recomend"
-                value={formik.values.recomend}
+                name="description"
+                value={formik.values.description}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
-              {formik.errors.recomend && (
-                <div className="text-danger">{formik.errors.recomend}</div>
+              {formik.errors.description && (
+                <div className="text-danger">{formik.errors.description}</div>
               )}
             </div>
             <div className="form__reference flex flex-col w-[100%] pl-[20px] pr-[20px]">
               <label
                 className="ml-[15px] pl-[8px] pr-[8px] mb-[-12px] bg-white w-max z-10"
-                htmlFor="link"
+                htmlFor="urlShare"
               >
                 Link de referencia
               </label>
@@ -270,13 +274,13 @@ const CreateEvent = () => {
                 className="bg-transparent h-[50px] p-3.5 border-[1px] rounded-[11px] border-[#7D7D7D]"
                 type="text"
                 placeholder=""
-                name="link"
-                value={formik.values.link}
+                name="urlShare"
+                value={formik.values.urlShare}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
-              {formik.errors.link && (
-                <div className="text-danger">{formik.errors.link}</div>
+              {formik.errors.urlShare && (
+                <div className="text-danger">{formik.errors.urlShare}</div>
               )}
             </div>
           </div>
@@ -339,17 +343,16 @@ const CreateEvent = () => {
                 : 'mb-[50px] md:mb-[0px] flex justify-center items-center'
             }
           >
-            <BlueButton Functionality={data[0]} />
+            <BlueButton type="button" functionality={data[0]} />
           </div>
           <div
-            onClick={linkRouteToProfile}
             className={
               clickNext
                 ? 'mb-[50px] md:mb-[0px] flex justify-center items-center'
                 : 'hidden'
             }
           >
-            <BlueButton Functionality={data[1]} />
+            <BlueButton type="submit" functionality={data[1]} />
           </div>
         </form>
       </div>

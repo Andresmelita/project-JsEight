@@ -23,8 +23,8 @@ const Login = () => {
       console.log(data);
       login(data)
         .then((response) => {
-          Cookie.set('token', response.data.token);
-          router.push('/profile');
+          Cookie.set('token', response.data.token[0].public);
+          window.location.href = '/profile';
         })
         .catch((error) => {
           console.log(error);
