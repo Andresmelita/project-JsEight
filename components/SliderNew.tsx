@@ -9,9 +9,9 @@ import 'swiper/swiper-bundle.css';
 // import required modules
 import { Navigation } from 'swiper';
 import { eventos } from '../lib/data/eventos.mock';
-import LeftButton from './buttons/LeftButton';
-import RightButton from './buttons/RightButton';
-import EventCardGeneral from './cards/EventCardGeneral';
+import LeftButton from './Buttons/LeftButton';
+import RightButton from './Buttons/RightButton';
+import EventCardGeneral from './Cards/EventCardGeneral';
 
 export default function SliderNew() {
   const prevRef = useRef<HTMLDivElement>(null);

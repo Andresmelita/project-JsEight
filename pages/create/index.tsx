@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { MdOutlineAdd } from 'react-icons/md';
 import * as yup from 'yup';
-import BlueButton from '../../components/buttons/BlueButton';
+import BlueButton from '../../components/Buttons/BlueButton';
 
 const CreateEvent = () => {
   const [clickNext, setClickNext] = useState(false);

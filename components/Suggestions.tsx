@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Cathegory from './buttons/Cathegory';
+import Cathegory from './Buttons/Cathegory';
 
 const Suggestions = () => {
   const [data, setData] = useState(['']);

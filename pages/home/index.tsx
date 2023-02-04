@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { default as Cathegory } from '../../components/buttons/Cathegory';
+import Cathegory from '../../components/Buttons/Cathegory';
 import InputSearch from '../../components/InputSearch';
 import Layout from '../../components/layout/Layout';
 import SliderNew from '../../components/SliderNew';

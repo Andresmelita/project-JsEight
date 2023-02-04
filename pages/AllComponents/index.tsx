@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import Cathegory from '../../components/buttons/Cathegory';
-import Like from '../../components/buttons/Like';
-import NextTwo from '../../components/buttons/NextTwo';
-import RightButton from '../../components/buttons/RightButton';
-import EventCardGeneral from '../../components/cards/EventCardGeneral';
+import Cathegory from '../../components/Buttons/Cathegory';
+import Like from '../../components/Buttons/Like';
+import NextTwo from '../../components/Buttons/NextTwo';
+import RightButton from '../../components/Buttons/RightButton';
+import EventCardGeneral from '../../components/Cards/EventCardGeneral';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import InputSearch from '../../components/InputSearch';
