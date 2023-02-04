@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -14,16 +15,22 @@ const Header = () => {
 
   const clickLogOut = () => {
     setClickMenu(false);
-    setClickLog(false);
+    setLoginUser(false);
   };
 
-  const [clickLog, setClickLog] = useState(true);
-  const handleClickLog = () => setClickLog(!clickLog);
+  const [LoginUser, setLoginUser] = useState(true);
+  const handleLoginUser = () => setLoginUser(!LoginUser);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const jwt = Cookies.get('token');
+    if (!jwt) {
+      return setLoginUser(true);
+    }
+    return setLoginUser(false);
+  }, []);
 
   const login = () => {
-    setClickLog(false);
+    setLoginUser(false);
   };
 
   return (
@@ -35,10 +42,10 @@ const Header = () => {
               <Image src="/images/minilogo.svg" layout="fill" alt="imageLogo" />
             </Link>
           </div>
-
+          {/*LOG CAMBIO*/}
           <nav
             className={
-              clickLog
+              LoginUser
                 ? 'text-white flex sm:gap-[35px] gap-[12px] h500-normal-12px items-center'
                 : 'hidden'
             }
@@ -50,16 +57,18 @@ const Header = () => {
               </div>
             </Link>
             <div className="flex sm:gap-[18px] gap-[12px]">
-              <div className="cursor-pointer" onClick={login}>
+              <Link href="/login" className="cursor-pointer">
                 Log In
-              </div>
-              <Link href="/sign-up">Sign In</Link>
+              </Link>
+              <Link href="/sign-up" className="cursor-pointer">
+                Sign In
+              </Link>
             </div>
           </nav>
-
+          {/*LOG CAMBIO*/}
           <nav
             className={
-              clickLog
+              LoginUser
                 ? 'hidden'
                 : 'text-white flex sm:gap-[49px] cursor:pointer gap-[12px] h500-normal-12px items-center'
             }
