@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import Layout from '../components/Layout';
+import Layout from '../components/layout/Layout';
 import NestedLayout from '../components/NestedLayout';
 import Home from './home';
 import type { NextPageWithLayout } from './_app';

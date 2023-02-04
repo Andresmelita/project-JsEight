@@ -163,6 +163,9 @@
 }
 
 @layer utilities {
+  .container-layout {
+    @apply pt-[100px];
+  }
   .shadow-card {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
   }

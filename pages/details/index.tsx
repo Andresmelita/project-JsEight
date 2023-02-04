@@ -1,12 +1,9 @@
-import React, { ReactElement } from 'react'
-import Layout from '../../components/Layout'
-import NestedLayout from '../../components/NestedLayout'
+import { ReactElement } from 'react';
+import Layout from '../../components/layout/Layout';
+import NestedLayout from '../../components/NestedLayout';
 
-
-export default function detailsPage(){
-  return (
-    <p>hello world from Details</p>
-  )  
+export default function detailsPage() {
+  return <p>hello world from Details</p>;
 }
 
 detailsPage.getLayout = function (page: ReactElement) {
@@ -14,7 +11,5 @@ detailsPage.getLayout = function (page: ReactElement) {
     <Layout>
       <NestedLayout>{page}</NestedLayout>
     </Layout>
-  )
-}
-
-
+  );
+};

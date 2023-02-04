@@ -14,7 +14,7 @@ export default function Layout({
   ...props
 }: Props) {
   return (
-    <div className="Application">
+    <div className="Application container-layout">
       <title>{title}</title>
       <meta name="description" content={description}></meta>
       {children}

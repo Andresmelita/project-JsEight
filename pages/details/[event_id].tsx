@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ReactElement, useEffect, useState } from 'react';
 import Cathegory from '../../components/Buttons/Cathegory';
 import InputSearch from '../../components/InputSearch';
-import Layout from '../../components/Layout';
+import Layout from '../../components/layout/Layout';
 import NestedLayout from '../../components/NestedLayout';
 import PersonIcon from '../../components/PersonIcon';
 import SliderNew from '../../components/SliderNew';

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { default as Cathegory } from '../../components/Buttons/Cathegory';
 import InputSearch from '../../components/InputSearch';
-import Layout from '../../components/Layout';
+import Layout from '../../components/layout/Layout';
 import SliderNew from '../../components/SliderNew';
 import Suggestions from '../../components/Suggestions';
 import { usePublications } from '../../lib/services/publication.services';

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { ReactElement, useEffect, useState } from 'react';
 import Cathegory from '../../components/Buttons/Cathegory';
 import EventCardGeneral from '../../components/Cards/EventCardGeneral';
-import Layout from '../../components/Layout';
+import Layout from '../../components/layout/Layout';
 import NestedLayout from '../../components/NestedLayout';
 import { eventos } from '../../lib/data/eventos.mock';
 
