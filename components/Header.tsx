@@ -1,6 +1,8 @@
+import axios from 'axios';
 import Cookies from 'js-cookie';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { BsCircle, BsHeart } from 'react-icons/bs';
 import { FaPowerOff } from 'react-icons/fa';
@@ -12,10 +14,15 @@ import { SlArrowDown } from 'react-icons/sl';
 const Header = () => {
   const [clickMenu, setClickMenu] = useState(false);
   const handleClickMenu = () => setClickMenu(!clickMenu);
+  const router = useRouter();
+  const linkRouteToHome = () => {
+    router.push('/');
+  };
 
   const clickLogOut = () => {
     setClickMenu(false);
-    setLoginUser(false);
+    Cookies.remove('token');
+    linkRouteToHome();
   };
 
   const [LoginUser, setLoginUser] = useState(true);
@@ -29,9 +36,14 @@ const Header = () => {
     return setLoginUser(false);
   }, []);
 
-  const login = () => {
-    setLoginUser(false);
-  };
+  const [emailInfo, setEmailInfo] = useState();
+
+  useEffect(() => {
+    axios
+      .get('https://paracuando-team1.academlo.tech/api/v1/users/user-info')
+      .then((res) => setEmailInfo(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="bg-primary-black header-container">
@@ -89,7 +101,7 @@ const Header = () => {
                   <BsCircle className="text-white relative text-[34px]" />
                   <MdOutlinePersonOutline className="absolute text-white text-[22px]" />
                 </div>
-                <span>alumno.academlo@gmail.com</span>
+                <span>alumno@academlo.com</span>
                 <div className="hamburguer">
                   <SlArrowDown
                     className="text-white ml-[0px] cursor-pointer"
