@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import '../../styles/Home.module.css';
-import Like from '../Buttons/Like';
+import Like from '../buttons/Like';
 import PersonIcon from '../PersonIcon';
 
 interface Props {
