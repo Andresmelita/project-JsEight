@@ -2,12 +2,14 @@ import { useFormik } from 'formik';
 import { MdOutlineAdd } from 'react-icons/md';
 import * as yup from 'yup';
 import Header from '../../components/Header';
+import { useIdUser } from '../../lib/services/userId.services';
 
 const SetupPage = () => {
+  const { data: userId } = useIdUser();
   const formik = useFormik({
     initialValues: {
-      name: '',
-      lastname: '',
+      firstName: '',
+      lastName: '',
     },
     onSubmit: () => {},
     validationSchema: yup.object({
@@ -63,42 +65,42 @@ const SetupPage = () => {
                 <div className="form__title flex flex-col w-[100vw] pl-[20px] pr-[20px] md:pb-[30px] pb-[16px] text-[#7D7D7D]">
                   <label
                     className="ml-[15px] pl-[8px] pr-[8px] mb-[-12px] bg-white w-max z-10"
-                    htmlFor="name"
+                    htmlFor="firstName"
                   >
                     First Name
                   </label>
                   <input
-                    className="bg-transparent h-[50px] max-w-[560px] lg:max-w-[620px] md:max-w-[460px] w-[100%] p-3.5 border-[1px] rounded-[11px] border-[#7D7D7D]"
-                    name="name"
+                    className="text-black bg-transparent h-[50px] max-w-[560px] lg:max-w-[620px] md:max-w-[460px] w-[100%] p-3.5 border-[1px] rounded-[11px] border-[#7D7D7D]"
+                    name="firstName"
                     type="text"
-                    placeholder=""
-                    value={formik.values.name}
+                    placeholder={userId?.first_name}
+                    value={formik.values.firstName}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
-                  {formik.errors.name && (
-                    <div className="text-danger">{formik.errors.name}</div>
+                  {formik.errors.firstName && (
+                    <div className="text-danger">{formik.errors.firstName}</div>
                   )}
                 </div>
 
                 <div className="form__title flex flex-col w-[100vw] pl-[20px] pr-[20px] text-[#7D7D7D]">
                   <label
                     className="ml-[15px] pl-[8px] pr-[8px] mb-[-12px] bg-white w-max z-10"
-                    htmlFor="email"
+                    htmlFor="lastName"
                   >
                     Last Name
                   </label>
                   <input
-                    className="bg-transparent h-[50px] max-w-[560px] lg:max-w-[620px] md:max-w-[460px] lg:w-[100%] w-[100%] md:[100vw] p-3.5 border-[1px] rounded-[11px] border-[#7D7D7D]"
-                    name="lastname"
+                    className="text-black bg-transparent h-[50px] max-w-[560px] lg:max-w-[620px] md:max-w-[460px] lg:w-[100%] w-[100%] md:[100vw] p-3.5 border-[1px] rounded-[11px] border-[#7D7D7D]"
+                    name="lastName"
                     type="text"
-                    placeholder=""
-                    value={formik.values.lastname}
+                    placeholder={userId?.last_name}
+                    value={formik.values.lastName}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
-                  {formik.errors.lastname && (
-                    <div className="text-danger">{formik.errors.lastname}</div>
+                  {formik.errors.lastName && (
+                    <div className="text-danger">{formik.errors.lastName}</div>
                   )}
                 </div>
               </div>
