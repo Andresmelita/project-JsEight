@@ -19,9 +19,9 @@ const Login = () => {
       email: '',
       password: '',
     },
-    onSubmit: (data) => {
-      console.log(data);
-      login(data)
+    onSubmit: (values) => {
+      console.log(values);
+      login(values)
         .then((response) => {
           Cookie.set('token', response.data.token[0].public);
           window.location.href = '/profile';

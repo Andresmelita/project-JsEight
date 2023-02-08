@@ -1,10 +1,22 @@
 import axios from 'axios';
 
-function login(data: { email: string; password: string }) {
+function login(values: { email: string; password: string }) {
   return axios.post(
-    'https://paracuando-team1.academlo.tech/api/v1/login',
-    data
+    'https://paracuando-team1.academlo.tech/api/v1/auth/login',
+    values
   );
 }
 
-export { login };
+function signUp(values: {
+  email: string;
+  firstName: string;
+  lastName: string;
+  password: string;
+}) {
+  return axios.post(
+    'https://paracuando-team1.academlo.tech/api/v1/auth/sign-up',
+    values
+  );
+}
+
+export { login, signUp };

@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as yup from 'yup';
+import { signUp } from '../../lib/services/auth.services';
 
 const SignUp = () => {
   const router = useRouter();
@@ -12,17 +13,25 @@ const SignUp = () => {
 
   const formik = useFormik({
     initialValues: {
-      name: '',
-      lastname: '',
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
     },
-    onSubmit: () => {
-      linkRoute();
+    onSubmit: (values) => {
+      console.log(values);
+      signUp(values)
+        .then((response) => {
+          window.location.href = '/';
+        })
+        .catch((error) => {
+          console.log(error);
+          alert('Error');
+        });
     },
     validationSchema: yup.object({
-      name: yup.string().trim().required('Name is required'),
-      lastname: yup.string().trim().required('Lastname is required'),
+      firstName: yup.string().trim().required('Name is required'),
+      lastName: yup.string().trim().required('Lastname is required'),
       email: yup
         .string()
         .email('Must be a valid email')
@@ -103,43 +112,45 @@ const SignUp = () => {
                     <div className="form__name flex flex-col gap-2 w-[100%]">
                       <label
                         className="text-[#1D1C3F] l600-normal-16px"
-                        htmlFor="email"
+                        htmlFor="firstName"
                       >
                         Name
                       </label>
                       <input
                         className="bg-transparent l400-normal-16px w-[100%] p-3.5 border-2 rounded text-[#1D1C3F] border-[#1D1C3F]"
-                        name="name"
+                        name="firstName"
                         type="text"
                         placeholder="john"
-                        value={formik.values.name}
+                        value={formik.values.firstName}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                       />
-                      {formik.errors.name && (
-                        <div className="text-danger">{formik.errors.name}</div>
+                      {formik.errors.firstName && (
+                        <div className="text-danger">
+                          {formik.errors.firstName}
+                        </div>
                       )}
                     </div>
 
                     <div className="form__lastname flex flex-col gap-2 w-[100%]">
                       <label
                         className="text-[#1D1C3F] l600-normal-16px"
-                        htmlFor="email"
+                        htmlFor="lastName"
                       >
                         Lastname
                       </label>
                       <input
                         className="bg-transparent l400-normal-16px w-[100%] p-3.5 border-2 rounded text-[#1D1C3F] border-[#1D1C3F]"
-                        name="lastname"
+                        name="lastName"
                         type="text"
                         placeholder="doe"
-                        value={formik.values.lastname}
+                        value={formik.values.lastName}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                       />
-                      {formik.errors.lastname && (
+                      {formik.errors.lastName && (
                         <div className="text-danger">
-                          {formik.errors.lastname}
+                          {formik.errors.lastName}
                         </div>
                       )}
                     </div>
