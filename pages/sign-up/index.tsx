@@ -19,7 +19,6 @@ const SignUp = () => {
       password: '',
     },
     onSubmit: (values) => {
-      console.log(values);
       signUp(values)
         .then((response) => {
           window.location.href = '/';

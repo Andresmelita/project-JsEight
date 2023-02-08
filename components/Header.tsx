@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -9,6 +8,7 @@ import { IoAddSharp } from 'react-icons/io5';
 import { MdOutlinePersonOutline } from 'react-icons/md';
 import { RiLayoutMasonryFill } from 'react-icons/ri';
 import { SlArrowDown } from 'react-icons/sl';
+import { logOut } from '../lib/helpers/logout.helper';
 import { useUser } from '../lib/services/user.services';
 
 const Header = () => {
@@ -25,18 +25,27 @@ const Header = () => {
 
   const clickLogOut = () => {
     setClickMenu(false);
-    Cookies.remove('token');
-    linkRouteToHome();
-    setLoginUser(true);
+    logOut();
+    // Cookies.remove('token');
+    // linkRouteToHome();
+    // setLoginUser(true);
   };
 
   useEffect(() => {
-    const jwt = Cookies.get('token');
-    if (!jwt) {
-      return setLoginUser(true);
+    if (user) {
+      setLoginUser(false);
+    } else {
+      setLoginUser(true);
     }
-    return setLoginUser(false);
-  }, []);
+  }, [user]);
+
+  // useEffect(() => {
+  //   const jwt = Cookies.get('token');
+  //   if (!jwt) {
+  //     return setLoginUser(true);
+  //   }
+  //   return setLoginUser(false);
+  // }, []);
 
   const [emailInfo, setEmailInfo] = useState();
 
@@ -98,17 +107,19 @@ const Header = () => {
                 <BsHeart className="text-primary-pink text-[16px]" />
                 Mis Votos
               </Link>
-              <div className="flex gap-[8px] sm:gap-[13px] justify-center items-center">
+              <div
+                className="flex gap-[8px] sm:gap-[13px] justify-center items-center"
+                onClick={handleClickMenu}
+              >
                 <div className="flex items-center justify-center">
                   <BsCircle className="text-white relative text-[34px]" />
                   <MdOutlinePersonOutline className="absolute text-white text-[22px]" />
                 </div>
-                <span>{user?.email}</span>
+                <span className="transition-all duration-200 hover:scale-[1.0] cursor-pointer">
+                  {user?.email}
+                </span>
                 <div className="hamburguer">
-                  <SlArrowDown
-                    className="text-white ml-[0px] cursor-pointer"
-                    onClick={handleClickMenu}
-                  />
+                  <SlArrowDown className="text-white ml-[0px] cursor-pointer" />
                   <div
                     className={
                       clickMenu ? 'nav-menu active' : 'nav-menu hidden'
