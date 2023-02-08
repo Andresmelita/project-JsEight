@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Cookies from 'js-cookie';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,8 +9,10 @@ import { IoAddSharp } from 'react-icons/io5';
 import { MdOutlinePersonOutline } from 'react-icons/md';
 import { RiLayoutMasonryFill } from 'react-icons/ri';
 import { SlArrowDown } from 'react-icons/sl';
+import { useUser } from '../lib/services/user.services';
 
 const Header = () => {
+  const { data: user } = useUser();
   const [clickMenu, setClickMenu] = useState(false);
   const handleClickMenu = () => setClickMenu(!clickMenu);
   const router = useRouter();
@@ -39,12 +40,12 @@ const Header = () => {
 
   const [emailInfo, setEmailInfo] = useState();
 
-  useEffect(() => {
-    axios
-      .get('https://paracuando-team1.academlo.tech/api/v1/users/user-info')
-      .then((res) => setEmailInfo(res.data))
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get('https://paracuando-team1.academlo.tech/api/v1/users/user-info')
+  //     .then((res) => setEmailInfo(res.data))
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   return (
     <div className="bg-primary-black header-container">
@@ -102,7 +103,7 @@ const Header = () => {
                   <BsCircle className="text-white relative text-[34px]" />
                   <MdOutlinePersonOutline className="absolute text-white text-[22px]" />
                 </div>
-                <span>alumno@academlo.com</span>
+                <span>{user?.email}</span>
                 <div className="hamburguer">
                   <SlArrowDown
                     className="text-white ml-[0px] cursor-pointer"

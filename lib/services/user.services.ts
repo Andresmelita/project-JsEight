@@ -1,13 +1,14 @@
 import useSWR from 'swr';
 import { fetcher } from '../helpers/fetcher';
+import { UserResponse } from '../interfaces/user.interface';
 
 function useUser() {
-  const { data, error, isLoading, mutate } = useSWR(
-    'https://paracuando-team1.academlo.tech/api/v1/users/user-info',
+  const { data, error, isLoading, mutate } = useSWR<UserResponse>(
+    '/users/user-info',
     fetcher
   );
   return {
-    data,
+    data: data?.results,
     error,
     isLoading,
     mutate,
