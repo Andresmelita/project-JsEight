@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useTags } from '../lib/services/tag.services';
 import Cathegory from './Buttons/Cathegory';
 
 const Suggestions = () => {
+  const { data: tags } = useTags();
   const [data, setData] = useState(['']);
 
   useEffect(() => {
@@ -21,18 +23,13 @@ const Suggestions = () => {
         gustos
       </h3>
       <div className="flex gap-[13px] justify-start flex-wrap w-[94%] mt-[20px] mb-[20px]">
-        <div className="flex w-max h-[45px]">
-          <Cathegory Cathegories={data[0]} />
-        </div>
-        <div className="flex w-max h-[45px]">
-          <Cathegory Cathegories={data[1]} />
-        </div>
-        <div className="flex w-max h-[45px]">
-          <Cathegory Cathegories={data[2]} />
-        </div>
-        <div className="flex w-max h-[45px]">
-          <Cathegory Cathegories={data[3]} />
-        </div>
+        {tags?.map((tag) => {
+          return (
+            <div className="flex w-max h-[45px]" key={tag.id}>
+              <Cathegory Cathegories={tag.name} />
+            </div>
+          );
+        })}
       </div>
       <h3 className="h400-normal-16px text-primary-blue cursor-pointer">
         Ver todos los intereses
