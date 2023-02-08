@@ -199,7 +199,9 @@ const CreateEvent = () => {
                 onBlur={formik.handleBlur}
               />
               {formik.errors.title && (
-                <div className="text-danger">{formik.errors.title}</div>
+                <div className="text-danger text-red-700 flex justify-end">
+                  {formik.errors.title}
+                </div>
               )}
             </div>
             <div className="flex md:flex-row flex-col gap-[20px] w-[100%] pl-[20px] pr-[20px]">
@@ -260,7 +262,9 @@ const CreateEvent = () => {
                 onBlur={formik.handleBlur}
               />
               {formik.errors.description && (
-                <div className="text-danger">{formik.errors.description}</div>
+                <div className="text-danger text-red-700 flex justify-end">
+                  {formik.errors.description}
+                </div>
               )}
             </div>
             <div className="form__reference flex flex-col w-[100%] pl-[20px] pr-[20px]">
@@ -280,7 +284,9 @@ const CreateEvent = () => {
                 onBlur={formik.handleBlur}
               />
               {formik.errors.urlShare && (
-                <div className="text-danger">{formik.errors.urlShare}</div>
+                <div className="text-danger text-red-700 flex justify-end">
+                  {formik.errors.urlShare}
+                </div>
               )}
             </div>
           </div>
