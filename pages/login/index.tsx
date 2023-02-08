@@ -97,7 +97,9 @@ const Login = () => {
                       onBlur={formik.handleBlur}
                     />
                     {formik.errors.email && (
-                      <div className="text-danger">{formik.errors.email}</div>
+                      <div className="text-danger text-red-700 flex justify-end">
+                        {formik.errors.email}
+                      </div>
                     )}
                   </div>
 
@@ -118,7 +120,7 @@ const Login = () => {
                       onBlur={formik.handleBlur}
                     />
                     {formik.errors.password && (
-                      <div className="text-danger">
+                      <div className="text-danger text-red-700 flex justify-end">
                         {formik.errors.password}
                       </div>
                     )}

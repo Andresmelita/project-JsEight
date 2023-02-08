@@ -104,7 +104,9 @@ const SignUp = () => {
                       onBlur={formik.handleBlur}
                     />
                     {formik.errors.email && (
-                      <div className="text-danger">{formik.errors.email}</div>
+                      <div className="text-danger text-red-700 flex justify-end">
+                        {formik.errors.email}
+                      </div>
                     )}
                   </div>
                   <div className="names flex gap-3">
@@ -125,7 +127,7 @@ const SignUp = () => {
                         onBlur={formik.handleBlur}
                       />
                       {formik.errors.firstName && (
-                        <div className="text-danger">
+                        <div className="text-danger text-red-700 flex justify-end">
                           {formik.errors.firstName}
                         </div>
                       )}
@@ -148,7 +150,7 @@ const SignUp = () => {
                         onBlur={formik.handleBlur}
                       />
                       {formik.errors.lastName && (
-                        <div className="text-danger">
+                        <div className="text-danger text-red-700 flex justify-end">
                           {formik.errors.lastName}
                         </div>
                       )}
@@ -172,7 +174,7 @@ const SignUp = () => {
                       onBlur={formik.handleBlur}
                     />
                     {formik.errors.password && (
-                      <div className="text-danger">
+                      <div className="text-danger text-red-700 flex justify-end">
                         {formik.errors.password}
                       </div>
                     )}
