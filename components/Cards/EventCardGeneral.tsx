@@ -1,37 +1,30 @@
 import Link from 'next/link';
+import { usePublications } from '../../lib/services/publication.services';
 import '../../styles/Home.module.css';
 import Like from '../Buttons/Like';
 import PersonIcon from '../PersonIcon';
 
 interface Props {
-  id: number;
+  id: string;
   title: string;
-  cover: string;
   description: string;
   votes: number;
   link: string;
-  like: boolean;
 }
 
-const EventCardGeneral = ({
-  id,
-  cover,
-  title,
-  description,
-  votes,
-  link,
-}: Props) => {
+const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
+  const { data: publication } = usePublications();
   return (
     <div className="EventCard bg-white rounded-3xl relative z-10 w-[320px] m-[10px] h-[474px] shadow-card-box">
       <div className="Like absolute bottom-52 right-[20px]">
         <Like />
       </div>
-      <div className="">
-        <img
-          src={`${cover}`}
+      <div className="rounded-t-[20px] w-[100%] h-[239px] bg-[url('/images/coverStandar.png')]">
+        {/* <img
+          src='./'
           className="rounded-t-[20px] w-[100%] h-[239px]"
           alt="cover"
-        />
+        /> */}
       </div>
       <div className="BodyContent pl-[23px] pr-[23px] mt-[15px] pb-[30px] h-52 content-between grid gap-4 text-start">
         <div className="content__event h-26 flex flex-col gap-2">

@@ -8,12 +8,13 @@ import 'swiper/swiper-bundle.css';
 
 // import required modules
 import { Navigation } from 'swiper';
-import { eventos } from '../lib/data/eventos.mock';
+import { usePublications } from '../lib/services/publication.services';
 import LeftButton from './Buttons/LeftButton';
 import RightButton from './Buttons/RightButton';
 import EventCardGeneral from './Cards/EventCardGeneral';
 
 export default function SliderNew() {
+  const { data: publications } = usePublications();
   const prevRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLDivElement>(null);
 
@@ -51,17 +52,15 @@ export default function SliderNew() {
         className="mySwiper swiper flex flex-row"
       >
         <div>
-          {eventos.map((card, index) => {
+          {publications?.map((event) => {
             return (
-              <SwiperSlide className="swiper-slide" key={index}>
+              <SwiperSlide className="swiper-slide" key={event.id}>
                 <EventCardGeneral
-                  id={card.id}
-                  cover={card.cover}
-                  description={card.description}
-                  link={card.link}
-                  votes={card.votes}
-                  title={card.title}
-                  like={card.like}
+                  id={event.id}
+                  title={event.title}
+                  description={event.description}
+                  link={event.content}
+                  votes={event.votes_count}
                 />
               </SwiperSlide>
             );
