@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Cathegory from '../../components/Buttons/Cathegory';
+import Category from '../../components/Buttons/Category';
 import Like from '../../components/Buttons/Like';
 import NextTwo from '../../components/Buttons/NextTwo';
 import RightButton from '../../components/Buttons/RightButton';
@@ -9,7 +9,7 @@ import Header from '../../components/Header';
 import InputSearch from '../../components/InputSearch';
 import PersonIcon from '../../components/PersonIcon';
 import SliderNew from '../../components/SliderNew';
-import { eventos } from '../../lib/data/eventos.mock';
+import { usePublications } from '../../lib/services/publication.services';
 import CreateEvent from '../create';
 import Home from '../home';
 import Login from '../login';
@@ -17,13 +17,14 @@ import ProfilePage from '../profile';
 import SignUp from '../sign-up';
 
 const AllComponents = () => {
+  const { data: publications } = usePublications();
   const [data, setData] = useState(['']);
 
   useEffect(() => {
-    Cathegories();
+    Categories();
   }, []);
 
-  const Cathegories = () => {
+  const Categories = () => {
     setData(['Marcas y Tiendas']);
   };
 
@@ -38,7 +39,7 @@ const AllComponents = () => {
           <RightButton />
           <NextTwo />
           <div className="flex gap-[13px] w-max h-[45px] mb-[82px] mt-[82px]">
-            <Cathegory Cathegories={data[0]} />
+            <Category Categories={data[0]} />
           </div>
           <Like />
           <PersonIcon />
@@ -49,17 +50,15 @@ const AllComponents = () => {
           Event Card:
         </h1>
         <div className="flex justify-center items-center">
-          {eventos.slice(1, 2).map((card, index) => {
+          {publications?.slice(1, 3).map((event) => {
             return (
-              <div key={index} className="h-max w-max">
+              <div className="h-max w-max" key={event.id}>
                 <EventCardGeneral
-                  id={card.id}
-                  cover={card.cover}
-                  description={card.description}
-                  link={card.link}
-                  votes={card.votes}
-                  title={card.title}
-                  like={card.like}
+                  id={event.id}
+                  title={event.title}
+                  description={event.description}
+                  link={event.content}
+                  votes={event.votes_count}
                 />
               </div>
             );

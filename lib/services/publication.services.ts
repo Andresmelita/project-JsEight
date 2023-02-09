@@ -2,10 +2,25 @@ import useSWR from 'swr';
 import instance from '../helpers/axios.helper';
 import { fetcher } from '../helpers/fetcher';
 import { EventResponse } from '../interfaces/event.interface';
+import { useUser } from './user.services';
 
 function usePublications() {
   const { data, error, isLoading, mutate } = useSWR<EventResponse>(
     '/publications',
+    fetcher
+  );
+  return {
+    data: data?.results.results,
+    error,
+    isLoading,
+    mutate,
+  };
+}
+
+function useMypublications() {
+  const { data: user } = useUser();
+  const { data, error, isLoading, mutate } = useSWR<EventResponse>(
+    `users/${user?.id}/publications`,
     fetcher
   );
   return {
@@ -29,4 +44,4 @@ function createPublication(values: {
   );
 }
 
-export { usePublications, createPublication };
+export { usePublications, createPublication, useMypublications };

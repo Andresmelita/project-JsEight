@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import Cathegory from '../../components/Buttons/Cathegory';
+import Category from '../../components/Buttons/Category';
 import InputSearch from '../../components/InputSearch';
 import Layout from '../../components/layout/Layout';
 import SliderNew from '../../components/SliderNew';
@@ -15,10 +15,10 @@ const Home = () => {
   const [dataType, setDataType] = useState(['']);
 
   useEffect(() => {
-    Cathegories();
+    Categories();
   }, []);
 
-  const Cathegories = () => {
+  const Categories = () => {
     setDataType(['Marcas y Tiendas', 'Artistas y conciertos', 'Torneos']);
   };
 
@@ -42,17 +42,17 @@ const Home = () => {
             <div className="flex gap-[7px] justify-center w-[100vw] max-w-[465px] h-max pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px]">
               <div className="flex h-[30px] w-max">
                 <Link href="/brands">
-                  <Cathegory Cathegories={dataType[0]} />
+                  <Category Categories={dataType[0]} />
                 </Link>
               </div>
               <div className="flex h-[30px] w-max">
                 <Link href="/artists">
-                  <Cathegory Cathegories={dataType[1]} />
+                  <Category Categories={dataType[1]} />
                 </Link>
               </div>
               <div className="flex h-[30px] w-max">
                 <Link href="/tournaments">
-                  <Cathegory Cathegories={dataType[2]} />
+                  <Category Categories={dataType[2]} />
                 </Link>
               </div>
             </div>

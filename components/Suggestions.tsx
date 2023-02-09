@@ -1,18 +1,9 @@
-import { useEffect, useState } from 'react';
 import { useTags } from '../lib/services/tag.services';
-import Cathegory from './Buttons/Cathegory';
+import Category from './Buttons/Category';
 
 const Suggestions = () => {
   const { data: tags } = useTags();
-  const [data, setData] = useState(['']);
 
-  useEffect(() => {
-    Cathegories();
-  }, []);
-
-  const Cathegories = () => {
-    setData(['Restaurantes', 'Tiendas de Ropa', 'Rock', 'Marcas y tiendas']);
-  };
   return (
     <div className="w-[100vw] flex flex-col sm:pl-[60px] pl-[20px] gap-2 pt-[27px] pb-[27px] pr-[20px] relative max-w-[1010px]">
       <h1 className="h500-normal-24px text-primary-grayDark flex-wrap flex w-[94%]">
@@ -26,7 +17,7 @@ const Suggestions = () => {
         {tags?.map((tag) => {
           return (
             <div className="flex w-max h-[45px]" key={tag.id}>
-              <Cathegory Cathegories={tag.name} />
+              <Category Categories={tag.name} />
             </div>
           );
         })}

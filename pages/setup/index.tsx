@@ -35,23 +35,14 @@ const SetupPage = ({ values }: Props) => {
     validationSchema: yup.object({}),
   });
 
-  if (File) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const imageUrl = e.target?.result;
-      console.log(e.target?.result);
-    };
-  }
+  // if (File) {
+  //   const reader = new FileReader();
+  //   reader.onload = (e) => {
+  //     const imageUrl = e.target?.result;
+  //     console.log(e.target?.result);
+  //   };
+  // }
 
-  // const addImage = () => {
-  //   if (File) {
-  //     const reader = new FileReader();
-  //     reader.onload = (e) => {
-  //       imageUrl: e.target?.result;
-  //       console.log(e.target?.result);
-  //     };
-  //   }
-  // };
   return (
     <div className="">
       <title>Configuration | Para Cuando?</title>

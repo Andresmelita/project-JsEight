@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ReactElement, useEffect, useState } from 'react';
-import Cathegory from '../../components/Buttons/Cathegory';
+import Category from '../../components/Buttons/Category';
 import InputSearch from '../../components/InputSearch';
 import Layout from '../../components/layout/Layout';
 import NestedLayout from '../../components/NestedLayout';
@@ -12,10 +12,10 @@ export default function EventId() {
   const [data, setData] = useState(['']);
 
   useEffect(() => {
-    Cathegories();
+    Categories();
   }, []);
 
-  const Cathegories = () => {
+  const Categories = () => {
     setData(['Marcas y Tiendas', 'Artistas y conciertos', 'Torneos']);
   };
   return (
@@ -26,17 +26,17 @@ export default function EventId() {
             <div className="flex gap-[10px] w-[100vw] h-max flex-wrap md:flex-nowrap pl-[20px] pr-[20px] md:pr-[0px] md:justify-start justify-center items-center pt-[0px]">
               <div className="md:flex h-[46px] w-max hidden">
                 <Link href="/brands" className="">
-                  <Cathegory Cathegories={data[0]} />
+                  <Category Categories={data[0]} />
                 </Link>
               </div>
               <div className="md:flex h-[46px] w-max hidden">
                 <Link href="/artists">
-                  <Cathegory Cathegories={data[1]} />
+                  <Category Categories={data[1]} />
                 </Link>
               </div>
               <div className="md:flex h-[46px] w-max hidden">
                 <Link href="/tournaments">
-                  <Cathegory Cathegories={data[2]} />
+                  <Category Categories={data[2]} />
                 </Link>
               </div>
             </div>

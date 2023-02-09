@@ -1,19 +1,20 @@
 import Image from 'next/image';
 import { ReactElement, useEffect, useState } from 'react';
-import Cathegory from '../../components/Buttons/Cathegory';
+import Category from '../../components/Buttons/Category';
 import EventCardGeneral from '../../components/Cards/EventCardGeneral';
 import Layout from '../../components/layout/Layout';
 import NestedLayout from '../../components/NestedLayout';
-import { eventos } from '../../lib/data/eventos.mock';
+import { useMypublications } from '../../lib/services/publication.services';
 
 export default function ProfilePage() {
+  const { data: publications } = useMypublications();
   const [data, setData] = useState(['']);
 
   useEffect(() => {
-    Cathegories();
+    Categories();
   }, []);
 
-  const Cathegories = () => {
+  const Categories = () => {
     setData(['Mis votos', 'Mis publicaciones']);
   };
 
@@ -37,25 +38,23 @@ export default function ProfilePage() {
       </div>
       <div className="flex gap-[13px] w-max h-[45px] mb-[70px] mt-[90px]">
         <div className="flex w-[100%]">
-          <Cathegory Cathegories={data[0]} />
+          <Category Categories={data[0]} />
         </div>
         <div className="flex w-[100%]">
-          <Cathegory Cathegories={data[1]} />
+          <Category Categories={data[1]} />
         </div>
       </div>
       <div className="w-[100vw] justify-center items-center flex">
         <div className="pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px] flex content-start align-middle items-center max-w-[1020px] h-max flex-wrap lg:justify-start justify-center sm:mb-[150px] mb-[70px] gap-[0px]">
-          {eventos.slice(0, visible).map((card, index) => {
+          {publications?.slice(0, visible).map((event) => {
             return (
-              <div key={index} className="h-max w-max">
+              <div key={event.id} className="h-max w-max">
                 <EventCardGeneral
-                  id={card.id}
-                  cover={card.cover}
-                  description={card.description}
-                  link={card.link}
-                  votes={card.votes}
-                  title={card.title}
-                  like={card.like}
+                  id={event.id}
+                  title={event.title}
+                  description={event.description}
+                  link={event.content}
+                  votes={event.votes_count}
                 />
               </div>
             );
