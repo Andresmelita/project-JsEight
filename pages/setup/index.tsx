@@ -6,11 +6,7 @@ import BlueButton from '../../components/Buttons/BlueButton';
 import Header from '../../components/Header';
 import { useIdUser } from '../../lib/services/userId.services';
 
-interface Props {
-  values: File;
-}
-
-const SetupPage = ({ values }: Props) => {
+const SetupPage = () => {
   const [data, setData] = useState(['']);
 
   useEffect(() => {
@@ -22,7 +18,6 @@ const SetupPage = ({ values }: Props) => {
   };
   const { data: userId } = useIdUser();
 
-  console.log(values);
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -35,13 +30,14 @@ const SetupPage = ({ values }: Props) => {
     validationSchema: yup.object({}),
   });
 
-  // if (File) {
-  //   const reader = new FileReader();
-  //   reader.onload = (e) => {
-  //     const imageUrl = e.target?.result;
-  //     console.log(e.target?.result);
-  //   };
-  // }
+  const [imageUrl, setImageUrl] = useState('');
+
+  const addPreviewImage = (event: React.ChangeEvent<any>) => {
+    const file = event.target?.files && event.target?.files[0];
+    if (file) {
+      setImageUrl(URL.createObjectURL(file));
+    }
+  };
 
   return (
     <div className="">
@@ -70,25 +66,25 @@ const SetupPage = ({ values }: Props) => {
                   </h3>
                 </div>
                 <div className="h-max max-w-[177px] relative justify-center items-center flex">
-                  <div className="h-[206px] w-[100%] bg-primary-grayLight flex hover:scale-[1.05] ease-in-out duration-300">
+                  <div className="h-[206px] w-[100%] bg-primary-grayLight bg-[url()] flex hover:scale-[1.05] ease-in-out duration-300">
                     <input
                       type="file"
                       name="file"
                       multiple
                       value={formik.values.file}
-                      onChange={formik.handleChange}
+                      onChange={addPreviewImage}
                       onBlur={formik.handleBlur}
                       accept="image/*"
-                      className="h-[206px] w-[100%] opacity-0 z-50 cursor-pointer"
+                      className="h-[206px] w-[100%] opacity-0 z-[1000] cursor-pointer relative"
+                    />
+                    <img
+                      className="text-black h-[206px] object-center z-[500]"
+                      src={imageUrl}
+                      alt=""
                     />
                   </div>
                   <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute z-30" />
                 </div>
-                <img
-                  className="text-black w-[100px] h-[100px] hidden"
-                  src={`${formik.values.file}`}
-                  alt={`${formik.values.file}`}
-                />
               </div>
             </div>
             <div className="h-max justify-center items-center md:items-start flex-col flex w-[100vw] lg:max-w-[660px] max-w-[600px]  md:max-w-[500px] pt-[60px] pb-[60px] md:pt-[0px] md:pb-[38px]">

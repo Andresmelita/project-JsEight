@@ -87,6 +87,31 @@ const CreateEvent = () => {
     window.history.back();
   };
 
+  const [imageUrlOne, setImageUrlOne] = useState('');
+  const [imageUrlTwo, setImageUrlTwo] = useState('');
+  const [imageUrlThree, setImageUrlThree] = useState('');
+
+  const addPreviewImageOne = (event: React.ChangeEvent<any>) => {
+    const file = event.target?.files && event.target?.files[0];
+    if (file) {
+      setImageUrlOne(URL.createObjectURL(file));
+    }
+  };
+
+  const addPreviewImageTwo = (event: React.ChangeEvent<any>) => {
+    const file = event.target?.files && event.target?.files[0];
+    if (file) {
+      setImageUrlTwo(URL.createObjectURL(file));
+    }
+  };
+
+  const addPreviewImageThree = (event: React.ChangeEvent<any>) => {
+    const file = event.target?.files && event.target?.files[0];
+    if (file) {
+      setImageUrlThree(URL.createObjectURL(file));
+    }
+  };
+
   return (
     <div className="h-[100%] md:h-screen w-screen overflow-hidden flex md:flex-row flex-col">
       <title>Create | Para Cuando?</title>
@@ -337,7 +362,13 @@ const CreateEvent = () => {
                     name="imageUpload"
                     multiple
                     accept="image/*"
+                    onChange={addPreviewImageOne}
                     className="h-[206px] w-[100%] opacity-0 z-50 cursor-pointer"
+                  />
+                  <img
+                    className="text-black h-[206px] object-center z-[500]"
+                    src={imageUrlOne}
+                    alt=""
                   />
                 </div>
                 <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute z-30" />
@@ -349,7 +380,13 @@ const CreateEvent = () => {
                     name="imageUpload"
                     multiple
                     accept="image/*"
+                    onChange={addPreviewImageTwo}
                     className="h-[206px] w-[100%] opacity-0 z-50 cursor-pointer"
+                  />
+                  <img
+                    className="text-black h-[206px] object-center z-[500]"
+                    src={imageUrlTwo}
+                    alt=""
                   />
                 </div>
                 <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute z-30" />
@@ -361,7 +398,13 @@ const CreateEvent = () => {
                     name="imageUpload"
                     multiple
                     accept="image/*"
+                    onChange={addPreviewImageThree}
                     className="h-[206px] w-[100%] opacity-0 z-50 cursor-pointer"
+                  />
+                  <img
+                    className="text-black h-[206px] object-center z-[500]"
+                    src={imageUrlThree}
+                    alt=""
                   />
                 </div>
                 <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute z-30" />
