@@ -6,7 +6,7 @@ import { useUser } from './user.services';
 
 function usePublications() {
   const { data, error, isLoading, mutate } = useSWR<EventResponse>(
-    '/publications',
+    '/publications?size=100',
     fetcher
   );
   return {
