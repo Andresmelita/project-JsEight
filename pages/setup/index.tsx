@@ -10,6 +10,7 @@ const SetupPage = () => {
     initialValues: {
       firstName: '',
       lastName: '',
+      file: '',
     },
     onSubmit: () => {},
     validationSchema: yup.object({
@@ -20,6 +21,8 @@ const SetupPage = () => {
       password: yup.string().trim().required('Password is required'),
     }),
   });
+
+  const addImage = () => {};
   return (
     <div className="">
       <title>Configuration | Para Cuando?</title>
@@ -31,7 +34,10 @@ const SetupPage = () => {
             Perfil
           </div>
         </div>
-        <div className="flex md:max-w-[990px] md:h-[100%] w-[100vw] justify-center items-center">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="flex md:max-w-[990px] md:h-[100%] w-[100vw] justify-center items-center"
+        >
           <div className="flex justify-center items-center flex-col md:flex-row h-max md:mb-[40px]">
             <div className="flex h-max justify-center items-center">
               <div className="lg:mr-[92px] sm:mr-[30px] flex-col pt-[60px] md:pt-[0px] pl-[15px] pr-[15px] md:pl-[0px] md:pr-[0px]  md:w-max w-[100vw] flex gap-[22px] justify-center md:items-start items-center h-max">
@@ -47,8 +53,10 @@ const SetupPage = () => {
                   <div className="h-[206px] w-[100%] bg-primary-grayLight flex hover:scale-[1.05] ease-in-out duration-300">
                     <input
                       type="file"
-                      name="imageUpload"
+                      name="file"
                       multiple
+                      value={formik.values.file}
+                      onChange={addImage}
                       accept="image/*"
                       className="h-[206px] w-[100%] opacity-0 z-50 cursor-pointer"
                     />
@@ -106,7 +114,7 @@ const SetupPage = () => {
               </div>
             </div>
           </div>
-        </div>
+        </form>
 
         <div className="min-h-[182px] max-h-[182px] w-[100vw] bg-[url('/images/footerImage.png')] bg-center bg-cover h-[100%]"></div>
       </div>
