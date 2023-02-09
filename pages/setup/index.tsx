@@ -1,28 +1,56 @@
 import { useFormik } from 'formik';
+import { useEffect, useState } from 'react';
 import { MdOutlineAdd } from 'react-icons/md';
 import * as yup from 'yup';
+import BlueButton from '../../components/Buttons/BlueButton';
 import Header from '../../components/Header';
 import { useIdUser } from '../../lib/services/userId.services';
 
-const SetupPage = () => {
+interface Props {
+  values: File;
+}
+
+const SetupPage = ({ values }: Props) => {
+  const [data, setData] = useState(['']);
+
+  useEffect(() => {
+    Functionality();
+  }, []);
+
+  const Functionality = () => {
+    setData(['Actualizar']);
+  };
   const { data: userId } = useIdUser();
+
+  console.log(values);
   const formik = useFormik({
     initialValues: {
       firstName: '',
       lastName: '',
       file: '',
     },
-    onSubmit: () => {},
-    validationSchema: yup.object({
-      email: yup
-        .string()
-        .email('Must be a valid email')
-        .required('Email is required'),
-      password: yup.string().trim().required('Password is required'),
-    }),
+    onSubmit: (values) => {
+      console.log(values);
+      if (values) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          // imageUrl: e.target?.result;
+          console.log(e.target?.result);
+        };
+      }
+    },
+    validationSchema: yup.object({}),
   });
 
-  const addImage = () => {};
+  // const addImage = () => {
+  //   if (File) {
+  //     const reader = new FileReader();
+  //     reader.onload = (e) => {
+  //       imageUrl: e.target?.result;
+  //       console.log(e.target?.result);
+  //     };
+  //   }
+  // };
   return (
     <div className="">
       <title>Configuration | Para Cuando?</title>
@@ -56,13 +84,19 @@ const SetupPage = () => {
                       name="file"
                       multiple
                       value={formik.values.file}
-                      onChange={addImage}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                       accept="image/*"
                       className="h-[206px] w-[100%] opacity-0 z-50 cursor-pointer"
                     />
                   </div>
                   <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute z-30" />
                 </div>
+                <img
+                  className="text-black w-[100px] h-[100px]"
+                  src={`${formik.values.file}`}
+                  alt={`${formik.values.file}`}
+                />
               </div>
             </div>
             <div className="h-max justify-center items-center md:items-start flex-col flex w-[100vw] lg:max-w-[660px] max-w-[600px]  md:max-w-[500px] pt-[60px] pb-[60px] md:pt-[0px] md:pb-[38px]">
@@ -110,6 +144,13 @@ const SetupPage = () => {
                   {formik.errors.lastName && (
                     <div className="text-danger">{formik.errors.lastName}</div>
                   )}
+                </div>
+                <div className="flex justify-center items-center pt-[20px]">
+                  <BlueButton
+                    type="submit"
+                    functionality={data[0]}
+                    className="z-50"
+                  />
                 </div>
               </div>
             </div>
