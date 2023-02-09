@@ -31,16 +31,17 @@ const SetupPage = ({ values }: Props) => {
     },
     onSubmit: (values) => {
       console.log(values);
-      if (values) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          // imageUrl: e.target?.result;
-          console.log(e.target?.result);
-        };
-      }
     },
     validationSchema: yup.object({}),
   });
+
+  if (File) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const imageUrl = e.target?.result;
+      console.log(e.target?.result);
+    };
+  }
 
   // const addImage = () => {
   //   if (File) {
@@ -93,7 +94,7 @@ const SetupPage = ({ values }: Props) => {
                   <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute z-30" />
                 </div>
                 <img
-                  className="text-black w-[100px] h-[100px]"
+                  className="text-black w-[100px] h-[100px] hidden"
                   src={`${formik.values.file}`}
                   alt={`${formik.values.file}`}
                 />
@@ -145,7 +146,7 @@ const SetupPage = ({ values }: Props) => {
                     <div className="text-danger">{formik.errors.lastName}</div>
                   )}
                 </div>
-                <div className="flex justify-center items-center pt-[20px]">
+                <div className="flex justify-center items-center pt-[20px] hidden">
                   <BlueButton
                     type="submit"
                     functionality={data[0]}
