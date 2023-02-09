@@ -146,7 +146,7 @@ const SetupPage = ({ values }: Props) => {
                     <div className="text-danger">{formik.errors.lastName}</div>
                   )}
                 </div>
-                <div className="flex justify-center items-center pt-[20px] hidden">
+                <div className="justify-center items-center pt-[20px] hidden">
                   <BlueButton
                     type="submit"
                     functionality={data[0]}
