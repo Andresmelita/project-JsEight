@@ -1,4 +1,5 @@
 import useSWR from 'swr';
+import instance from '../helpers/axios.helper';
 import { fetcher } from '../helpers/fetcher';
 
 function usePublications() {
@@ -11,4 +12,17 @@ function usePublications() {
   };
 }
 
-export { usePublications };
+function createPublication(values: {
+  idPublicationType: string;
+  title: string;
+  description: string;
+  urlShare: string;
+  tags: string;
+}) {
+  return instance.post(
+    'https://paracuando-team1.academlo.tech/api/v1/publications',
+    values
+  );
+}
+
+export { usePublications, createPublication };

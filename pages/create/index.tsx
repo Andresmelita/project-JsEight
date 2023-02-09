@@ -3,9 +3,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { MdOutlineAdd } from 'react-icons/md';
+import Swal from 'sweetalert2';
 import * as yup from 'yup';
 import BlueButton from '../../components/Buttons/BlueButton';
 import { useCategories } from '../../lib/services/category.services';
+import { createPublication } from '../../lib/services/publication.services';
 import { useTags } from '../../lib/services/tag.services';
 
 const CreateEvent = () => {
@@ -39,14 +41,40 @@ const CreateEvent = () => {
 
   const formik = useFormik({
     initialValues: {
+      idPublicationType: '',
       title: '',
-      publication_type_id: '',
-      tags: '',
       description: '',
       urlShare: '',
+      tags: '',
     },
     onSubmit: (values) => {
       console.log(values);
+      createPublication(values)
+        .then((response) => {
+          Swal.fire({
+            position: 'top',
+            toast: true,
+            icon: 'success',
+            title: 'Nuevo Evento creado!',
+            timerProgressBar: true,
+            showConfirmButton: false,
+            timer: 2200,
+          });
+          setTimeout(function () {
+            window.location.href = '/profile';
+          }, 2200);
+        })
+        .catch((error) => {
+          console.log(error);
+          Swal.fire({
+            position: 'top',
+            toast: true,
+            icon: 'error',
+            title: 'Evento no creado',
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        });
     },
     validationSchema: yup.object({
       title: yup.string().trim().required('Tittle is required'),
@@ -206,12 +234,12 @@ const CreateEvent = () => {
             </div>
             <div className="flex md:flex-row flex-col gap-[20px] w-[100%] pl-[20px] pr-[20px]">
               <div className="flex md:w-[50%] w-[100%]">
-                <label className="" htmlFor="publication_type_id"></label>
+                <label className="" htmlFor="idPublicationType"></label>
                 <select
                   className="dropdown-menu bg-transparent h-[50px] w-[100%] border-[1px] rounded-[11px] border-[#7D7D7D] text-"
                   required
-                  name="publication_type_id"
-                  value={formik.values.publication_type_id}
+                  name="idPublicationType"
+                  value={formik.values.idPublicationType}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 >
