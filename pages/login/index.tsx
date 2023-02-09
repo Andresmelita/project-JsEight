@@ -3,6 +3,7 @@ import Cookie from 'js-cookie';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import Swal from 'sweetalert2';
 import * as yup from 'yup';
 import { login } from '../../lib/services/auth.services';
 
@@ -23,11 +24,29 @@ const Login = () => {
       login(values)
         .then((response) => {
           Cookie.set('token', response.data.token[0].public);
-          window.location.href = '/profile';
+          Swal.fire({
+            position: 'top',
+            toast: true,
+            icon: 'success',
+            title: 'Sesión iniciada con éxito!',
+            timerProgressBar: true,
+            showConfirmButton: false,
+            timer: 2200,
+          });
+          setTimeout(function () {
+            window.location.href = '/profile';
+          }, 2200);
         })
         .catch((error) => {
           console.log(error);
-          alert('Datos incorrectos');
+          Swal.fire({
+            position: 'top',
+            toast: true,
+            icon: 'error',
+            title: 'Datos Incorrectos',
+            showConfirmButton: false,
+            timer: 2000,
+          });
         });
     },
     validationSchema: yup.object({

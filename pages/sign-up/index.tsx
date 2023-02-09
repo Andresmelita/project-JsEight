@@ -1,6 +1,7 @@
 import { useFormik } from 'formik';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Swal from 'sweetalert2';
 import * as yup from 'yup';
 import { signUp } from '../../lib/services/auth.services';
 
@@ -18,14 +19,32 @@ const SignUp = () => {
       email: '',
       password: '',
     },
-    onSubmit: (values) => {
-      signUp(values)
+    onSubmit: (value) => {
+      signUp(value)
         .then((response) => {
-          window.location.href = '/';
+          Swal.fire({
+            position: 'top',
+            toast: true,
+            icon: 'success',
+            title: 'Usuario registrado exitosamente!',
+            timerProgressBar: true,
+            showConfirmButton: false,
+            timer: 2200,
+          });
+          setTimeout(function () {
+            window.location.href = '/';
+          }, 2200);
         })
         .catch((error) => {
           console.log(error);
-          alert('Error');
+          Swal.fire({
+            position: 'top',
+            toast: true,
+            icon: 'error',
+            title: 'Error de registro',
+            showConfirmButton: false,
+            timer: 2000,
+          });
         });
     },
     validationSchema: yup.object({
