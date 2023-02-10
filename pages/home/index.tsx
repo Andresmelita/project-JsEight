@@ -16,7 +16,7 @@ const Home = () => {
       <div className="flex flex-col justify-center items-center pb-[100px]">
         <div className="top-0 left-0 flex flex-col relative min-h-max">
           <div className="min-h-[488px] max-h-[488px] w-[100vw] bg-[url('/images/topImageHome.png')] bg-center bg-cover"></div>
-          <div className="flex w-[100%] flex-col gap-[16px] justify-center items-center absolute z-40 top-[59px]">
+          <div className="flex w-[100%] flex-col gap-[16px] justify-center items-center absolute z-40 top-[59px] h-[400px]">
             <div className="flex justify-center items-center mb-[16px]">
               <Image
                 src="/images/logo.svg"
@@ -28,11 +28,11 @@ const Home = () => {
             <div className="flex w-[100vw] pl-[10px] pr-[10px] justify-center items-center">
               <InputSearch />
             </div>
-            <div className="flex gap-[7px] justify-center w-[100vw] max-w-[465px] h-max pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px]">
+            <div className="flex gap-[7px] relative flex-wrap justify-center w-[100vw] max-w-[465px] h-[100vh] max-h-[30px] pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px]">
               {categories?.map((category) => {
                 return (
                   <div className="flex w-max h-[30px]" key={category.id}>
-                    <Link href={`categories/${category.id}`}>
+                    <Link href={`/categories/${category.id}`}>
                       <Category Categories={category.name} />
                     </Link>
                   </div>

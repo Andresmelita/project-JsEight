@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement } from 'react';
 import Category from '../../components/Buttons/Category';
 import InputSearch from '../../components/InputSearch';
 import Layout from '../../components/layout/Layout';
@@ -8,41 +8,29 @@ import NestedLayout from '../../components/NestedLayout';
 import PersonIcon from '../../components/PersonIcon';
 import SliderNew from '../../components/SliderNew';
 import Suggestions from '../../components/Suggestions';
+import { useCategories } from '../../lib/services/category.services';
 import { usePublicationID } from '../../lib/services/publication.services';
 
 export default function EventId() {
   const router = useRouter();
   const path = router.query.event_id as string;
   const { data: publication } = usePublicationID(path);
-  const [data, setData] = useState(['']);
-  useEffect(() => {
-    Categories();
-  }, []);
-
-  const Categories = () => {
-    setData(['Marcas y Tiendas', 'Artistas y conciertos', 'Torneos']);
-  };
+  const { data: categories } = useCategories();
   return (
     <div className="event__page">
       <div className="flex justify-center event__header shadow-header w-[100vw]">
         <div className="event__header justify-center items-center flex pt-[30px] pb-[30px] w-[100vw] md:pl-[10%] md:pr-[10%] flex-col content-center">
           <div className="event__header-container w-[100vw] justify-center items-center content-between gap-0 flex flex-col-reverse md:flex-row max-w-[1000px]">
             <div className="flex gap-[10px] w-[100vw] h-max flex-wrap md:flex-nowrap pl-[20px] pr-[20px] md:pr-[0px] md:justify-start justify-center items-center pt-[0px]">
-              <div className="md:flex h-[46px] w-max hidden">
-                <Link href="/brands" className="">
-                  <Category Categories={data[0]} />
-                </Link>
-              </div>
-              <div className="md:flex h-[46px] w-max hidden">
-                <Link href="/artists">
-                  <Category Categories={data[1]} />
-                </Link>
-              </div>
-              <div className="md:flex h-[46px] w-max hidden">
-                <Link href="/tournaments">
-                  <Category Categories={data[2]} />
-                </Link>
-              </div>
+              {categories?.map((category) => {
+                return (
+                  <div className="flex w-max h-[46px]" key={category.id}>
+                    <Link href={`/categories/${category.id}`}>
+                      <Category Categories={category.name} />
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
             <div className="flex w-[100%] md:justify-end justify-center items-center">
               <div className="flex xl:max-w-[410px] md:max-w-[400px] max-w-[410px] h-max">

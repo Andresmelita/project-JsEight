@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
 import Category from '../../components/Buttons/Category';
 import InputSearch from '../../components/InputSearch';
@@ -6,24 +7,30 @@ import Layout from '../../components/layout/Layout';
 import NestedLayout from '../../components/NestedLayout';
 import SliderNew from '../../components/SliderNew';
 import Suggestions from '../../components/Suggestions';
-import { useCategories } from '../../lib/services/category.services';
+import {
+  useCategories,
+  useCategoryID,
+} from '../../lib/services/category.services';
 
 export default function BrandsPage() {
   const { data: categories } = useCategories();
-
+  const router = useRouter();
+  console.log(router);
+  const path = router.query.category_id as string;
+  const { data: category } = useCategoryID(path);
   return (
     <div className="topic__page">
       <div className="topic__header flex flex-col gap-4 justify-center bg-[url('/images/brandsHeader.png')] bg-cover bg-bottom w-[100%] max-h-[204px] h-[204px] md:pr-[0px] lg:pl-[0px] lg:pr-[0px] md:pt-1% md:pb-1% items-center">
         <div className="w-[100vw] max-w-[1060px] pl-[20px] pr-[20px] flex justify-start flex-col">
           <div className="header__links ">
             <span className="h500-normal-16px text-[#fff]">
-              <Link href="/">Home </Link> / Brands
+              <Link href="/">Home </Link> / {category?.name}
             </span>
           </div>
           <div className="header__info flex flex-col gap-2">
             <div className="header__tittle">
               <h1 className="h900-normal--48px text-[#F3F243] ">
-                Marcas y Tiendas
+                {category?.name}
               </h1>
             </div>
             <div className="header__text">
