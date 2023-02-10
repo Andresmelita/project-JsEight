@@ -180,6 +180,10 @@
   .shadow-hamburguer {
     filter: drop-shadow(-5px 8px 20px rgba(0, 0, 0, 0.3));
   }
+  .description-shadow {
+    border-radius: 0px;
+    box-shadow: 0 0 0px #ddd;
+  }
   .header-container {
     width: 100vw;
     height: 71px;
@@ -251,6 +255,20 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .content__description::-webkit-scrollbar {
+    width: 4px; /* width of the entire scrollbar */
+  }
+
+  .content__description::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 20px; /* color of the tracking area */
+  }
+
+  .content__description::-webkit-scrollbar-thumb {
+    background-color: #a9a9a9; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 2px solid #a9a9a9; /* creates padding around scroll thumb */
   }
 }
 
@@ -360,4 +378,18 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+body::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: black; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #1b4db1; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 2px solid #1b4da9; /* creates padding around scroll thumb */
 }
