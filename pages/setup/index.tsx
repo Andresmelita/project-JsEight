@@ -65,8 +65,11 @@ const SetupPage = () => {
                     Agrega una foto para tu perfil
                   </h3>
                 </div>
-                <div className="h-max max-w-[177px] relative justify-center items-center flex">
-                  <div className="h-[206px] w-[100%] bg-primary-grayLight bg-[url()] flex hover:scale-[1.05] ease-in-out duration-300">
+                <div className="h-max max-w-[220px] relative justify-center items-center flex">
+                  <label
+                    style={{ backgroundImage: `url(${imageUrl})` }}
+                    className="h-[206px] w-[220px] cursor-pointer rounded-[15px] bg-primary-grayLight bg-cover flex hover:scale-[1.05] ease-in-out duration-300"
+                  >
                     <input
                       type="file"
                       name="file"
@@ -75,15 +78,10 @@ const SetupPage = () => {
                       onChange={addPreviewImage}
                       onBlur={formik.handleBlur}
                       accept="image/*"
-                      className="h-[206px] w-[100%] opacity-0 z-[1000] cursor-pointer relative"
+                      className="h-[206px] w-[100%] z-[1000] cursor-pointer absolute hidden"
                     />
-                    <img
-                      className="text-black h-[206px] object-center z-[500]"
-                      src={imageUrl}
-                      alt=""
-                    />
-                  </div>
-                  <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute z-30" />
+                    <MdOutlineAdd className="text-[#1B4DB1] p-[90px] flex h-[100%] w-[100%]" />
+                  </label>
                 </div>
               </div>
             </div>

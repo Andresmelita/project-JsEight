@@ -355,59 +355,55 @@ const CreateEvent = () => {
           >
             <div className="pl-[15px] pr-[15px] h-[257px] max-w-[620px] border-[1px] border-[#7D7D7D] rounded-[11px] flex gap-[22px] justify-center items-center">
               <div className="h-max max-w-[177px] relative justify-center items-center flex">
-                <div className="h-[206px] w-[100%] bg-primary-grayLight flex hover:scale-[1.05] ease-in-out duration-300">
+                <label
+                  style={{ backgroundImage: `url(${imageUrlOne})` }}
+                  className="h-[206px] cursor-pointer bg-cover bg-center w-[100%] bg-primary-grayLight flex hover:scale-[1.05] ease-in-out duration-300"
+                >
                   <input
                     type="file"
-                    id="imgInp"
+                    id="file"
                     name="imageUpload"
                     multiple
                     accept="image/*"
                     onChange={addPreviewImageOne}
-                    className="h-[206px] w-[100%] opacity-0 z-50 cursor-pointer"
+                    className="h-[206px] w-[100%] hidden cursor-pointer"
                   />
-                  <img
-                    className="text-black h-[206px] object-center z-[500]"
-                    src={imageUrlOne}
-                    alt=""
-                  />
-                </div>
-                <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute z-30" />
+                  <MdOutlineAdd className="text-[#1B4DB1] p-[74px] flex h-[100%] w-[100%]" />
+                </label>
               </div>
               <div className="bg-black h-max max-w-[177px] relative justify-center items-center flex">
-                <div className="h-[206px] w-[100%] bg-primary-grayLight flex hover:scale-[1.05] ease-in-out duration-300">
+                <label
+                  style={{ backgroundImage: `url(${imageUrlTwo})` }}
+                  className="h-[206px] cursor-pointer bg-cover bg-center w-[100%] bg-primary-grayLight flex hover:scale-[1.05] ease-in-out duration-300"
+                >
                   <input
                     type="file"
+                    id="file"
                     name="imageUpload"
                     multiple
                     accept="image/*"
                     onChange={addPreviewImageTwo}
-                    className="h-[206px] w-[100%] opacity-0 z-50 cursor-pointer"
+                    className="h-[206px] w-[100%] hidden cursor-pointer"
                   />
-                  <img
-                    className="text-black h-[206px] object-center z-[500]"
-                    src={imageUrlTwo}
-                    alt=""
-                  />
-                </div>
-                <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute z-30" />
+                  <MdOutlineAdd className="text-[#1B4DB1] p-[74px] flex h-[100%] w-[100%]" />
+                </label>
               </div>
               <div className="h-max max-w-[177px] relative justify-center items-center flex">
-                <div className="h-[206px] w-[100%] bg-primary-grayLight flex hover:scale-[1.05] ease-in-out duration-300">
+                <label
+                  style={{ backgroundImage: `url(${imageUrlThree})` }}
+                  className="h-[206px] cursor-pointer bg-cover bg-center w-[100%] bg-primary-grayLight flex hover:scale-[1.05] ease-in-out duration-300"
+                >
                   <input
                     type="file"
+                    id="file"
                     name="imageUpload"
                     multiple
                     accept="image/*"
                     onChange={addPreviewImageThree}
-                    className="h-[206px] w-[100%] opacity-0 z-50 cursor-pointer"
+                    className="h-[206px] w-[100%] hidden cursor-pointer"
                   />
-                  <img
-                    className="text-black h-[206px] object-center z-[500]"
-                    src={imageUrlThree}
-                    alt=""
-                  />
-                </div>
-                <MdOutlineAdd className="text-[#1B4DB1] text-[26px] flex absolute z-30" />
+                  <MdOutlineAdd className="text-[#1B4DB1] p-[74px] flex h-[100%] w-[100%]" />
+                </label>
               </div>
             </div>
           </div>

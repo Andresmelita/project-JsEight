@@ -43,7 +43,7 @@ export default function SliderNew() {
         style={{ position: 'unset' }}
         slidesPerView={3}
         hashNavigation={true}
-        loop={true}
+        loop={false}
         spaceBetween={2}
         pagination={{
           clickable: true,

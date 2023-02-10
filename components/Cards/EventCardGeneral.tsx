@@ -40,7 +40,7 @@ const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
           </Link>
         </div>
         <div className="flex flex-col">
-          <div className="content__page h500-medium-14px text-[#1B4DB1] pb-[16px]">
+          <div className="content__page h500-medium-14px text-[#1B4DB1] pb-[16px] w-[100vw] ">
             <a href="">{link}</a>
           </div>
           <div className="content__votes flex justify-left items-center gap-1 h-4">
