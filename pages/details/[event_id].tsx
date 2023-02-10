@@ -72,7 +72,7 @@ export default function EventId() {
               <p>{publication?.description}</p>
             </div>
             <div className="flex-col mt-[0px] lg:mt-[0px] bottom-0">
-              <div className="content__page h500-medium-14px text-[#1B4DB1] pt-[10px]">
+              <div className="content__page h500-medium-14px text-[#1B4DB1] pt-[10px] w-[100vw] h-[100vh] max-w-[390px] max-h-[27px] overflow-hidden">
                 <a href="">{publication?.content}</a>
               </div>
               <div className="content__votes pt-[30px] flex justify-left items-end gap-1 h-4">
