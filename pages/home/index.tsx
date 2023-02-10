@@ -1,27 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import Category from '../../components/Buttons/Category';
 import InputSearch from '../../components/InputSearch';
 import Layout from '../../components/layout/Layout';
 import SliderNew from '../../components/SliderNew';
 import Suggestions from '../../components/Suggestions';
+import { useCategories } from '../../lib/services/category.services';
 import { usePublications } from '../../lib/services/publication.services';
 
 const Home = () => {
   const { data, error, isLoading } = usePublications();
-  console.log(data);
-
-  const [dataType, setDataType] = useState(['']);
-
-  useEffect(() => {
-    Categories();
-  }, []);
-
-  const Categories = () => {
-    setDataType(['Marcas y Tiendas', 'Artistas y conciertos', 'Torneos']);
-  };
-
+  const { data: categories } = useCategories();
   return (
     <Layout title="Home | Para Cuando?" description="Home">
       <div className="flex flex-col justify-center items-center pb-[100px]">
@@ -40,21 +29,15 @@ const Home = () => {
               <InputSearch />
             </div>
             <div className="flex gap-[7px] justify-center w-[100vw] max-w-[465px] h-max pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px]">
-              <div className="flex h-[30px] w-max">
-                <Link href="/brands">
-                  <Category Categories={dataType[0]} />
-                </Link>
-              </div>
-              <div className="flex h-[30px] w-max">
-                <Link href="/artists">
-                  <Category Categories={dataType[1]} />
-                </Link>
-              </div>
-              <div className="flex h-[30px] w-max">
-                <Link href="/tournaments">
-                  <Category Categories={dataType[2]} />
-                </Link>
-              </div>
+              {categories?.map((category) => {
+                return (
+                  <div className="flex w-max h-[30px]" key={category.id}>
+                    <Link href={`categories/${category.id}`}>
+                      <Category Categories={category.name} />
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
