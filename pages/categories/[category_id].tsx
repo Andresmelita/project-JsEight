@@ -41,7 +41,7 @@ export default function BrandsPage() {
               {categories?.map((category) => {
                 return (
                   <div className="flex w-max h-[46px]" key={category.id}>
-                    <Link href={`categories/${category.id}`}>
+                    <Link href={`${category.id}`}>
                       <Category Categories={category.name} />
                     </Link>
                   </div>
