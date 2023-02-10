@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
+import Swal from 'sweetalert2';
 import Category from '../../components/Buttons/Category';
 import InputSearch from '../../components/InputSearch';
 import Layout from '../../components/layout/Layout';
@@ -10,12 +11,28 @@ import SliderNew from '../../components/SliderNew';
 import Suggestions from '../../components/Suggestions';
 import { useCategories } from '../../lib/services/category.services';
 import { usePublicationID } from '../../lib/services/publication.services';
+import { voteFor } from '../../lib/services/vote.services';
 
 export default function EventId() {
   const router = useRouter();
   const path = router.query.event_id as string;
   const { data: publication } = usePublicationID(path);
   const { data: categories } = useCategories();
+  const clickVote = () => {
+    voteFor(path);
+    Swal.fire({
+      position: 'top',
+      toast: true,
+      icon: 'success',
+      title: 'Gracias por tu voto!',
+      timerProgressBar: true,
+      showConfirmButton: false,
+      timer: 2200,
+    });
+    setTimeout(function () {
+      window.location.href = '/profile';
+    }, 2200);
+  };
   return (
     <div className="event__page">
       <div className="flex justify-center event__header shadow-header w-[100vw]">
@@ -72,7 +89,10 @@ export default function EventId() {
             <div className="HeaderImg h-[100%] w-[100%] sm:w-[100vw] flex min-h-[252px] bg-cover max-h-[300px] min-w-[300px] sm:max-w-[539px] sm:max-h-[381px] lg:max-h-[381px] sm:col-start-2 sm:col-end-5 bg-[url('https://images2.imgbox.com/9e/e4/oBETMc3A_o.png')]"></div>
           </div>
           <div className="vote__button flex justify-end pt-[30px] md:pt-[0px] sm:pt-[20px] w-[100vw] sm:max-w-[390px] pr-[40px] sm:pr-[0px]">
-            <button className="bg-[#1B4DB1] h-[46px] w-[100%] rounded-full text-[#fff] l600-normal-16px">
+            <button
+              onClick={clickVote}
+              className="bg-[#1B4DB1] h-[46px] w-[100%] rounded-full text-[#fff] l600-normal-16px"
+            >
               Vote
             </button>
           </div>

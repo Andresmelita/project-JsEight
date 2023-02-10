@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { usePublications } from '../../lib/services/publication.services';
 import '../../styles/Home.module.css';
 import Like from '../Buttons/Like';
 import PersonIcon from '../PersonIcon';
@@ -13,7 +12,6 @@ interface Props {
 }
 
 const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
-  const { data: publication } = usePublications();
   return (
     <div className="EventCard bg-white rounded-3xl relative z-10 w-[320px] m-[10px] h-[474px] shadow-card-box">
       <div className="Like absolute bottom-52 right-[20px]">

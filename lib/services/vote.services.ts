@@ -1,4 +1,5 @@
 import useSWR from 'swr';
+import instance from '../helpers/axios.helper';
 import { fetcher } from '../helpers/fetcher';
 import { VoteResponse } from '../interfaces/vote.interface';
 import { useUser } from './user.services';
@@ -17,4 +18,10 @@ function useVotes() {
   };
 }
 
-export { useVotes };
+function voteFor(path: string) {
+  return instance.post(
+    `https://paracuando-team1.academlo.tech/api/v1/publications/${path}/vote`
+  );
+}
+
+export { useVotes, voteFor };

@@ -7,12 +7,7 @@ interface Props {
   // any props that come into the component
 }
 
-export default function Layout({
-  children,
-  title,
-  description,
-  ...props
-}: Props) {
+export default function Layout({ children, title, description }: Props) {
   return (
     <div className="Application container-layout">
       <title>{title}</title>

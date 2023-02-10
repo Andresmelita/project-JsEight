@@ -7,7 +7,7 @@ interface Props {
   // any props that come into the component
 }
 
-const NestedLayout = ({ children, ...props }: Props) => {
+const NestedLayout = ({ children }: Props) => {
   return (
     <div>
       <Header />

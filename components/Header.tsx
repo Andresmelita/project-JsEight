@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { BsCircle, BsHeart } from 'react-icons/bs';
 import { FaPowerOff } from 'react-icons/fa';
@@ -15,13 +14,7 @@ const Header = () => {
   const { data: user } = useUser();
   const [clickMenu, setClickMenu] = useState(false);
   const handleClickMenu = () => setClickMenu(!clickMenu);
-  const router = useRouter();
-  const linkRouteToHome = () => {
-    router.push('/');
-  };
-
   const [LoginUser, setLoginUser] = useState(true);
-  const handleLoginUser = () => setLoginUser(!LoginUser);
 
   const clickLogOut = () => {
     setClickMenu(false);
@@ -46,8 +39,6 @@ const Header = () => {
   //   }
   //   return setLoginUser(false);
   // }, []);
-
-  const [emailInfo, setEmailInfo] = useState();
 
   // useEffect(() => {
   //   axios
