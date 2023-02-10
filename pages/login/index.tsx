@@ -154,10 +154,19 @@ const Login = () => {
                   </div>
                 </form>
               </div>
-              <div className="form__recovery flex justify-center">
+              <div className="form__recovery flex flex-col items-center justify-center">
                 <a className="l400-normal-16px w-40 text-center text-[#4D4D4D]">
                   Did you forget your password?
                 </a>
+                <Link
+                  className="justify-center flex l400-normal-16px w-40 text-center pt-[12px] text-[#4D4D4D]"
+                  href="/sign-up"
+                >
+                  or
+                  <p className="flex transition-all ease-in hover:text-[17px] ">
+                    &nbsp;&nbsp;Sign up
+                  </p>
+                </Link>
               </div>
             </div>
           </div>

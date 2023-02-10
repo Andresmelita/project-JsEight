@@ -32,7 +32,7 @@ const SignUp = () => {
             timer: 2200,
           });
           setTimeout(function () {
-            window.location.href = '/';
+            window.location.href = '/login';
           }, 2200);
         })
         .catch((error) => {
@@ -209,12 +209,15 @@ const SignUp = () => {
                 </form>
               </div>
               <div className="names flex gap-3"></div>
-              <div className="form__recovery flex justify-center">
+              <div className="form__recovery flex justify-center items-center flex-row">
                 <Link
-                  className="l400-normal-16px w-40 text-center text-[#4D4D4D]"
+                  className="justify-center flex l400-normal-16px w-40 text-center text-[#4D4D4D]"
                   href="/login"
                 >
-                  or Log in
+                  or
+                  <p className="flex transition-all ease-in hover:text-[17px]">
+                    &nbsp;&nbsp;Log in
+                  </p>
                 </Link>
               </div>
             </div>

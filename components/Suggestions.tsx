@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useTags } from '../lib/services/tag.services';
 import Category from './Buttons/Category';
 
@@ -22,9 +23,11 @@ const Suggestions = () => {
           );
         })}
       </div>
-      <h3 className="h400-normal-16px text-primary-blue cursor-pointer">
-        Ver todos los intereses
-      </h3>
+      <Link href="/profile">
+        <h3 className="h400-normal-16px text-primary-blue cursor-pointer hover:underline hover:decoration-1">
+          Ver todos los intereses
+        </h3>
+      </Link>
     </div>
   );
 };
