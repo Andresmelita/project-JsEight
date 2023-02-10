@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { ReactElement, useEffect, useState } from 'react';
 import Category from '../../components/Buttons/Category';
 import InputSearch from '../../components/InputSearch';
@@ -7,10 +8,13 @@ import NestedLayout from '../../components/NestedLayout';
 import PersonIcon from '../../components/PersonIcon';
 import SliderNew from '../../components/SliderNew';
 import Suggestions from '../../components/Suggestions';
+import { usePublicationID } from '../../lib/services/publication.services';
 
 export default function EventId() {
+  const router = useRouter();
+  const path = router.query.event_id as string;
+  const { data: publication } = usePublicationID(path);
   const [data, setData] = useState(['']);
-
   useEffect(() => {
     Categories();
   }, []);
@@ -53,27 +57,25 @@ export default function EventId() {
       <div className="event__details flex-col justify-center items-center flex md:pb-[100px] pb-[94px]">
         <div className="mt-[58px] md:mt-[100px] md:max-h-[381px] max-w-[960px] lg:max-w-[1000px] w-[100vw] details  pl-[20px] pr-[20px] lg:pr-[0px] sm:grid sm:col-span-5 gap-[22px] h500-normal-16px">
           <div className=" flex flex-col w-[100vw] pr-[40px] sm:pr-[0px] min-w-[100px] md:max-w-[390px] sm:max-w-[380px] min-h-[240px] sm:min-h-[288px] details-info sm:col-start-1 sm:col-end-2 max-h sm:row-start-1 sm:row-end-3">
-            <p className="pb-[6px] pl-0">Artista / Pop / Rock</p>
+            <p className="pb-[6px] pl-0 text-black">
+              {publication?.publication_type.name} / {publication?.tags[0].name}
+            </p>
             <h2 className="h900-normal--48px pb-[10px] text-black">
-              Concierto de Lady Gaga
+              {publication?.title}
             </h2>
             <div className="content__description pt-4 h400-medium-15px text-[#6E6A6C] mb-[30px] lg:mb-[0px] lg:pr-[10px]">
-              <p>
-                El concierto con la temática de Lady gaga en Las Vegas. El
-                concierto con la temática de Lady gaga en Las Vegas.El concierto
-                con la temática.
-              </p>
+              <p>{publication?.description}</p>
             </div>
             <div className="flex flex-col mt-[0px] lg:mt-[50px]">
               <div className="content__page h500-medium-14px text-[#1B4DB1] pb-[16px]">
-                <a href="">ladygaga.com</a>
+                <a href="">{publication?.content}</a>
               </div>
               <div className="content__votes pt-4 flex justify-left items-end gap-1 h-4">
                 <div className="votes__icon">
                   <PersonIcon></PersonIcon>
                 </div>
                 <div className="votes__quantity text-[#1A1E2E] h500-medium-14px">
-                  <p>90’800’756 votos</p>
+                  <p>{publication?.votes_count}</p>
                 </div>
               </div>
             </div>

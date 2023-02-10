@@ -28,12 +28,12 @@ const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
       </div>
       <div className="BodyContent pl-[23px] pr-[23px] mt-[15px] pb-[30px] h-52 content-between grid gap-4 text-start">
         <div className="content__event h-26 flex flex-col gap-2">
-          <Link href="/details/1">
+          <Link href={`/details/${id}`}>
             <div className="content__tittle h600-medium--20px text-[#1A1E2E]">
               <h3>{title}</h3>
             </div>
           </Link>
-          <Link href="/details/1">
+          <Link href={`/details/${id}`}>
             <div className="content__description h400-medium-15px text-[#6E6A6C]">
               <p>{description}</p>
             </div>
