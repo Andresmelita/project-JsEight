@@ -5,10 +5,22 @@ import EventCardGeneral from '../../components/Cards/EventCardGeneral';
 import Layout from '../../components/layout/Layout';
 import NestedLayout from '../../components/NestedLayout';
 import { useMypublications } from '../../lib/services/publication.services';
+import { useVotes } from '../../lib/services/vote.services';
 
 export default function ProfilePage() {
   const { data: publications } = useMypublications();
+  const { data: votes } = useVotes();
   const [data, setData] = useState(['']);
+
+  const [myButton, setMyButton] = useState(false);
+
+  const changeToMyPublications = () => {
+    setMyButton(false);
+  };
+
+  const changeToMyVotes = () => {
+    setMyButton(true);
+  };
 
   useEffect(() => {
     Categories();
@@ -37,15 +49,27 @@ export default function ProfilePage() {
         </div>
       </div>
       <div className="flex gap-[13px] w-max h-[45px] mb-[70px] mt-[90px]">
-        <div className="flex w-[100%]">
+        <div
+          className={myButton ? 'flex w-[100%]' : 'flex w-[100%]'}
+          onClick={changeToMyVotes}
+        >
           <Category Categories={data[0]} />
         </div>
-        <div className="flex w-[100%]">
+        <div
+          className={myButton ? 'flex w-[100%]' : 'flex w-[100%]'}
+          onClick={changeToMyPublications}
+        >
           <Category Categories={data[1]} />
         </div>
       </div>
       <div className="w-[100vw] justify-center items-center flex">
-        <div className="pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px] flex content-start align-middle items-center max-w-[1020px] h-max flex-wrap lg:justify-start justify-center sm:mb-[150px] mb-[70px] gap-[0px]">
+        <div
+          className={
+            myButton
+              ? 'hidden'
+              : 'pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px] flex content-start align-middle items-center max-w-[1020px] h-max flex-wrap lg:justify-start justify-center sm:mb-[150px] mb-[70px] gap-[0px]'
+          }
+        >
           {publications?.slice(0, visible).map((event) => {
             return (
               <div key={event.id} className="h-max w-max">
@@ -55,6 +79,27 @@ export default function ProfilePage() {
                   description={event.description}
                   link={event.content}
                   votes={event.votes_count}
+                />
+              </div>
+            );
+          })}
+        </div>
+        <div
+          className={
+            myButton
+              ? 'pl-[20px] pr-[20px] md:pl-[0px] md:pr-[0px] flex content-start align-middle items-center max-w-[1020px] h-max flex-wrap lg:justify-start justify-center sm:mb-[150px] mb-[70px] gap-[0px]'
+              : 'hidden'
+          }
+        >
+          {votes?.slice(0, visible).map((vote) => {
+            return (
+              <div key={vote.Publication.id} className="h-max w-max">
+                <EventCardGeneral
+                  id={vote.Publication.id}
+                  title={vote.Publication.title}
+                  description={vote.Publication.description}
+                  link={vote.Publication.content}
+                  votes={vote.Publication.votes_count}
                 />
               </div>
             );
