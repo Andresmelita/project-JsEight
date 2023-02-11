@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import '../../styles/Home.module.css';
 import Like from '../Buttons/Like';
 import LikeTwo from '../Buttons/LikeTwo';
@@ -11,7 +11,7 @@ interface Props {
   description: string;
   votes: number;
   link: string;
-  myvote: boolean;
+  // myvote: boolean;
 }
 
 const EventCardGeneral = ({
@@ -20,17 +20,17 @@ const EventCardGeneral = ({
   description,
   link,
   votes,
-  myvote,
-}: Props) => {
+}: // myvote,
+Props) => {
   const [like, setLike] = useState(false);
 
-  useEffect(() => {
-    if (myvote == true) {
-      setLike(true);
-    } else {
-      setLike(false);
-    }
-  }, [id]);
+  // useEffect(() => {
+  //   if (myvote == true) {
+  //     setLike(true);
+  //   } else {
+  //     setLike(false);
+  //   }
+  // }, [id]);
 
   return (
     <div className="EventCard overflow-hidden bg-white rounded-3xl relative z-10 w-[320px] m-[10px] h-[474px] shadow-card-box">

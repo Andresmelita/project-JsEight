@@ -9,12 +9,16 @@ import 'swiper/swiper-bundle.css';
 // import required modules
 import { Navigation } from 'swiper';
 import { usePublications } from '../lib/services/publication.services';
+import { useUser } from '../lib/services/user.services';
+import { useVotes } from '../lib/services/vote.services';
 import LeftButton from './Buttons/LeftButton';
 import RightButton from './Buttons/RightButton';
 import EventCardGeneral from './Cards/EventCardGeneral';
 
 export default function SliderNew() {
   const { data: publications } = usePublications();
+  const { data: user } = useUser();
+  const { data: myvotes } = useVotes();
   const prevRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLDivElement>(null);
 
@@ -22,6 +26,23 @@ export default function SliderNew() {
   const handleClickAppear = () => {
     setClickAppear(true);
   };
+
+  // const [vote, setVote] = useState(false);
+  // useEffect(() => {
+  //   if (user) {
+  //     publications?.map((event) => {
+  //       myvotes?.map((publication) => {
+  //         if (event.id === publication.publication_id) {
+  //           setVote(true);
+  //         } else {
+  //           setVote(false);
+  //         }
+  //       });
+  //     });
+  //   } else {
+  //     setVote(false);
+  //   }
+  // }, [user]);
 
   return (
     <div className="flex lg:w-[1160px] lg:ml-[-20px] ml-[0px] w-[990px] h-max justify-start relative mt-[20px]">
@@ -56,6 +77,7 @@ export default function SliderNew() {
             return (
               <SwiperSlide className="swiper-slide" key={event.id}>
                 <EventCardGeneral
+                  // myvote={vote}
                   id={event.id}
                   title={event.title}
                   description={event.description}
