@@ -20,6 +20,7 @@ module.exports = {
         'primary-pink': '#FF64BC',
         'primary-black': '#000000',
         'primary-blackOpacity': 'rgb(0, 0, 0, 0.6)',
+        'primary-blackOpacity3': 'rgb(0, 0, 0, 0.3)',
         'primary-blackLight': '#1A1E2E',
         'primary-grayDark': '#6E6A6C',
         'primary-gray': '#A7A6A7',

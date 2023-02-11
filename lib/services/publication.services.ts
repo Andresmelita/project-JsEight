@@ -52,10 +52,7 @@ function createPublication(values: {
   urlShare: string;
   tags: string;
 }) {
-  return instance.post(
-    'https://paracuando-team1.academlo.tech/api/v1/publications',
-    values
-  );
+  return instance.post('/publications', values);
 }
 
 export {

@@ -19,9 +19,7 @@ function useVotes() {
 }
 
 function voteFor(path: string) {
-  return instance.post(
-    `https://paracuando-team1.academlo.tech/api/v1/publications/${path}/vote`
-  );
+  return instance.post(`/publications/${path}/vote`);
 }
 
 export { useVotes, voteFor };

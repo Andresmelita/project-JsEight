@@ -29,10 +29,11 @@ export default function EventId() {
       showConfirmButton: false,
       timer: 2200,
     });
-    setTimeout(function () {
-      window.location.href = '/profile';
-    }, 2200);
+    // setTimeout(function () {
+    //   window.location.href = '/profile';
+    // }, 2200);
   };
+
   return (
     <div className="event__page">
       <div className="flex justify-center event__header shadow-header w-[100vw]">

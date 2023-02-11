@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import Category from '../../components/Buttons/Category';
 import InputSearch from '../../components/InputSearch';
 import Layout from '../../components/layout/Layout';
@@ -15,13 +15,35 @@ import {
 export default function BrandsPage() {
   const { data: categories } = useCategories();
   const router = useRouter();
-  console.log(router);
   const path = router.query.category_id as string;
   const { data: category } = useCategoryID(path);
+
+  const [backImage, setBackImage] = useState<string>();
+  useEffect(() => {
+    if (path === '1') {
+      const URL = `url('/images/brandsHeader.png')`;
+      setBackImage(URL);
+    } else if (path === '2') {
+      const URL = `url('/images/artistsHeader.png')`;
+      setBackImage(URL);
+    } else {
+      const URL = `url('/images/tournamentsHeader.png')`;
+      setBackImage(URL);
+    }
+  }, [path]);
+
+  const backGroundObject = {
+    backgroundImage: backImage,
+  };
+
   return (
     <div className="topic__page">
-      <div className="topic__header flex flex-col gap-4 justify-center bg-[url('/images/brandsHeader.png')] bg-cover bg-bottom w-[100%] max-h-[204px] h-[204px] md:pr-[0px] lg:pl-[0px] lg:pr-[0px] md:pt-1% md:pb-1% items-center">
-        <div className="w-[100vw] max-w-[1060px] pl-[20px] pr-[20px] flex justify-start flex-col">
+      <div className="absolute z-[100] bg-primary-blackOpacity3 bg-cover bg-center topic__header flex flex-col gap-4 justify-center w-[100%] max-h-[204px] h-[204px] md:pr-[0px] lg:pl-[0px] lg:pr-[0px] md:pt-1% md:pb-1% items-center"></div>
+      <div
+        style={backGroundObject}
+        className="bg-cover z-[50] bg-center topic__header flex flex-col gap-4 justify-center w-[100%] max-h-[204px] h-[204px] md:pr-[0px] lg:pl-[0px] lg:pr-[0px] md:pt-1% md:pb-1% items-center"
+      >
+        <div className="z-[150] w-[100vw] max-w-[1060px] pl-[20px] pr-[20px] flex justify-start flex-col">
           <div className="header__links ">
             <span className="h500-normal-16px text-[#fff]">
               <Link href="/">Home </Link> / {category?.name}
