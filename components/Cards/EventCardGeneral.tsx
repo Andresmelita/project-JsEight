@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import '../../styles/Home.module.css';
 import Like from '../Buttons/Like';
+import LikeTwo from '../Buttons/LikeTwo';
 import PersonIcon from '../PersonIcon';
 
 interface Props {
@@ -9,13 +11,31 @@ interface Props {
   description: string;
   votes: number;
   link: string;
+  myvote: boolean;
 }
 
-const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
+const EventCardGeneral = ({
+  id,
+  title,
+  description,
+  link,
+  votes,
+  myvote,
+}: Props) => {
+  const [like, setLike] = useState(false);
+
+  useEffect(() => {
+    if (myvote == true) {
+      setLike(true);
+    } else {
+      setLike(false);
+    }
+  }, [id]);
+
   return (
     <div className="EventCard overflow-hidden bg-white rounded-3xl relative z-10 w-[320px] m-[10px] h-[474px] shadow-card-box">
       <div className="Like absolute bottom-52 right-[20px] z-50">
-        <Like />
+        {like ? <Like /> : <LikeTwo />}
       </div>
       <Link href={`/details/${id}`}>
         <div className="hover:scale-[1.05] transition-all ease-linear rounded-t-[20px] w-[100%] h-[100vh] max-h-[239px] bg-[url('/images/coverStandar.jpg')]">
@@ -37,8 +57,9 @@ const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
           </Link>
           {/* <Link href={`/details/${id}`}> */}
           <div>
-            <div className="cursor-default content__description h400-medium-15px text-[#6E6A6C] flex flex-wrap w-[100vw] max-w-[280px] pr-[10px] text-justify h-[100vh] max-h-[106px] hover:overflow-auto overflow-hidden overflow-x-hidden">
+            <div className="cursor-default content__description h400-medium-15px text-[#6E6A6C] flex flex-wrap w-[100vw] max-w-[280px] pr-[10px] text-justify h-[100vh] max-h-[106px] hover:overflow-y-auto overflow-hidden overflow-y-none overflow-x-hidden">
               <p>{description}</p>
+              <p></p>
             </div>
             <div className="h-[14px] w-[100vw] max-w-[280px] absolute bg-gradient-to-t from-[#fff] flex mt-[-14px]"></div>
           </div>
