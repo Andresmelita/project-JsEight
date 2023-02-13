@@ -27,23 +27,6 @@ export default function SliderNew() {
     setClickAppear(true);
   };
 
-  // const [vote, setVote] = useState(false);
-  // useEffect(() => {
-  //   if (user) {
-  //     publications?.map((event) => {
-  //       myvotes?.map((publication) => {
-  //         if (event.id === publication.publication_id) {
-  //           setVote(true);
-  //         } else {
-  //           setVote(false);
-  //         }
-  //       });
-  //     });
-  //   } else {
-  //     setVote(false);
-  //   }
-  // }, [user]);
-
   return (
     <div className="flex lg:w-[1160px] lg:ml-[-20px] ml-[0px] w-[990px] h-max justify-start relative mt-[20px]">
       <div

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import Category from '../../components/Buttons/Category';
 import InputSearch from '../../components/InputSearch';
@@ -11,13 +11,16 @@ import SliderNew from '../../components/SliderNew';
 import Suggestions from '../../components/Suggestions';
 import { useCategories } from '../../lib/services/category.services';
 import { usePublicationID } from '../../lib/services/publication.services';
-import { voteFor } from '../../lib/services/vote.services';
+import { useUser } from '../../lib/services/user.services';
+import { useVotes, voteFor } from '../../lib/services/vote.services';
 
 export default function EventId() {
   const router = useRouter();
+  const { data: user } = useUser();
   const path = router.query.event_id as string;
   const { data: publication } = usePublicationID(path);
   const { data: categories } = useCategories();
+  const { data: myvotes } = useVotes();
   const clickVote = () => {
     voteFor(path);
     Swal.fire({
@@ -29,10 +32,41 @@ export default function EventId() {
       showConfirmButton: false,
       timer: 2200,
     });
-    // setTimeout(function () {
-    //   window.location.href = '/profile';
-    // }, 2200);
+    setTimeout(function () {
+      window.location.reload();
+    }, 2200);
   };
+
+  const clickCancelVote = () => {
+    voteFor(path);
+    Swal.fire({
+      position: 'top',
+      toast: true,
+      icon: 'info',
+      title: 'Tu voto ha sido retirado!',
+      timerProgressBar: true,
+      showConfirmButton: false,
+      timer: 2200,
+    });
+    setTimeout(function () {
+      window.location.reload();
+    }, 2200);
+  };
+
+  // Estado de botón de votos
+  const [vote, setVote] = useState<boolean>(false);
+  const myPublication = myvotes?.filter((event) => {
+    return event.publication_id === path;
+  });
+  useEffect(() => {
+    myPublication?.map((event) => {
+      if (event.publication_id) {
+        setVote(true);
+      } else {
+        setVote(false);
+      }
+    });
+  }, [myPublication]);
 
   return (
     <div className="event__page">
@@ -92,9 +126,23 @@ export default function EventId() {
           <div className="vote__button flex justify-end pt-[30px] sm:pt-[0px] md:pt-[0px] w-[100vw] sm:max-w-[390px] pr-[40px] sm:pr-[0px]">
             <button
               onClick={clickVote}
-              className="bg-[#1B4DB1] h-[46px] w-[100%] rounded-full text-[#fff] l600-normal-16px"
+              className={
+                vote
+                  ? 'hidden'
+                  : 'bg-[#1B4DB1] h-[46px] w-[100%] rounded-full text-[#fff] l600-normal-16px'
+              }
             >
-              Vote
+              Votar
+            </button>
+            <button
+              onClick={clickCancelVote}
+              className={
+                vote
+                  ? 'bg-primary-grayDark h-[46px] w-[100%] rounded-full text-[#fff] l600-normal-16px'
+                  : 'hidden'
+              }
+            >
+              Anular voto
             </button>
           </div>
         </div>

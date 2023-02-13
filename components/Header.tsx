@@ -19,9 +19,6 @@ const Header = () => {
   const clickLogOut = () => {
     setClickMenu(false);
     logOut();
-    // Cookies.remove('token');
-    // linkRouteToHome();
-    // setLoginUser(true);
   };
 
   useEffect(() => {
@@ -38,13 +35,6 @@ const Header = () => {
   //     return setLoginUser(true);
   //   }
   //   return setLoginUser(false);
-  // }, []);
-
-  // useEffect(() => {
-  //   axios
-  //     .get('https://paracuando-team1.academlo.tech/api/v1/users/user-info')
-  //     .then((res) => setEmailInfo(res.data))
-  //     .catch((err) => console.log(err));
   // }, []);
 
   return (

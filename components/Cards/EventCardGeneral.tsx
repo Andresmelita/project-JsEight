@@ -1,8 +1,9 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { BsHeart } from 'react-icons/bs';
+import Swal from 'sweetalert2';
+import { useVotes, voteFor } from '../../lib/services/vote.services';
 import '../../styles/Home.module.css';
-import Like from '../Buttons/Like';
-import LikeTwo from '../Buttons/LikeTwo';
 import PersonIcon from '../PersonIcon';
 
 interface Props {
@@ -11,7 +12,7 @@ interface Props {
   description: string;
   votes: number;
   link: string;
-  // myvote: boolean;
+  myvote: boolean;
 }
 
 const EventCardGeneral = ({
@@ -20,22 +21,76 @@ const EventCardGeneral = ({
   description,
   link,
   votes,
-}: // myvote,
-Props) => {
-  const [like, setLike] = useState(false);
+  myvote,
+}: Props) => {
+  const clickCancelVote = () => {
+    voteFor(id);
+    Swal.fire({
+      position: 'top',
+      toast: true,
+      icon: 'success',
+      title: 'Gracias por tu voto!',
+      timerProgressBar: true,
+      showConfirmButton: false,
+      timer: 2200,
+    });
+    setTimeout(function () {
+      window.location.reload();
+    }, 2200);
+  };
 
-  // useEffect(() => {
-  //   if (myvote == true) {
-  //     setLike(true);
-  //   } else {
-  //     setLike(false);
-  //   }
-  // }, [id]);
+  const clickVote = () => {
+    voteFor(id);
+    Swal.fire({
+      position: 'top',
+      toast: true,
+      icon: 'info',
+      title: 'Tu voto ha sido retirado!',
+      timerProgressBar: true,
+      showConfirmButton: false,
+      timer: 2200,
+    });
+    setTimeout(function () {
+      window.location.reload();
+    }, 2200);
+  };
+  const { data: myvotes } = useVotes();
+  const [like, setLike] = useState<boolean>(false);
+  const myPublication = myvotes?.filter((event) => {
+    return event.publication_id === id;
+  });
+  useEffect(() => {
+    myPublication?.map((event) => {
+      if (event.publication_id) {
+        setLike(true);
+      } else {
+        setLike(false);
+      }
+    });
+  }, [myPublication]);
 
   return (
     <div className="EventCard overflow-hidden bg-white rounded-3xl relative z-10 w-[320px] m-[10px] h-[474px] shadow-card-box">
       <div className="Like absolute bottom-52 right-[20px] z-50">
-        {like ? <Like /> : <LikeTwo />}
+        {like ? (
+          <button
+            onClick={clickVote}
+            className="flex transition-all duration-300 hover:scale-105"
+          >
+            <div className="flex border-[#ffffff] border-[2px] rounded-full bg-[#FF64BC] w-[49px] h-[49px] items-center justify-center">
+              <BsHeart className="iconHeart text-[#ffffff] text-[28px] mt-[5px]" />
+            </div>
+          </button>
+        ) : (
+          <button
+            onClick={clickCancelVote}
+            className="flex transition-all duration-300 hover:scale-105"
+          >
+            <div className="flex border-[#ffffff] border-[2px] rounded-full bg-[#D9D9D9] w-[49px] h-[49px] items-center justify-center">
+              <BsHeart className="iconHeart text-[#ffffff] text-[28px] mt-[5px]" />
+            </div>
+          </button>
+        )}
       </div>
       <Link href={`/details/${id}`}>
         <div className="hover:scale-[1.05] transition-all ease-linear rounded-t-[20px] w-[100%] h-[100vh] max-h-[239px] bg-[url('/images/coverStandar.jpg')]">
