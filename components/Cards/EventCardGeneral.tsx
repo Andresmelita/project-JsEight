@@ -12,17 +12,9 @@ interface Props {
   description: string;
   votes: number;
   link: string;
-  myvote: boolean;
 }
 
-const EventCardGeneral = ({
-  id,
-  title,
-  description,
-  link,
-  votes,
-  myvote,
-}: Props) => {
+const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
   const clickCancelVote = () => {
     voteFor(id);
     Swal.fire({
