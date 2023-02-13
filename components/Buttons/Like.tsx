@@ -1,13 +1,7 @@
 import { BsHeart } from 'react-icons/bs';
-interface Props {
-  clickVote: any;
-}
-const Like = ({ clickVote }: Props) => {
+const Like = () => {
   return (
-    <button
-      onClick={clickVote}
-      className="flex transition-all duration-300 hover:scale-105"
-    >
+    <button className="flex transition-all duration-300 hover:scale-105">
       <div className="flex border-[#ffffff] border-[2px] rounded-full bg-[#FF64BC] w-[49px] h-[49px] items-center justify-center">
         <BsHeart className="iconHeart text-[#ffffff] text-[28px] mt-[5px]" />
       </div>
