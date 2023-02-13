@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { BsHeart } from 'react-icons/bs';
 import Swal from 'sweetalert2';
+import { mutate } from 'swr';
+import { useMypublications } from '../../lib/services/publication.services';
+import { useUser } from '../../lib/services/user.services';
 import { useVotes, voteFor } from '../../lib/services/vote.services';
 import '../../styles/Home.module.css';
 import PersonIcon from '../PersonIcon';
@@ -15,6 +18,10 @@ interface Props {
 }
 
 const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
+  const { data: user, mutate: userMutate } = useUser();
+  const { data: myvotes, mutate: voteMutate } = useVotes();
+  const { data: publications, mutate: mutatePublications } =
+    useMypublications();
   const clickCancelVote = () => {
     voteFor(id);
     Swal.fire({
@@ -24,11 +31,14 @@ const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
       title: 'Gracias por tu voto!',
       timerProgressBar: true,
       showConfirmButton: false,
-      timer: 2200,
+      timer: 1500,
     });
-    setTimeout(function () {
-      window.location.reload();
-    }, 2200);
+    userMutate();
+    voteMutate();
+    mutatePublications();
+    // setTimeout(function () {
+    //   window.location.reload();
+    // }, 1500);
   };
 
   const clickVote = () => {
@@ -40,13 +50,13 @@ const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
       title: 'Tu voto ha sido retirado!',
       timerProgressBar: true,
       showConfirmButton: false,
-      timer: 2200,
+      timer: 1500,
     });
-    setTimeout(function () {
-      window.location.reload();
-    }, 2200);
+    userMutate();
+    voteMutate();
+    mutatePublications();
   };
-  const { data: myvotes } = useVotes();
+
   const [like, setLike] = useState<boolean>(false);
   const myPublication = myvotes?.filter((event) => {
     return event.publication_id === id;
@@ -59,6 +69,7 @@ const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
         setLike(false);
       }
     });
+    mutate(`/users/${user?.id}/publications`);
   }, [myPublication]);
 
   return (

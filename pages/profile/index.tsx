@@ -8,7 +8,8 @@ import { useMypublications } from '../../lib/services/publication.services';
 import { useVotes } from '../../lib/services/vote.services';
 
 export default function ProfilePage() {
-  const { data: publications } = useMypublications();
+  const { data: publications, mutate: mutatePublications } =
+    useMypublications();
   const { data: votes } = useVotes();
   const [data, setData] = useState(['']);
 

@@ -8,7 +8,8 @@ function useVotes() {
   const { data: user } = useUser();
   const { data, error, isLoading, mutate } = useSWR<VoteResponse>(
     `/users/${user?.id}/votes`,
-    fetcher
+    fetcher,
+    { revalidateOnFocus: true }
   );
   return {
     data: data?.results.results,
