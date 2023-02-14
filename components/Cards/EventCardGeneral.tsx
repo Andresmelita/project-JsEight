@@ -20,37 +20,45 @@ const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
   const { data: user, mutate: mutUser } = useUser();
   const { data: myvotes, mutate: mutVotes } = useVotes();
   const clickCancelVote = () => {
-    voteFor(id);
-    Swal.fire({
-      position: 'top',
-      toast: true,
-      icon: 'success',
-      title: 'Gracias por tu voto!',
-      timerProgressBar: true,
-      showConfirmButton: false,
-      timer: 1500,
-    });
-    setTimeout(function () {
-      mutUser();
-      mutVotes();
-    }, 300);
+    if (user) {
+      voteFor(id);
+      Swal.fire({
+        position: 'top',
+        toast: true,
+        icon: 'success',
+        title: 'Gracias por tu voto!',
+        timerProgressBar: true,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      setTimeout(function () {
+        mutUser();
+        mutVotes();
+      }, 300);
+    } else {
+      window.location.href = '/login';
+    }
   };
 
   const clickVote = () => {
-    voteFor(id);
-    Swal.fire({
-      position: 'top',
-      toast: true,
-      icon: 'info',
-      title: 'Tu voto ha sido retirado!',
-      timerProgressBar: true,
-      showConfirmButton: false,
-      timer: 1500,
-    });
-    setTimeout(function () {
-      mutUser();
-      mutVotes();
-    }, 300);
+    if (user) {
+      voteFor(id);
+      Swal.fire({
+        position: 'top',
+        toast: true,
+        icon: 'info',
+        title: 'Tu voto ha sido retirado!',
+        timerProgressBar: true,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      setTimeout(function () {
+        mutUser();
+        mutVotes();
+      }, 300);
+    } else {
+      window.location.href = '/login';
+    }
   };
 
   const [like, setLike] = useState<boolean>(false);

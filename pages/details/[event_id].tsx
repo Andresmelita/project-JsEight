@@ -23,37 +23,45 @@ export default function EventId() {
   const { data: categories } = useCategories();
   const { data: myvotes, mutate: mutVotes } = useVotes();
   const clickVote = () => {
-    voteFor(path);
-    Swal.fire({
-      position: 'top',
-      toast: true,
-      icon: 'success',
-      title: 'Gracias por tu voto!',
-      timerProgressBar: true,
-      showConfirmButton: false,
-      timer: 2200,
-    });
-    setTimeout(function () {
-      mutPublicationID();
-      mutVotes();
-    }, 300);
+    if (user) {
+      voteFor(path);
+      Swal.fire({
+        position: 'top',
+        toast: true,
+        icon: 'success',
+        title: 'Gracias por tu voto!',
+        timerProgressBar: true,
+        showConfirmButton: false,
+        timer: 2200,
+      });
+      setTimeout(function () {
+        mutPublicationID();
+        mutVotes();
+      }, 300);
+    } else {
+      window.location.href = '/login';
+    }
   };
 
   const clickCancelVote = () => {
-    voteFor(path);
-    Swal.fire({
-      position: 'top',
-      toast: true,
-      icon: 'info',
-      title: 'Tu voto ha sido retirado!',
-      timerProgressBar: true,
-      showConfirmButton: false,
-      timer: 2200,
-    });
-    setTimeout(function () {
-      mutPublicationID();
-      mutVotes();
-    }, 300);
+    if (user) {
+      voteFor(path);
+      Swal.fire({
+        position: 'top',
+        toast: true,
+        icon: 'info',
+        title: 'Tu voto ha sido retirado!',
+        timerProgressBar: true,
+        showConfirmButton: false,
+        timer: 2200,
+      });
+      setTimeout(function () {
+        mutPublicationID();
+        mutVotes();
+      }, 300);
+    } else {
+      window.location.href = '/login';
+    }
   };
 
   // Estado de botón de votos
