@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { BsHeart } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import { mutate } from 'swr';
-import { useMypublications } from '../../lib/services/publication.services';
 import { useUser } from '../../lib/services/user.services';
 import { useVotes, voteFor } from '../../lib/services/vote.services';
 import '../../styles/Home.module.css';
@@ -18,10 +17,8 @@ interface Props {
 }
 
 const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
-  const { data: user, mutate: userMutate } = useUser();
-  const { data: myvotes, mutate: voteMutate } = useVotes();
-  const { data: publications, mutate: mutatePublications } =
-    useMypublications();
+  const { data: user, mutate: mutUser } = useUser();
+  const { data: myvotes, mutate: mutVotes } = useVotes();
   const clickCancelVote = () => {
     voteFor(id);
     Swal.fire({
@@ -33,12 +30,10 @@ const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
       showConfirmButton: false,
       timer: 1500,
     });
-    userMutate();
-    voteMutate();
-    mutatePublications();
-    // setTimeout(function () {
-    //   window.location.reload();
-    // }, 1500);
+    setTimeout(function () {
+      mutUser();
+      mutVotes();
+    }, 300);
   };
 
   const clickVote = () => {
@@ -52,9 +47,10 @@ const EventCardGeneral = ({ id, title, description, link, votes }: Props) => {
       showConfirmButton: false,
       timer: 1500,
     });
-    userMutate();
-    voteMutate();
-    mutatePublications();
+    setTimeout(function () {
+      mutUser();
+      mutVotes();
+    }, 300);
   };
 
   const [like, setLike] = useState<boolean>(false);

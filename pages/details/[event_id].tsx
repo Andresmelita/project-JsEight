@@ -18,9 +18,10 @@ export default function EventId() {
   const router = useRouter();
   const { data: user } = useUser();
   const path = router.query.event_id as string;
-  const { data: publication } = usePublicationID(path);
+  const { data: publication, mutate: mutPublicationID } =
+    usePublicationID(path);
   const { data: categories } = useCategories();
-  const { data: myvotes } = useVotes();
+  const { data: myvotes, mutate: mutVotes } = useVotes();
   const clickVote = () => {
     voteFor(path);
     Swal.fire({
@@ -33,8 +34,9 @@ export default function EventId() {
       timer: 2200,
     });
     setTimeout(function () {
-      window.location.reload();
-    }, 2200);
+      mutPublicationID();
+      mutVotes();
+    }, 300);
   };
 
   const clickCancelVote = () => {
@@ -49,8 +51,9 @@ export default function EventId() {
       timer: 2200,
     });
     setTimeout(function () {
-      window.location.reload();
-    }, 2200);
+      mutPublicationID();
+      mutVotes();
+    }, 300);
   };
 
   // Estado de botón de votos
