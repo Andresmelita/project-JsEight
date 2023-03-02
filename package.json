@@ -39,6 +39,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.1",
     "@commitlint/config-conventional": "^17.4.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
     "@types/js-cookie": "^3.0.2",
     "autoprefixer": "^10.4.13",
     "husky": "^8.0.3",
