@@ -38,7 +38,7 @@ const AllComponents = () => {
         <div className="flex justify-center items-center gap-3">
           <RightButton />
           <NextTwo />
-          <div className="flex gap-[13px] w-max h-[45px] mb-[82px] mt-[82px]">
+          <div className="flex gap-[13px] w-max h-[44px] mb-[80px] mt-[82px]">
             <Category Categories={data[0]} />
           </div>
           <Like />
