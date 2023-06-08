@@ -2,7 +2,7 @@ import axios from 'axios';
 
 function login(values: { email: string; password: string }) {
   return axios.post(
-    'https://paracuando-team1.academlo.tech/api/v1/auth/login',
+    'https://paracuando-academlo-api.academlo.tech/api/v1/auth/login',
     values
   );
 }
@@ -14,7 +14,7 @@ function signUp(values: {
   password: string;
 }) {
   return axios.post(
-    'https://paracuando-team1.academlo.tech/api/v1/auth/sign-up',
+    'https://paracuando-academlo-api.academlo.tech/api/v1/auth/sign-up',
     values
   );
 }

@@ -41,11 +41,13 @@ const CreateEvent = () => {
 
   const formik = useFormik({
     initialValues: {
-      idPublicationType: '',
       title: '',
-      description: '',
-      urlShare: '',
       tags: '',
+      publication_type_id: '',
+      description: '',
+      reference_link: '',
+      certified: false,
+      agreeWithPolitics: false,
     },
     onSubmit: (values) => {
       console.log(values);
@@ -264,7 +266,7 @@ const CreateEvent = () => {
                   className="dropdown-menu bg-transparent h-[50px] w-[100%] border-[1px] rounded-[11px] border-[#7D7D7D] text-"
                   required
                   name="idPublicationType"
-                  value={formik.values.idPublicationType}
+                  value={formik.values.publication_type_id}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 >
@@ -332,13 +334,13 @@ const CreateEvent = () => {
                 type="text"
                 placeholder=""
                 name="urlShare"
-                value={formik.values.urlShare}
+                value={formik.values.reference_link}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
-              {formik.errors.urlShare && (
+              {formik.errors.reference_link && (
                 <div className="text-danger text-red-700 flex justify-end">
-                  {formik.errors.urlShare}
+                  {formik.errors.reference_link}
                 </div>
               )}
             </div>

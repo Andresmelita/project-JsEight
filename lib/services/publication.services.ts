@@ -45,12 +45,24 @@ function useMypublications() {
   };
 }
 
+// function createPublication(values: {
+//   idPublicationType: string;
+//   title: string;
+//   description: string;
+//   urlShare: string;
+//   tags: string;
+// }) {
+//   return instance.post('/publications', values);
+// }
+
 function createPublication(values: {
-  idPublicationType: string;
+  publication_type_id: string;
   title: string;
   description: string;
-  urlShare: string;
+  reference_link: string;
   tags: string;
+  certified: boolean;
+  agreeWithPolitics: boolean;
 }) {
   return instance.post('/publications', values);
 }
