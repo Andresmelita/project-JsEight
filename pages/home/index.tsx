@@ -2,9 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Category from '../../components/Buttons/Category';
 import InputSearch from '../../components/InputSearch';
-import Layout from '../../components/layout/Layout';
 import SliderNew from '../../components/SliderNew';
 import Suggestions from '../../components/Suggestions';
+import Layout from '../../components/layout/Layout';
 import { useCategories } from '../../lib/services/category.services';
 import { usePublications } from '../../lib/services/publication.services';
 

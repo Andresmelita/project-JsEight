@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -29,13 +30,13 @@ const Header = () => {
     }
   }, [user]);
 
-  // useEffect(() => {
-  //   const jwt = Cookies.get('token');
-  //   if (!jwt) {
-  //     return setLoginUser(true);
-  //   }
-  //   return setLoginUser(false);
-  // }, []);
+  useEffect(() => {
+    const jwt = Cookies.get('token');
+    if (!jwt) {
+      return setLoginUser(true);
+    }
+    return setLoginUser(false);
+  }, []);
 
   return (
     <div className="bg-primary-black header-container">
